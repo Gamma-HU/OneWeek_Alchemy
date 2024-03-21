@@ -28,6 +28,7 @@ public class Character : MonoBehaviour
 
         [Header("現在HP")] public int HP;
 
+        public bool dead;
         public int blind;
     }
     [SerializeField]
@@ -37,14 +38,16 @@ public class Character : MonoBehaviour
 
     Character opponent;
     CharacterStatus opponetnStatus;
+    BattleManager battleManager;
 
-    public void Init()
+    public void Init(BattleManager bm)
     {
+        battleManager = bm;
         status.HP = status.maxHP;
         foreach (GameObject passiveAbility in status.passiveAbilities)//stausにあるパッシブアビリティから、スクリプトだけを抽出(誘発処理の際の簡略化のため)
         {
             var p = Instantiate(passiveAbility, transform);
-            p.GetComponent<PassiveAbility>().Init(this);
+            p.GetComponent<PassiveAbility>().Init(this,battleManager);
             passiveAbilities.Add(p.GetComponent<PassiveAbility>());
         }
     }
@@ -73,10 +76,12 @@ public class Character : MonoBehaviour
             OnAttack(0, true);
             opponent.OnAttacked(0, true);
         }
+        //===============================================[[攻撃時演出]]===================================================
     }
     public void Damage(int DMG,bool byOpponent)
     {
-        Debug.Log(string.Format("{0}は{1}ダメージ", status.charaName, DMG));
+        //===============================================[[数値表示]]DamageLog(int DMG)===================================================
+        Debug.Log(string.Format("{0}は{1}ダメージ(残り{2})", status.charaName, DMG,status.HP));
         status.HP-= DMG;
         OnDamaged(DMG, byOpponent);
         if (status.HP <= 0) { Die(); }
@@ -85,17 +90,47 @@ public class Character : MonoBehaviour
     {
         float exHeal = Mathf.Max(0f, 1 + status.RHeal_mul);
         int heal = Mathf.RoundToInt(value * exHeal);
-        status.HP += Mathf.Min(status.HP + heal, status.maxHP);
+        status.HP = Mathf.Min(status.HP + heal, status.maxHP);
+        //===============================================[[数値表示]]HealLog(int value)===================================================
         Debug.Log(string.Format("{0}は{1}回復", status.charaName, heal));
         OnHealed(heal);
     }
+    public void ApplyStE(BattleManager.StEParams stEParams)
+    {
+        string StEName = stEParams.StE.GetComponent<PassiveAbility>().GetPAName();
+        bool found = false;
+        foreach (PassiveAbility passiveAbility in new List<PassiveAbility>(passiveAbilities))
+        {
+            if (passiveAbility.GetPAName() == StEName)
+            {
+                found = true;
+                passiveAbility.GetComponent<PA_StatusEffects>().AddStack(stEParams.amount);
+            }
+        }
+        if (!found)
+        {
+            var p = Instantiate(stEParams.StE, transform);
+            p.GetComponent<PassiveAbility>().Init(this, battleManager);
+            p.GetComponent<PA_StatusEffects>().StEInit(stEParams.amount);
+            passiveAbilities.Add(p.GetComponent<PassiveAbility>());
+        }
+        Debug.Log(string.Format("{0}に{1}を{2}付与", status.charaName, StEName, stEParams.amount));
+        OnAppliedStE(stEParams);
+    }
     void Die()
     {
+        //===============================================[[死亡時演出]]===================================================
         Debug.Log(string.Format("{0}はたおれた", status.charaName));
+        status.dead = true;
     }
 
-    //================================================================<以下誘発処理>================================================================
+    //-----------------------------------------------------<以下誘発処理>-----------------------------------------------------
 
+    public void OnBattleStart()
+    {
+        List<PassiveAbility> PA = new List<PassiveAbility>(passiveAbilities);
+        foreach (PassiveAbility passiveAbility in PA) { passiveAbility.OnBattleStart(); }
+    }
     /// <summary>攻撃時、命中したかに関わらず誘発</summary>
     public void OnAttack(int DMG, bool missed)
     {
@@ -109,19 +144,33 @@ public class Character : MonoBehaviour
         foreach (PassiveAbility passiveAbility in PA) { passiveAbility.OnAttacked(DMG, missed); }
     }
 
-    /// <summary被ダメージ時誘発</summary>
+    /// <summary>被ダメージ時誘発</summary>
     public void OnDamaged(int DMG, bool byOpponent)
     {
         List<PassiveAbility> PA = new List<PassiveAbility>(passiveAbilities);
         foreach (PassiveAbility passiveAbility in PA) { passiveAbility.OnDamaged(DMG, byOpponent); }
     }
 
-    /// <summary被回復時誘発</summary>
+    /// <summary>被回復時誘発</summary>
     public void OnHealed(int healedValue)
     {
         List<PassiveAbility> PA = new List<PassiveAbility>(passiveAbilities);
         foreach (PassiveAbility passiveAbility in PA) { passiveAbility.OnHealed(healedValue); }
     }
+    /// <summary>状態異常付与された時誘発</summary>
+    public void OnAppliedStE(BattleManager.StEParams applied)
+    {
+        List<PassiveAbility> PA = new List<PassiveAbility>(passiveAbilities);
+        foreach (PassiveAbility passiveAbility in PA) { passiveAbility.OnAppliedStE(applied); }
+    }
 
     public CharacterStatus GetCharacterStatus() { return status; }
+    public string GetInfo()
+    {
+        string s = "";
+        s += string.Format("体力：{0}/{1}", status.HP, status.maxHP);
+        s += string.Format("攻撃力：{0}",status.ATK);
+        //各PssiveAbilityから
+        return s;
+    }
 }
