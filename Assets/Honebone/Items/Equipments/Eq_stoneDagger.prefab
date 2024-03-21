@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 208077300614157158}
   - component: {fileID: 6265871650062159155}
   - component: {fileID: 5887190321719068276}
-  - component: {fileID: 8940821566009507891}
+  - component: {fileID: 4705216329189190513}
   m_Layer: 0
-  m_Name: stoneDagger
+  m_Name: Eq_stoneDagger
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &208077300614157158
 MonoBehaviour:
@@ -48,6 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: "\u77F3\u306E\u30C0\u30AC\u30FC"
+  canEquip: 1
+  passiveAbility: {fileID: 8313083597182299096, guid: a5457a0d00abf6246b1b055fe355878b, type: 3}
 --- !u!212 &6265871650062159155
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -127,8 +129,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &8940821566009507891
-PolygonCollider2D:
+--- !u!58 &4705216329189190513
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -160,36 +162,5 @@ PolygonCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.4, y: 2.4}
-    newSize: {x: 2.4, y: 2.4}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.9, y: -0.42999998}
-      - {x: 0.77, y: -0.42999998}
-      - {x: 0.77, y: 0.14999999}
-      - {x: 0.59999996, y: 0.32}
-      - {x: 0.44, y: 0.34}
-      - {x: 0.34, y: 0.31}
-      - {x: -0.11, y: 0.78}
-      - {x: -0.25, y: 0.91999996}
-      - {x: -0.79999995, y: 0.91999996}
-      - {x: -0.91999996, y: 0.75}
-      - {x: -0.91999996, y: 0.28}
-      - {x: -0.62, y: -0.049999997}
-      - {x: -0.34, y: -0.31}
-      - {x: -0.35999998, y: -0.62}
-      - {x: -0.19, y: -0.77}
-      - {x: 0.42, y: -0.91999996}
-      - {x: 0.56, y: -1.06}
-      - {x: 0.59999996, y: -1.0699999}
-      - {x: 0.96999997, y: -1.0699999}
-      - {x: 1.0699999, y: -0.96999997}
-      - {x: 1.0699999, y: -0.55}
-  m_UseDelaunayMesh: 0
+  serializedVersion: 2
+  m_Radius: 1.2

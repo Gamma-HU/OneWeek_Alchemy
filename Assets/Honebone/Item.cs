@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField]
-    string itemName;
+    [SerializeField] string itemName;
+    [SerializeField] bool canEquip;
+    [SerializeField] GameObject passiveAbility;
     bool dragging;
     Rigidbody2D rb;
+
+    AlchemyManager alchemyManager;
 
     AlchemySlot onSlot;
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        Init();
     }
     public void Init()
     {
         rb = GetComponent<Rigidbody2D>();
+        alchemyManager = FindObjectOfType<AlchemyManager>();
     }
 
     public void SetDragging(bool set)
@@ -31,11 +35,15 @@ public class Item : MonoBehaviour
             {
                 onSlot.ResetItem();
             }
+            if (canEquip)
+            {
+                alchemyManager.SetDraggingItemText(passiveAbility.GetComponent<PassiveAbility>().GetInfo());
+            }
         }
         else//ドラッグ終了
         {
             rb.velocity = Vector2.zero;
-
+            alchemyManager.SetDraggingItemText("");
             if(onSlot != null)//錬金スロット上にあるなら
             {
                 onSlot.SetItem(this);

@@ -14,8 +14,8 @@ public class BattleManager : MonoBehaviour
         public bool attack;//çUåÇÇÇ∑ÇÈ
         public int DMG;//É_ÉÅÅ[ÉWó 
         public int heal;
-        public List<StEParams> applyStE=new List<StEParams>();
-        public List<StEParams> removeStE=new List<StEParams>();
+        public List<StEParams> applyStE = new List<StEParams>();
+        public List<GameObject> removeStE = new List<GameObject>();
     }
     [System.Serializable]
     public class StEParams
@@ -111,7 +111,10 @@ public class BattleManager : MonoBehaviour
             {
                 action.target.ApplyStE(StEParams);
             }
-
+            foreach(GameObject removeStE in action.removeStE)
+            {
+                action.target.RemoveStE(removeStE);
+            }
             actionQueue.RemoveAt(0);
             if (!CheckBattleEnd()) { StartCoroutine(ActionInterval()); }
         }
