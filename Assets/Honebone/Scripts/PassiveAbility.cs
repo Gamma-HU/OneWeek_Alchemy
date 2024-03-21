@@ -29,4 +29,12 @@ public class PassiveAbility : MonoBehaviour
     public virtual void OnAppliedStE(BattleManager.StEParams applied) { }
 
     public string GetPAName() { return PAName; }
+    public string GetInfo()
+    {
+        string s = "";
+        if (exHP > 0) { s += string.Format("‘Ì—Í+{0}\n", exHP); }
+        if (exATK > 0) { s += string.Format("UŒ‚—Í+{0}\n", exATK); }
+        if (PAInfo != "") { s += PAInfo; }
+        return s;
+    }
 }

@@ -8,18 +8,27 @@ public class PA_StatusEffects : PassiveAbility
     public void StEInit(int s)
     {
         stack = s;
+        OnInit();
     }
     public void AddStack(int add)
     {
-        if (stack + add <= 0) { add = stack * -1; }
+        if (add < 0) { Debug.Log("error：増加するスタック数が負の数になっています"); }
         stack += add;
         OnAddStack(add);
-
-        if (stack <= 0)
+    }
+    public void ConsumeStack()
+    {
+        stack--;
+        if (stack == 0)
         {
-            AtTheEnd();
-            //破壊
+            character.DisableStE(this);
+            DisableStE();
         }
+    }
+    public void DisableStE()
+    {
+        AtTheEnd();
+        Destroy(gameObject);
     }
     public virtual void OnInit() { }
     public virtual void OnAddStack(int add) { }

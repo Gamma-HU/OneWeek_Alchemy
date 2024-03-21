@@ -8,6 +8,9 @@ public class PA_Test : PassiveAbility
     BattleManager.Action action;
     [SerializeField]
     BattleManager.Action bleed;
+    [SerializeField]
+    BattleManager.Action remove;
+    int count;
 
     public override void OnBattleStart()
     {
@@ -15,6 +18,12 @@ public class PA_Test : PassiveAbility
     }
     public override void OnAttack(int DMG, bool missed)
     {
+        count++;
+        if (count == 2)
+        {
+            count = 0;
+            battleManager.Enqueue(character, character, remove);
+        }
         FindObjectOfType<BattleManager>().Enqueue(character, character, action);
     }
 }

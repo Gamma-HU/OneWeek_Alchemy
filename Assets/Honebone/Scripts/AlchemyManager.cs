@@ -15,6 +15,8 @@ public class AlchemyManager : MonoBehaviour
     GameObject alchemyButton;
     [SerializeField]
     Text productNameText;
+    [SerializeField]
+    Text draggingItemText;
 
     [SerializeField]
     Vector2 spawnPos;
@@ -29,6 +31,10 @@ public class AlchemyManager : MonoBehaviour
     void Update()
     {
         
+    }
+    public void SetDraggingItemText(string s)
+    {
+        draggingItemText.text = s;
     }
     public void SetAlchemyButton()
     {

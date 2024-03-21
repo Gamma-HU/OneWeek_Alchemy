@@ -30,6 +30,11 @@ public class Character : MonoBehaviour
 
         public bool dead;
         public int blind;
+
+        public float GetHPPercent()
+        {
+            return HP * 1f / maxHP * 1f;
+        }
     }
     [SerializeField]
     CharacterStatus status;
@@ -75,14 +80,15 @@ public class Character : MonoBehaviour
         {
             OnAttack(0, true);
             opponent.OnAttacked(0, true);
+            Debug.Log("Miss");
         }
         //===============================================[[攻撃時演出]]===================================================
     }
     public void Damage(int DMG,bool byOpponent)
     {
         //===============================================[[数値表示]]DamageLog(int DMG)===================================================
-        Debug.Log(string.Format("{0}は{1}ダメージ(残り{2})", status.charaName, DMG,status.HP));
         status.HP-= DMG;
+        Debug.Log(string.Format("{0}は{1}ダメージ(残り{2})", status.charaName, DMG, status.HP));
         OnDamaged(DMG, byOpponent);
         if (status.HP <= 0) { Die(); }
     }
@@ -116,6 +122,23 @@ public class Character : MonoBehaviour
         }
         Debug.Log(string.Format("{0}に{1}を{2}付与", status.charaName, StEName, stEParams.amount));
         OnAppliedStE(stEParams);
+    }
+    public void RemoveStE(GameObject remove)
+    {
+        string StEName = remove.GetComponent<PassiveAbility>().GetPAName();
+        foreach (PassiveAbility passiveAbility in new List<PassiveAbility>(passiveAbilities))
+        {
+            if (passiveAbility.GetPAName() == StEName)
+            {
+                passiveAbility.GetComponent<PA_StatusEffects>().DisableStE();
+                DisableStE(passiveAbility);
+                Debug.Log(string.Format("{0}の{1}を除去", status.charaName, StEName));
+            }
+        }
+    }
+    public void DisableStE(PassiveAbility remove)
+    {
+        passiveAbilities.Remove(remove);
     }
     void Die()
     {
