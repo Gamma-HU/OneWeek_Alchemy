@@ -1,4 +1,4 @@
-using DG.Tweening;
+ï»¿using DG.Tweening;
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,23 +6,26 @@ using UnityEngine.SceneManagement;
 public class SceneTransition : MonoBehaviour
 {
 
-    [Header("ƒV[ƒ“‘JˆÚƒIƒuƒWƒFƒNƒg")] public SceneTransitionObject[] sceneTransitionObjects;
-    [Header("ƒAƒjƒ[ƒVƒ‡ƒ“ƒtƒF[ƒY")] public TransitionPhase transitionPhase = TransitionPhase.In;
-    [Header("ƒAƒjƒ[ƒVƒ‡ƒ“ƒ^ƒCƒv")] public TransitionType transitionType = TransitionType.Bar_Slide;
+    [Header("ã‚·ãƒ¼ãƒ³é·ç§»ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ")] public SceneTransitionObject[] sceneTransitionObjects;
+    [Header("ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ãƒ•ã‚§ãƒ¼ã‚º")] public TransitionPhase transitionPhase = TransitionPhase.In;
+    [Header("ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚¿ã‚¤ãƒ—")] public TransitionType transitionType = TransitionType.Bar_Slide;
 
-    // Bar_Slide. Bar_Flip
-    [HideInInspector] [Header("‘Ñ‚ÌƒAƒjƒ[ƒVƒ‡ƒ“ŠÔŠu")] public float sceneTransitionStartInterval;
-    [HideInInspector] [Header("‘Ñ‚ÌƒAƒjƒ[ƒVƒ‡ƒ“ŠÔ")] public float sceneTransitionSpeed;
+    // Bar_Slide, Bar_Flip, Tile_Slide
+    [HideInInspector] [Header("ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ç§»å‹•é–‹å§‹é–“éš”")] public float sceneTransitionStartInterval;
+    [HideInInspector] [Header("ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ç§»å‹•æ™‚é–“")] public float sceneTransitionSpeed;
 
-    // Tile
+    // Tile_Rotate
+    [HideInInspector] [Header("å›è»¢è§’")] public float sceneTransitionRadian;
 
     // Sprite
-    [HideInInspector] [Header("‘JˆÚ—pƒXƒvƒ‰ƒCƒg")] public Sprite sceneTransitionSprite;
-    [HideInInspector] [Header("ƒXƒvƒ‰ƒCƒgƒJƒ‰[")] public Color sceneTransitionSpriteColor;
-    [HideInInspector] [Header("ƒXƒvƒ‰ƒCƒg‚ÌÅ‘åƒXƒP[ƒ‹")] public Vector3 sceneTransitionMaxScale;
-    [HideInInspector] [Header("ƒXƒvƒ‰ƒCƒg‚ÌŠg‘åŠÔ")] public float sceneTransitionSpriteSpeed;
+    [HideInInspector] [Header("ãƒã‚¹ã‚¯ã™ã‚‹ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆ")] public Sprite sceneTransitionSprite;
+    [HideInInspector] [Header("ãƒã‚¹ã‚¯ã‚«ãƒ©ãƒ¼")] public Color sceneTransitionSpriteColor;
+    [HideInInspector] [Header("ãƒã‚¹ã‚¯ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æœ€å¤§ã‚µã‚¤ã‚º")] public Vector3 sceneTransitionMaxScale;
+    [HideInInspector] [Header("ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®æ‹¡å¤§é€Ÿåº¦")] public float sceneTransitionSpriteSpeed;
+    [HideInInspector] public GameObject square;
+    [HideInInspector] public SpriteMask mask;
 
-    [Header("ƒV[ƒ“‘JˆÚ‚Ü‚Å‚ÌŠÔ")] public float timeUpToSceneTransition;
+    [Header("ã‚·ãƒ¼ãƒ³é·ç§»ã¾ã§ã®æ™‚é–“")] public float timeUpToSceneTransition;
 
     private string transitionSceneName;
     private bool sceneTransitionFlag = false;
@@ -34,9 +37,9 @@ public class SceneTransition : MonoBehaviour
     public enum TransitionType { 
         Bar_Slide,
         Bar_Flip,    
-        Tile1,
-        Tile2,
-        Tile3,
+        Tile_Slide,
+        Tile_Flip,
+        Tile_Rotate,
         Sprite 
     }
 
@@ -45,13 +48,16 @@ public class SceneTransition : MonoBehaviour
     {
         public GameObject transitionObject;
         public Vector3 targetPoint;
+        public int order;
     }
 
     private void Start()
     {
+        DOTween.SetTweensCapacity(200, 200);
         if (transitionPhase == TransitionPhase.Out)
         {
             sceneTransitionFlag = true;
+            DOTween.KillAll();
         }
 
         foreach (Transform child in transform)
@@ -69,94 +75,165 @@ public class SceneTransition : MonoBehaviour
     {
         if (sceneTransitionFlag)
         {
-            if (transitionType == TransitionType.Bar_Slide)
-            {
-                sceneTransitionTime += Time.deltaTime;
-                if (lastStartedTransitionObjectIndex < sceneTransitionObjects.Length - 1)
-                {
-                    if (sceneTransitionTime > (lastStartedTransitionObjectIndex + 1) * sceneTransitionStartInterval)
-                    {
-                        sceneTransitionObjects[lastStartedTransitionObjectIndex + 1].transitionObject.transform.DOLocalMove(sceneTransitionObjects[lastStartedTransitionObjectIndex + 1].targetPoint, sceneTransitionSpeed);
-                        lastStartedTransitionObjectIndex++;
-                    }
-                }
-                if (timeUpToSceneTransition < sceneTransitionTime)
-                {
-                    if (transitionPhase == TransitionPhase.In)
-                    {
-                        SceneManager.LoadScene(transitionSceneName);
-                    }
-                    else if (transitionPhase == TransitionPhase.Out)
-                    {
-                        sceneTransitionImages.SetActive(false);
-                        sceneTransitionFlag = false;
-                    }
-                }
-            }
-
-            if (transitionType == TransitionType.Bar_Flip)
-            {
-                sceneTransitionTime += Time.deltaTime;
-                if (lastStartedTransitionObjectIndex < sceneTransitionObjects.Length - 1)
-                {
-                    if (sceneTransitionTime > (lastStartedTransitionObjectIndex + 1) * sceneTransitionStartInterval)
-                    {
-                        sceneTransitionObjects[lastStartedTransitionObjectIndex + 1].transitionObject.transform.DOLocalRotate(sceneTransitionObjects[lastStartedTransitionObjectIndex + 1].targetPoint, sceneTransitionSpeed);
-                        lastStartedTransitionObjectIndex++;
-                    }
-                }
-                if (timeUpToSceneTransition < sceneTransitionTime)
-                {
-                    if (transitionPhase == TransitionPhase.In)
-                    {
-                        SceneManager.LoadScene(transitionSceneName);
-                    }
-                    else if (transitionPhase == TransitionPhase.Out)
-                    {
-                        sceneTransitionImages.SetActive(false);
-                        sceneTransitionFlag = false;
-                    }
-                }
-            }
-
-            if (transitionType == TransitionType.Sprite)
-            {
-                if(sceneTransitionTime == 0)
-                {
-                    sceneTransitionObjects[0].transitionObject.transform.DOScale(sceneTransitionMaxScale, sceneTransitionSpriteSpeed);
-                    foreach (Transform child in transform)
-                    {
-                        if (child.gameObject.name == "Square")
-                        {
-                            child.gameObject.GetComponent<SpriteRenderer>().color = sceneTransitionSpriteColor;
+            
+            switch (transitionType) {
+                case TransitionType.Bar_Slide:
+                    sceneTransitionTime += Time.deltaTime;
+                    if (lastStartedTransitionObjectIndex < sceneTransitionObjects.Length - 1) {
+                        if (sceneTransitionTime > (lastStartedTransitionObjectIndex + 1) * sceneTransitionStartInterval) {
+                            sceneTransitionObjects[lastStartedTransitionObjectIndex + 1].transitionObject.transform.DOLocalMove(sceneTransitionObjects[lastStartedTransitionObjectIndex + 1].targetPoint, sceneTransitionSpeed);
+                            lastStartedTransitionObjectIndex++;
                         }
                     }
-
-                }
-                sceneTransitionTime += Time.deltaTime;
-
-                if (timeUpToSceneTransition < sceneTransitionTime)
-                {
-                    if (transitionPhase == TransitionPhase.In)
-                    {
-                        SceneManager.LoadScene(transitionSceneName);
+                    if (timeUpToSceneTransition < sceneTransitionTime) {
+                        if (transitionPhase == TransitionPhase.In) {
+                            SceneManager.LoadScene(transitionSceneName);
+                        }
+                        else if (transitionPhase == TransitionPhase.Out) {
+                            sceneTransitionImages.SetActive(false);
+                            sceneTransitionFlag = false;
+                        }
                     }
-                    else if (transitionPhase == TransitionPhase.Out)
-                    {
-                        sceneTransitionImages.SetActive(false);
-                        sceneTransitionFlag = false;
+                    break;
+
+                case TransitionType.Bar_Flip:
+                    sceneTransitionTime += Time.deltaTime;
+                    if (lastStartedTransitionObjectIndex < sceneTransitionObjects.Length - 1) {
+                        if (sceneTransitionTime > (lastStartedTransitionObjectIndex + 1) * sceneTransitionStartInterval) {
+                            sceneTransitionObjects[lastStartedTransitionObjectIndex + 1].transitionObject.transform.DOLocalRotate(sceneTransitionObjects[lastStartedTransitionObjectIndex + 1].targetPoint, sceneTransitionSpeed);
+                            lastStartedTransitionObjectIndex++;
+                        }
                     }
-                }
+                    if (timeUpToSceneTransition < sceneTransitionTime) {
+                        if (transitionPhase == TransitionPhase.In) {
+                            SceneManager.LoadScene(transitionSceneName);
+                        }
+                        else if (transitionPhase == TransitionPhase.Out) {
+                            sceneTransitionImages.SetActive(false);
+                            sceneTransitionFlag = false;
+                        }
+                    }
+                    break;
+
+                case TransitionType.Tile_Slide:
+                    sceneTransitionTime += Time.deltaTime;
+                    if (lastStartedTransitionObjectIndex < sceneTransitionObjects.Length - 1) {
+                        if (sceneTransitionTime > (lastStartedTransitionObjectIndex + 1) * sceneTransitionStartInterval) {
+                            foreach(SceneTransitionObject sceneTransitionObject in sceneTransitionObjects) {
+                                if(sceneTransitionObject.order == lastStartedTransitionObjectIndex + 1) {
+                                    sceneTransitionObject.transitionObject.transform.DOLocalMove(sceneTransitionObject.targetPoint, sceneTransitionSpeed);
+                                }
+                            }
+                            lastStartedTransitionObjectIndex++;
+                        }
+                    }
+                    if (timeUpToSceneTransition < sceneTransitionTime) {
+                        if (transitionPhase == TransitionPhase.In) {
+                            SceneManager.LoadScene(transitionSceneName);
+                        }
+                        else if (transitionPhase == TransitionPhase.Out) {
+                            sceneTransitionImages.SetActive(false);
+                            sceneTransitionFlag = false;
+                        }
+                    }
+                    break;
+
+                case TransitionType.Tile_Flip:
+                    sceneTransitionTime += Time.deltaTime;
+                    if (lastStartedTransitionObjectIndex < sceneTransitionObjects.Length - 1) {
+                        if (sceneTransitionTime > (lastStartedTransitionObjectIndex + 1) * sceneTransitionStartInterval) {
+                            foreach (SceneTransitionObject sceneTransitionObject in sceneTransitionObjects) {
+                                if (sceneTransitionObject.order == lastStartedTransitionObjectIndex + 1) {
+                                    sceneTransitionObject.transitionObject.transform.DOLocalRotate(sceneTransitionObject.targetPoint, sceneTransitionSpeed);
+                                }
+                            }
+                            lastStartedTransitionObjectIndex++;
+                        }
+                    }
+                    if (timeUpToSceneTransition < sceneTransitionTime) {
+                        if (transitionPhase == TransitionPhase.In) {
+                            SceneManager.LoadScene(transitionSceneName);
+                        }
+                        else if (transitionPhase == TransitionPhase.Out) {
+                            sceneTransitionImages.SetActive(false);
+                            sceneTransitionFlag = false;
+                        }
+                    }
+                    break;
+
+                case TransitionType.Tile_Rotate:
+                    sceneTransitionTime += Time.deltaTime;
+                    if (lastStartedTransitionObjectIndex < sceneTransitionObjects.Length - 1) {
+                        if (sceneTransitionTime > (lastStartedTransitionObjectIndex + 1) * sceneTransitionStartInterval) {
+                            foreach (SceneTransitionObject sceneTransitionObject in sceneTransitionObjects) {
+                                if (sceneTransitionObject.order == lastStartedTransitionObjectIndex + 1) {
+                                    Sequence sequence = DOTween.Sequence();
+                                    sequence.Append(sceneTransitionObject.transitionObject.transform.DOScale(sceneTransitionObject.targetPoint, sceneTransitionSpeed).SetEase(Ease.Linear));
+                                    sequence.Join(sceneTransitionObject.transitionObject.transform.DOLocalRotate(new Vector3(0, 0, sceneTransitionRadian), sceneTransitionSpeed, RotateMode.FastBeyond360).SetEase(Ease.Linear));
+                                }
+                            }
+                            lastStartedTransitionObjectIndex++;
+                        }
+                    }
+                    if (timeUpToSceneTransition < sceneTransitionTime) {
+                        if (transitionPhase == TransitionPhase.In) {
+                            SceneManager.LoadScene(transitionSceneName);
+                        }
+                        else if (transitionPhase == TransitionPhase.Out) {
+                            sceneTransitionImages.SetActive(false);
+                            sceneTransitionFlag = false;
+                        }
+                    }
+                    break;
+
+                case TransitionType.Sprite:
+                    if (sceneTransitionTime == 0)
+                    {
+                        sceneTransitionObjects[0].transitionObject.transform.DOScale(sceneTransitionMaxScale, sceneTransitionSpriteSpeed);
+                        square.GetComponent<SpriteRenderer>().color = sceneTransitionSpriteColor;
+                        mask.sprite = sceneTransitionSprite;
+                    }
+                    sceneTransitionTime += Time.deltaTime;
+
+                    if (timeUpToSceneTransition < sceneTransitionTime)
+                    {
+                        if (transitionPhase == TransitionPhase.In)
+                        {
+                            SceneManager.LoadScene(transitionSceneName);
+                        }
+                        else if (transitionPhase == TransitionPhase.Out)
+                        {
+                            sceneTransitionImages.SetActive(false);
+                            sceneTransitionFlag = false;
+                        }
+                    }
+                    break;
             }
         }
     }
 
+    private void ChangeColorInChildren(Transform current)
+    {
+        // ç¾åœ¨ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®SpriteRendererã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆãŒã‚ã‚Œã°è‰²ã‚’å¤‰æ›´ã™ã‚‹
+        if (current.GetComponent<SpriteRenderer>() != null)
+        {
+            current.GetComponent<SpriteRenderer>().color = sceneTransitionSpriteColor;
+        }
+
+        // å­ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒã‚ã‚Œã°å†å¸°çš„ã«å‡¦ç†ã‚’è¡Œã†
+        foreach (Transform child in current)
+        {
+            ChangeColorInChildren(child);
+        }
+    }
+
     /// <summary>
-    /// ƒAƒjƒ[ƒVƒ‡ƒ“‚ğÄ¶‚µ‚½‚Ì‚¿w’è‚µ‚½ƒV[ƒ“‚É‘JˆÚ
+    /// ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½wï¿½è‚µï¿½ï¿½ï¿½Vï¿½[ï¿½ï¿½ï¿½É‘Jï¿½ï¿½
     /// </summary>
     public void StartSceneTransition(string sceneName)
     {
         transitionSceneName = sceneName;
         sceneTransitionFlag = true;
+        DOTween.KillAll();
     }
 }

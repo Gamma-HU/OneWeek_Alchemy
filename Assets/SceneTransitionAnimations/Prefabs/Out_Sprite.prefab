@@ -256,12 +256,16 @@ MonoBehaviour:
   sceneTransitionObjects:
   - transitionObject: {fileID: 2221555497650951931}
     targetPoint: {x: 0, y: 0, z: 0}
+    order: 0
   transitionPhase: 1
   transitionType: 5
   sceneTransitionStartInterval: 0.1
   sceneTransitionSpeed: 0.2
-  sceneTransitionSprite: {fileID: 21300000, guid: fd506a1d8a973d94b9c1c19943602107, type: 3}
-  sceneTransitionSpriteColor: {r: 1, g: 0.70980394, b: 0.79607844, a: 1}
-  sceneTransitionMaxScale: {x: 4.45, y: 4.45, z: 4.45}
-  sceneTransitionSpriteSpeed: 0.5
+  sceneTransitionRadian: 0
+  sceneTransitionSprite: {fileID: 21300000, guid: 04148240ab09d234ea6d48d4a19a5242, type: 3}
+  sceneTransitionSpriteColor: {r: 1, g: 0.9098039, b: 0.70980394, a: 1}
+  sceneTransitionMaxScale: {x: 13.39, y: 13.39, z: 13.39}
+  sceneTransitionSpriteSpeed: 1
+  square: {fileID: 4182548870945897259}
+  mask: {fileID: 9176656409761559484}
   timeUpToSceneTransition: 0.6

@@ -193,18 +193,28 @@ MonoBehaviour:
   sceneTransitionObjects:
   - transitionObject: {fileID: 4012031540710673523}
     targetPoint: {x: 0, y: 90, z: 0}
+    order: 0
   - transitionObject: {fileID: 2640407845132949121}
     targetPoint: {x: 0, y: 90, z: 0}
+    order: 0
   - transitionObject: {fileID: 7865374600941964380}
     targetPoint: {x: 0, y: 90, z: 0}
+    order: 0
   - transitionObject: {fileID: 259335429277397854}
     targetPoint: {x: 0, y: 90, z: 0}
+    order: 0
   - transitionObject: {fileID: 6512423974399694152}
     targetPoint: {x: 0, y: 90, z: 0}
+    order: 0
   transitionPhase: 1
   transitionType: 1
   sceneTransitionStartInterval: 0.1
   sceneTransitionSpeed: 0.2
+  sceneTransitionRadian: 0
+  sceneTransitionSprite: {fileID: 0}
+  sceneTransitionSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+  sceneTransitionMaxScale: {x: 0, y: 0, z: 0}
+  sceneTransitionSpriteSpeed: 0
   timeUpToSceneTransition: 0.6
 --- !u!1 &2640407845132949121
 GameObject:
