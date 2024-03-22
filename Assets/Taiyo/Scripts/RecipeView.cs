@@ -1,20 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RecipeView : MonoBehaviour
 {
     [SerializeField] AlchemyRecipe recipe;
-    [SerializeField] GameObject flame1;
-    [SerializeField] GameObject flame2;
-    [SerializeField] GameObject flame3;
+    [SerializeField] GameObject image1;
+    [SerializeField] GameObject image2;
+    [SerializeField] GameObject image3;
+    [SerializeField] GameObject namePlatePfb;
 
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(recipe.material_1, flame1.transform);
-        Instantiate(recipe.material_2, flame2.transform);
-        Instantiate(recipe.product, flame3.transform);
+        ViewItemIcon(recipe.material_1, image1);
+        ViewItemIcon(recipe.material_2, image2);
+        ViewItemIcon(recipe.product, image3);
     }
 
     // Update is called once per frame
@@ -23,8 +25,14 @@ public class RecipeView : MonoBehaviour
         
     }
 
-    void InstantiateItemIcon(GameObject item, Transform flameTransform)
+    void ViewItemIcon(GameObject item, GameObject image)
     {
-        GameObject icon = Instantiate(item, flameTransform);
+        image.GetComponent<Image>().sprite = item.GetComponent<SpriteRenderer>().sprite;
+
+        image.AddComponent<IconInRecipe>();
+        image.GetComponent<IconInRecipe>().namePlatePfb = namePlatePfb;
+        image.GetComponent<IconInRecipe>().itemName = item.GetComponent<Item>().GetItemName();
+
+
     }
 }
