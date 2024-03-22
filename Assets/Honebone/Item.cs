@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +13,7 @@ public class Item : MonoBehaviour
         public string itemName;
         public Sprite itemSprite;
         public bool canEquip;
-       [Header("‘•”õ‰Â”\ƒAƒCƒeƒ€‚Ì‚İ")] public GameObject passiveAbility;
+       [Header("è£…å‚™å¯èƒ½ã‚¢ã‚¤ãƒ†ãƒ ã®ã¿")] public GameObject passiveAbility;
     }
     [SerializeField]
     ItemData itemData;
@@ -37,28 +37,38 @@ public class Item : MonoBehaviour
     public void SetDragging(bool set)
     {
         dragging = set;
-        if (dragging)//ƒhƒ‰ƒbƒOŠJn
+        if (dragging)//ãƒ‰ãƒ©ãƒƒã‚°é–‹å§‹
         {
             rb.bodyType = RigidbodyType2D.Kinematic;
             transform.rotation = Quaternion.Euler(Vector3.zero);
             rb.angularVelocity = 0;
-            if(onSlot_Alchemy != null)//˜B‹àƒXƒƒbƒgã‚É‚ ‚é‚È‚ç
+            if(onSlot_Alchemy != null)//éŒ¬é‡‘ã‚¹ãƒ­ãƒƒãƒˆä¸Šã«ã‚ã‚‹ãªã‚‰
             {
                 onSlot_Alchemy.ResetItem();
             }
+            if (onSlot_Equipment != null && itemData.canEquip)//è£…å‚™å“ãŒè£…å‚™å“ã‚¹ãƒ­ãƒƒãƒˆä¸Šã«ã‚ã‚‹ãªã‚‰
+            {
+                onSlot_Equipment.ResetItem();
+            }
+
             if (itemData.canEquip)
             {
                 alchemyManager.SetDraggingItemText(itemData.passiveAbility.GetComponent<PassiveAbility>().GetInfo());
             }
         }
-        else//ƒhƒ‰ƒbƒOI—¹
+        else//ãƒ‰ãƒ©ãƒƒã‚°çµ‚äº†
         {
             rb.velocity = Vector2.zero;
             alchemyManager.SetDraggingItemText("");
-            if(onSlot_Alchemy != null)//˜B‹àƒXƒƒbƒgã‚É‚ ‚é‚È‚ç
+            if(onSlot_Alchemy != null)//éŒ¬é‡‘ã‚¹ãƒ­ãƒƒãƒˆä¸Šã«ã‚ã‚‹ãªã‚‰
             {
                 onSlot_Alchemy.SetItem(this);
                 rb.MovePosition(onSlot_Alchemy.transform.position);
+            }
+            if (onSlot_Equipment != null && itemData.canEquip)//è£…å‚™å“ãŒè£…å‚™å“ã‚¹ãƒ­ãƒƒãƒˆä¸Šã«ã‚ã‚‹ãªã‚‰
+            {
+                onSlot_Equipment.SetItem(this);
+                rb.MovePosition(onSlot_Equipment.transform.position);
             }
             else
             {
@@ -91,17 +101,33 @@ public class Item : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (dragging && collision.CompareTag("AlchemySlot"))
+        
+        if (dragging)
         {
-            onSlot_Alchemy = collision.GetComponent<AlchemySlot>();
+            if (collision.CompareTag("AlchemySlot"))
+            {
+                onSlot_Alchemy = collision.GetComponent<AlchemySlot>();
+            }
+            if (collision.CompareTag("EquipmentSlot"))
+            {
+                onSlot_Equipment = collision.GetComponent<EquipmentSlot>();
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (dragging && collision.CompareTag("AlchemySlot"))
+        if (dragging)
         {
-            onSlot_Alchemy = null;
+            if (collision.CompareTag("AlchemySlot"))
+            {
+                onSlot_Alchemy = null;
+            }
+            if (collision.CompareTag("EquipmentSlot"))
+            {
+                onSlot_Equipment = null;
+            }
         }
+       
     }
 
     public string GetItemName() { return itemData.itemName; }
