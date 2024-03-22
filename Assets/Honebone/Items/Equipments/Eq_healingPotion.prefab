@@ -47,9 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6beed8886ec110439f35a6210e683ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: "\u30D2\u30FC\u30EB\u30DD\u30FC\u30B7\u30E7\u30F3"
-  canEquip: 1
-  passiveAbility: {fileID: 8313083597182299096, guid: 0973d2750ee738a419b62af0455edc58, type: 3}
+  itemData:
+    itemName: "\u56DE\u5FA9\u306E\u30DD\u30FC\u30B7\u30E7\u30F3(\u5C0F)"
+    itemSprite: {fileID: 0}
+    canEquip: 0
+    passiveAbility: {fileID: 0}
 --- !u!212 &1223950266148223168
 SpriteRenderer:
   m_ObjectHideFlags: 0
