@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] string itemName;
-    [SerializeField] bool canEquip;
-    [SerializeField] GameObject passiveAbility;
+    //[SerializeField] string itemName;
+    //[SerializeField] bool canEquip;
+    //[SerializeField] GameObject passiveAbility;
+    [System.Serializable]
+    public class ItemData
+    {
+        public string itemName;
+        public Sprite itemSprite;
+        public bool canEquip;
+       [Header("装備可能アイテムのみ")] public GameObject passiveAbility;
+    }
+    [SerializeField]
+    ItemData itemData;
     bool dragging;
     Rigidbody2D rb;
 
     AlchemyManager alchemyManager;
 
-    AlchemySlot onSlot;
+    AlchemySlot onSlot_Alchemy;
+    EquipmentSlot onSlot_Equipment;
     void Start()
     {
         Init();
@@ -31,23 +42,23 @@ public class Item : MonoBehaviour
             rb.bodyType = RigidbodyType2D.Kinematic;
             transform.rotation = Quaternion.Euler(Vector3.zero);
             rb.angularVelocity = 0;
-            if(onSlot != null)//錬金スロット上にあるなら
+            if(onSlot_Alchemy != null)//錬金スロット上にあるなら
             {
-                onSlot.ResetItem();
+                onSlot_Alchemy.ResetItem();
             }
-            if (canEquip)
+            if (itemData.canEquip)
             {
-                alchemyManager.SetDraggingItemText(passiveAbility.GetComponent<PassiveAbility>().GetInfo());
+                alchemyManager.SetDraggingItemText(itemData.passiveAbility.GetComponent<PassiveAbility>().GetInfo());
             }
         }
         else//ドラッグ終了
         {
             rb.velocity = Vector2.zero;
             alchemyManager.SetDraggingItemText("");
-            if(onSlot != null)//錬金スロット上にあるなら
+            if(onSlot_Alchemy != null)//錬金スロット上にあるなら
             {
-                onSlot.SetItem(this);
-                rb.MovePosition(onSlot.transform.position);
+                onSlot_Alchemy.SetItem(this);
+                rb.MovePosition(onSlot_Alchemy.transform.position);
             }
             else
             {
@@ -66,7 +77,7 @@ public class Item : MonoBehaviour
 
     public void ResetSlot()
     {
-        onSlot = null;
+        onSlot_Alchemy = null;
         rb.bodyType = RigidbodyType2D.Dynamic;
         Snap();
     }
@@ -82,16 +93,17 @@ public class Item : MonoBehaviour
     {
         if (dragging && collision.CompareTag("AlchemySlot"))
         {
-            onSlot = collision.GetComponent<AlchemySlot>();
+            onSlot_Alchemy = collision.GetComponent<AlchemySlot>();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (dragging && collision.CompareTag("AlchemySlot"))
         {
-            onSlot = null;
+            onSlot_Alchemy = null;
         }
     }
 
-    public string GetItemName() { return itemName; }
+    public string GetItemName() { return itemData.itemName; }
+    public ItemData GetItemData() { return itemData; }
 }
