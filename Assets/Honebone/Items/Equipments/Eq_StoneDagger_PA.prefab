@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c22844a6fb6c7124a9c1ca2962bf3251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PAName: "\u77F3\u306E\u30C0\u30AC\u30FC"
-  PAInfo: "\u653B\u6483\u6642\u3001\u76F8\u624B\u306B\u51FA\u8840\u30921\u4ED8\u4E0E"
+  PAName: "\u77F3\u306E\u30CA\u30A4\u30D5"
+  PAInfo: 
   exHP: 0
   exATK: 3

@@ -47,7 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6beed8886ec110439f35a6210e683ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: "\u30B3\u30A6\u30E2\u30EA\u306E\u7FBD"
+  itemData:
+    itemName: "\u30B3\u30A6\u30E2\u30EA\u306E\u7FBD"
+    itemSprite: {fileID: 0}
+    canEquip: 0
+    passiveAbility: {fileID: 0}
 --- !u!212 &2069196600221912632
 SpriteRenderer:
   m_ObjectHideFlags: 0
