@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class EquipmentsSetManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    List<EquipmentSlot> equipmentSlots;
 
-    // Update is called once per frame
-    void Update()
+    public List<GameObject> GetPassiveAbilities()
     {
-        
+        List<GameObject> PA = new List<GameObject>();
+        foreach(EquipmentSlot slot in equipmentSlots)
+        {
+            if (slot.GetItem() != null)
+            {
+                PA.Add(slot.GetItem().GetItemData().passiveAbility);
+            }
+        }
+        return PA;
     }
 }

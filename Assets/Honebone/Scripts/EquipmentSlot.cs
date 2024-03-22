@@ -23,13 +23,11 @@ public class EquipmentSlot : MonoBehaviour
         }
         setItem = item;
         //itemNameText.text = item.GetItemName();
-        //alchemyManager.SetAlchemyButton();
     }
     public void ResetItem()
     {
         setItem = null;
         //itemNameText.text = string.Empty;
-        //alchemyManager.SetAlchemyButton();
     }
 
     public void ConsumeItem()
