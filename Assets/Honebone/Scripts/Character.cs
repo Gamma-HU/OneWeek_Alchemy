@@ -31,6 +31,7 @@ public class Character : MonoBehaviour
 
         public bool dead;
         public int blind;
+        public int stun;
 
         public float GetHPPercent()
         {
@@ -81,30 +82,40 @@ public class Character : MonoBehaviour
     }
     public void Attack()
     {
-        if (status.blind == 0)
+        if (status.stun == 0)
         {
-            float fDMG = status.ATK;//基礎ダメージ
-            float exDMG_mul = Mathf.Max(0f, 1f + status.exDMG_mul - opponetnStatus.PROT_mul);//ダメージ倍率補正 = 1 + [自身の与ダメージ率補正] - [相手の被ダメージ率補正] (負にはならない)
-            int exDMG_int = status.exDMG_int - opponetnStatus.PROT_int;//ダメージ実数補正 = [自身の与ダメージ補正] - [相手の被ダメージ補正]
-            fDMG = Mathf.Max(0f, (fDMG * exDMG_mul) + exDMG_int);//ダメージ = ([基礎ダメージ] * [ダメージ倍率補正]) + [ダメージ実数補正]
-            int DMG = Mathf.RoundToInt(fDMG);
-            opponent.Damage(DMG,true);//四捨五入して相手のDamage関数に渡す
-            OnAttack(DMG, false);
-            opponent.OnAttacked(DMG, false);
+            if (status.blind == 0)
+            {
+                float fDMG = status.ATK;//基礎ダメージ
+                float exDMG_mul = Mathf.Max(0f, 1f + status.exDMG_mul - opponetnStatus.PROT_mul);//ダメージ倍率補正 = 1 + [自身の与ダメージ率補正] - [相手の被ダメージ率補正] (負にはならない)
+                int exDMG_int = status.exDMG_int - opponetnStatus.PROT_int;//ダメージ実数補正 = [自身の与ダメージ補正] - [相手の被ダメージ補正]
+                fDMG = Mathf.Max(0f, (fDMG * exDMG_mul) + exDMG_int);//ダメージ = ([基礎ダメージ] * [ダメージ倍率補正]) + [ダメージ実数補正]
+                int DMG = Mathf.RoundToInt(fDMG);
+                opponent.Damage(DMG, true);//四捨五入して相手のDamage関数に渡す
+                OnAttack(DMG, false);
+                opponent.OnAttacked(DMG, false);
+            }
+            else
+            {
+                OnAttack(0, true);
+                opponent.OnAttacked(0, true);
+                Debug.Log("Miss");
+            }
+            //if (status.player) { animManager.PlayAttackAnimation(status); }
+            animManager.PlayAttackAnimation(status);
         }
         else
         {
-            OnAttack(0, true);
-            opponent.OnAttacked(0, true);
-            Debug.Log("Miss");
+            animManager.PlayDamagedAnimation(status);
+            Debug.Log("行動不能!");
+            OnStun();
         }
-        //if (status.player) { animManager.PlayAttackAnimation(status); }
-        animManager.PlayAttackAnimation(status);
+           
     }
     public void Damage(int DMG,bool byOpponent)
     {
-        //===============================================[[数値表示]]DamageLog(int DMG)===================================================
         status.HP-= DMG;
+        animManager.ShowDamageIndicator(gameObject,-DMG);
         HPGauge.UpdateHPGauge(status.GetHPPercent());
         Debug.Log(string.Format("{0}は{1}ダメージ(残り{2})", status.charaName, DMG, status.HP));
         OnDamaged(DMG, byOpponent);
@@ -120,7 +131,7 @@ public class Character : MonoBehaviour
         HPGauge.UpdateHPGauge(status.GetHPPercent());
         //if (status.player) { animManager.PlayHealedAnimation(status); }
         animManager.PlayHealedAnimation(status);
-        //===============================================[[数値表示]]HealLog(int value)===================================================
+        animManager.ShowDamageIndicator(gameObject, value);
         Debug.Log(string.Format("{0}は{1}回復", status.charaName, heal));
         OnHealed(heal);
     }
@@ -144,6 +155,7 @@ public class Character : MonoBehaviour
             passiveAbilities.Add(p.GetComponent<PassiveAbility>());
         }
         Debug.Log(string.Format("{0}に{1}{2}を付与", status.charaName, StEName, stEParams.amount));
+        animManager.ShowAbilityApplyed(gameObject, stEParams);
         OnAppliedStE(stEParams);
     }
     public void RemoveStE(GameObject remove)
@@ -156,6 +168,7 @@ public class Character : MonoBehaviour
                 passiveAbility.GetComponent<PA_StatusEffects>().DisableStE();
                 DisableStE(passiveAbility);
                 Debug.Log(string.Format("{0}の{1}を除去", status.charaName, StEName));
+                //animManager.ShowAbilityRemoved(gameObject, remove);
             }
         }
     }
@@ -176,6 +189,11 @@ public class Character : MonoBehaviour
     {
         List<PassiveAbility> PA = new List<PassiveAbility>(passiveAbilities);
         foreach (PassiveAbility passiveAbility in PA) { passiveAbility.OnBattleStart(); }
+    }
+    public void OnStun()
+    {
+        List<PassiveAbility> PA = new List<PassiveAbility>(passiveAbilities);
+        foreach (PassiveAbility passiveAbility in PA) { passiveAbility.OnStun(); }
     }
     /// <summary>攻撃時、命中したかに関わらず誘発</summary>
     public void OnAttack(int DMG, bool missed)
@@ -212,6 +230,18 @@ public class Character : MonoBehaviour
 
     public CharacterStatus GetCharacterStatus() { return status; }
     public Character GetOpponent() { return opponent; }
+    public bool CheckHasStE(GameObject serch)
+    {
+        string StEName = serch.GetComponent<PassiveAbility>().GetPAName();
+        foreach (PassiveAbility passiveAbility in new List<PassiveAbility>(passiveAbilities))
+        {
+            if (passiveAbility.GetPAName() == StEName)
+            {
+               return true;
+            }
+        }
+        return false;
+    }
     public string GetInfo()
     {
         string s = "";

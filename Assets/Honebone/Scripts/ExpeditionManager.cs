@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ExpeditionManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class ExpeditionManager : MonoBehaviour
     GaugeManager playerGauge;
     [SerializeField]
     Character player;
+    [SerializeField]
+    Image background;
 
     [SerializeField]
     float battleInterval;
@@ -36,6 +39,7 @@ public class ExpeditionManager : MonoBehaviour
     public void StartExpedition(DungeonData dungeon)
     {
         currentDungeon = dungeon;
+        background.sprite = currentDungeon.background;
         if (currentDungeon.dungeonEffect != null)
         {
             var d = Instantiate(dungeon.dungeonEffect);

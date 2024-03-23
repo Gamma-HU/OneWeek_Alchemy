@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AlchemySceneManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class AlchemySceneManager : MonoBehaviour
     EquipmentsSetManager equipmentsManager;
     [SerializeField]
     Transform itemsP;
+    [SerializeField]
+    Text draggingItemText;
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -20,6 +23,10 @@ public class AlchemySceneManager : MonoBehaviour
     {
         alchemyManager.ToggleEquipmentSlots();
         equipmentsManager.ToggleEquipmentSlots();
+    }
+    public void SetDraggingItemText(string s)
+    {
+        draggingItemText.text = s;
     }
 
     /// <summary>

@@ -23,6 +23,7 @@ public class PassiveAbility : MonoBehaviour
     }
 
     public virtual void OnBattleStart() { }
+    public virtual void OnStun() { }
     public virtual void OnAttack(int DMG, bool missed) { }
     public virtual void OnAttacked(int DMG, bool missed) { }
     public virtual void OnDamaged(int DMG, bool byOpponent) { }

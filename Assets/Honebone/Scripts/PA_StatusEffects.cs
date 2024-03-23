@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PA_StatusEffects : PassiveAbility
 {
+    [SerializeField]
+    bool isBuff;
     protected int stack;
     public void StEInit(int s)
     {
@@ -33,4 +35,6 @@ public class PA_StatusEffects : PassiveAbility
     public virtual void OnInit() { }
     public virtual void OnAddStack(int add) { }
     public virtual void AtTheEnd() { }
+
+    public bool GetIsBuff() { return isBuff; }
 }

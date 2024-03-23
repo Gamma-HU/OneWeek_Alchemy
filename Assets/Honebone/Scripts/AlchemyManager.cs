@@ -17,8 +17,7 @@ public class AlchemyManager : MonoBehaviour
     GameObject alchemyButton;
     [SerializeField]
     Text productNameText;
-    [SerializeField]
-    Text draggingItemText;
+   
 
     GameManager gameManager;
     AlchemySceneManager alchemySceneManager;
@@ -37,10 +36,7 @@ public class AlchemyManager : MonoBehaviour
     {
         
     }
-    public void SetDraggingItemText(string s)
-    {
-        draggingItemText.text = s;
-    }
+   
     public void ToggleEquipmentSlots()
     {
         if (slotsP.activeSelf)
