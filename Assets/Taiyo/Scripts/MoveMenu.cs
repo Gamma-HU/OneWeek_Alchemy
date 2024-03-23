@@ -54,12 +54,14 @@ public class MoveMenu : MonoBehaviour
     public void OpenMenu_vertical()
     {
         GetComponent<RectTransform>().DOAnchorPos(openPosition_vertical, 0.5f).SetEase(Ease.OutCubic);
+        transform.SetAsLastSibling();  //”w–Ê‚É•\Ž¦
         isOpen = true;
     }
 
     public void CloseMenu_vertical()
     {
         GetComponent<RectTransform>().DOAnchorPos(closePosition_vertical, 0.5f).SetEase(Ease.OutCubic);
+        transform.SetSiblingIndex(1); //‘O–Ê‚É•\Ž¦
         isOpen = false;
     }
 
