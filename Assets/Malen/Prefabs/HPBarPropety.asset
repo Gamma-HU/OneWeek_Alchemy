@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: HPBarPropety
   m_EditorClassIdentifier: Assembly-CSharp::GaugeManager/HPBarPropety
-  normalColor: {r: 0.07615614, g: 1, b: 0, a: 1}
-  damagedColor: {r: 1, g: 0.89706457, b: 0, a: 1}
+  normalColor: {r: 0.031396866, g: 1, b: 0, a: 1}
+  damagedColor: {r: 1, g: 0.7957734, b: 0, a: 1}
   dangerColor: {r: 1, g: 0, b: 0, a: 1}
   gaugeTransitionTime: 0.2
   HPColorCriteria:
