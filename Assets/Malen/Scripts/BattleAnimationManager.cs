@@ -13,6 +13,7 @@ public class BattleAnimationManager : MonoBehaviour
 {
 
     [SerializeField] BattleAnimationPropety battleAnimationPropety;
+    [SerializeField] Canvas indicatorCanvas;
 
     private CharacterAnimationInfo player;
     private CharacterAnimationInfo enemy;
@@ -94,28 +95,96 @@ public class BattleAnimationManager : MonoBehaviour
     /// <summary>
     /// ダメージ表示 (被ダメージはマイナス値、与ダメージはプラス値で指定)
     /// </summary>
+    /// <param name="targetCharacter"></param>
     /// <param name="amount"></param>
     public void ShowDamageIndicator(GameObject targetCharacter, float amount)
     {
-        GameObject indicator = Instantiate(battleAnimationPropety.indicator);
-        GameObject indicatorCanvas = GameObject.Find("IndicatorCanvas");
-        float scattering = battleAnimationPropety.scattering;
+        GameObject indicator = Instantiate(battleAnimationPropety.damageIndicator);
+        float scattering = battleAnimationPropety.damageScattering;
         indicator.transform.SetParent(indicatorCanvas.transform);
         indicator.transform.position = targetCharacter.transform.position + new Vector3(Random.Range(-scattering, scattering), Random.Range(-scattering, scattering), 0);
         indicator.transform.localScale = Vector3.one;
         Text text = indicator.GetComponent<Text>();
-        if(amount < 0)
+        Outline outline = text.GetComponent<Outline>();
+        if (amount < 0)
         {
             text.color = battleAnimationPropety.damageColor;
+            outline.effectColor = battleAnimationPropety.damageColorOutline;
             text.text = "" + amount;
         }
         else
         {
             text.color = battleAnimationPropety.healColor;
+            outline.effectColor = battleAnimationPropety.healColorOutline;
             text.text = "+" + amount;
         }
     }
 
+    /// <summary>
+    /// アビリティ付与表示
+    /// </summary>
+    /// <param name="targetCharacter"></param>
+    /// <param name="stEParams"></param>
+    public void ShowAbilityApplyed(GameObject targetCharacter, BattleManager.StEParams stEParams)
+    {
+        string StEName = stEParams.StE.GetComponent<PassiveAbility>().GetPAName();
+        GameObject indicator = Instantiate(battleAnimationPropety.paramsIndicator);
+        float scattering = battleAnimationPropety.paramsScattering;
+        indicator.transform.SetParent(indicatorCanvas.transform);
+        indicator.transform.position = targetCharacter.transform.position + new Vector3(Random.Range(-scattering, scattering), Random.Range(-scattering, scattering), 0);
+        indicator.transform.localScale = Vector3.one;
+        Text text = indicator.GetComponent<Text>();
+        Outline outline = text.GetComponent<Outline>();
+        Character.CharacterStatus status = targetCharacter.GetComponent<Character>().GetCharacterStatus();
+        text.text = string.Format("+{0} {1}", StEName, stEParams.amount);
+
+        // バフ・デバフ判別用のフィールドを用意したらコメントアウトを解除してください
+        /*if (stEParams.isBuff)
+        {
+            text.color = battleAnimationPropety.paramsColorBuff;
+            outline.effectColor = battleAnimationPropety.paramsColorBuffOutline;
+        }
+        else
+        {
+            text.color = battleAnimationPropety.paramsColorDebuff;
+            outline.effectColor = battleAnimationPropety.paramsColorDebuffOutline;
+        }*/
+    }
+
+    /// <summary>
+    /// アビリティ剥奪表示
+    /// </summary>
+    /// <param name="targetCharacter"></param>
+    /// <param name="stEParams"></param>
+    public void ShowAbilityRemoved(GameObject targetCharacter, BattleManager.StEParams stEParams)
+    {
+        string StEName = stEParams.StE.GetComponent<PassiveAbility>().GetPAName();
+        GameObject indicator = Instantiate(battleAnimationPropety.paramsIndicator);
+        float scattering = battleAnimationPropety.paramsScattering;
+        indicator.transform.SetParent(indicatorCanvas.transform);
+        indicator.transform.position = targetCharacter.transform.position + new Vector3(Random.Range(-scattering, scattering), Random.Range(-scattering, scattering), 0);
+        indicator.transform.localScale = Vector3.one;
+        Text text = indicator.GetComponent<Text>();
+        Character.CharacterStatus status = targetCharacter.GetComponent<Character>().GetCharacterStatus();
+        text.text = string.Format("-{0}", StEName);
+
+        // バフ・デバフ判別用のフィールドを用意したらコメントアウトを解除してください
+        /*if (stEParams.isBuff)
+        {
+            text.color = battleAnimationPropety.paramsColorBuff;
+            outline.effectColor = battleAnimationPropety.paramsColorBuffOutline;
+        }
+        else
+        {
+            text.color = battleAnimationPropety.paramsColorDebuff;
+            outline.effectColor = battleAnimationPropety.paramsColorDebuffOutline;
+        }*/
+    }
+
+    /// <summary>
+    /// プレイヤーの行動アニメーション用のプロパティを設定
+    /// </summary>
+    /// <param name="playerObject"></param>
     public void SetPlayerPropety(GameObject playerObject)
     {
         player.characterObject = playerObject;
@@ -123,6 +192,10 @@ public class BattleAnimationManager : MonoBehaviour
         player.defaultPosition = playerObject.transform.position;
     }
 
+    /// <summary>
+    /// 敵の行動アニメーション用のプロパティを設定
+    /// </summary>
+    /// <param name="enemyObject"></param>
     public void SetEnemyProtery(GameObject enemyObject)
     {
         enemy.characterObject = enemyObject;

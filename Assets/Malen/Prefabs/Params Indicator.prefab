@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9186778616461174232}
   - component: {fileID: 754259287099273110}
   m_Layer: 5
-  m_Name: Indicator
+  m_Name: Params Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,7 +70,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: a2fd440922b581c41b33f5741b0e7ec4, type: 2}
-    m_FontSize: 25
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -81,7 +81,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: -334
+  m_Text: "+\u51FA\u8840 334"
 --- !u!114 &9186778616461174232
 MonoBehaviour:
   m_ObjectHideFlags: 0
