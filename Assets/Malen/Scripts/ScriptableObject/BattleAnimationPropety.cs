@@ -22,5 +22,13 @@ public class BattleAnimationPropety : ScriptableObject
     [Header("アニメーションするか")] public bool isAnimationPlayedOnHealed;
     [Header("ジャンプ距離")] public float jumpDistanceOnHealed;
     [Header("アニメーション時間")] public float durationOnHealed;
+
+    [Header("\n=====<ダメージ表示用プロパティ>=====")]
+    [Header("表示用ゲームオブジェクト")] public GameObject indicator;
+    [Header("ダメージカラー")] public Color damageColor;
+    [Header("回復カラー")] public Color healColor;
+    [Header("移動オフセット")] public Vector3 offset;
+    [Header("消滅までの時間")] public float timeToDismiss;
+    [Header("表示位置のばらつき")] public float scattering;
 } 
 
