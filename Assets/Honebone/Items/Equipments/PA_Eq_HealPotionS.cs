@@ -6,11 +6,13 @@ public class PA_Eq_HealPotionS : PassiveAbility
 {
     [SerializeField]
     BattleManager.Action action;
+    bool f;
 
     public override void OnDamaged(int DMG, bool byOpponent)
     {
-        if (characterStatus.GetHPPercent() <= 0.5f)
+        if (!f&&characterStatus.GetHPPercent() <= 0.5f)
         {
+            f = true;
             battleManager.Enqueue(character, character, action);
         }
     }

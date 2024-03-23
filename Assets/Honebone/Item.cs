@@ -28,13 +28,14 @@ public class Item : MonoBehaviour
     EquipmentSlot onSlot_Equipment;
     void Start()
     {
-        Init();
+        Init();//test
     }
     public void Init()
     {
         rb = GetComponent<Rigidbody2D>();
         alchemyManager = FindObjectOfType<AlchemyManager>();
     }
+    
 
     public void SetDragging(bool set)
     {

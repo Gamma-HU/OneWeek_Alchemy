@@ -100,7 +100,7 @@ MonoBehaviour:
   status:
     charaName: "\u30AF\u30E2"
     maxHP: 10
-    ATK: 2
+    ATK: 4
     passiveAbilities: []
     exDMG_int: 0
     exDMG_mul: 0
@@ -108,4 +108,5 @@ MonoBehaviour:
     PROT_mul: 0
     RHeal_mul: 0
     HP: 0
+    dead: 0
     blind: 0

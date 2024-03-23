@@ -99,8 +99,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   status:
     charaName: "\u30AA\u30AA\u30AB\u30DF"
-    maxHP: 10
-    ATK: 2
+    maxHP: 15
+    ATK: 3
     passiveAbilities: []
     exDMG_int: 0
     exDMG_mul: 0

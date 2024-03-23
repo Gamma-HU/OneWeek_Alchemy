@@ -45,15 +45,22 @@ public class GameManager : MonoBehaviour
     {
         
     }
-    public void EnterDungeon(DungeonData enter,List<GameObject> eq)
+    public void SelectDungeon(DungeonData select)
     {
-        selectedDungeon = enter;
+        selectedDungeon = select;
+    }
+    public void EnterDungeon(List<GameObject> eq)
+    {
         equipments = eq;
         SceneManager.LoadScene("Battle");
     }
+    public void UnlockRecipe(AlchemyRecipe recipe) { unlockedRecipe.Add(recipe); }
+    public void UnlockMaterial(GameObject material) { unlockedMaterial.Add(material); }
+    public void UnlockDungeon(DungeonData dungeon) { unlockedDungeon.Add(dungeon); }
+
     public List<DungeonData> GetUnlockedDungeon() { return unlockedDungeon; }
     public List<GameObject> GetUnlockedMaterial() { return unlockedMaterial; }
-    public List<AlchemyRecipe> GEtUnlockedRecipe() { return unlockedRecipe; }
+    public List<AlchemyRecipe> GetUnlockedRecipe() { return unlockedRecipe; }
 
     public List<GameObject> GetEquipments() { return equipments; }
     public DungeonData GetSelectedDugeon() { return selectedDungeon; }

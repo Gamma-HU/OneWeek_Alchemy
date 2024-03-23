@@ -9,6 +9,8 @@ public class DebugFunctions : MonoBehaviour
     [SerializeField]
     GameManager gameManager;
     [SerializeField]
+    AlchemySceneManager alchemySceneManager;
+    [SerializeField]
     EquipmentsSetManager equipmentsManager;
     [SerializeField]
     AlchemyManager alchemyManager;
@@ -35,12 +37,12 @@ public class DebugFunctions : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                alchemyManager.ToggleEquipmentSlots();
-                equipmentsManager.ToggleEquipmentSlots();
+                alchemySceneManager.ToggleSlots();
             }
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
-                FindObjectOfType<GameManager>().EnterDungeon(forest, equipmentsManager.GetPassiveAbilities());
+                gameManager.SelectDungeon(forest);
+                gameManager.EnterDungeon(equipmentsManager.GetPassiveAbilities());
             }
         }
     }

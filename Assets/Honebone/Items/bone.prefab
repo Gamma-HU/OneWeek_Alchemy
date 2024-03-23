@@ -49,8 +49,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData:
     itemName: "\u9AA8"
-    itemSprite: {fileID: 0}
+    itemSprite: {fileID: 21300000, guid: edd384c6d1f683646bbb9fd359a9509a, type: 3}
     canEquip: 0
+    weapon: 0
+    armor: 0
     passiveAbility: {fileID: 0}
 --- !u!212 &6787734627125410236
 SpriteRenderer:
