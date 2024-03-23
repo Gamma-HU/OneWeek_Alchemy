@@ -41,7 +41,7 @@ public class DebugFunctions : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
-                gameManager.SelectDungeon(forest);
+               // gameManager.SelectDungeon(forest);
                 gameManager.EnterDungeon(equipmentsManager.GetPassiveAbilities());
             }
         }

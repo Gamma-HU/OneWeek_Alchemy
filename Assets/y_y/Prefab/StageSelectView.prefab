@@ -161,7 +161,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4615931330864099277}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -9722.652}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -354,10 +354,6 @@ MonoBehaviour:
   StageContent: {fileID: 1433513897093085331, guid: 51b9a7b0b85e21c4690fee033c60bd24, type: 3}
   GameManager: {fileID: 0}
   alchemySceneManager: {fileID: 0}
-  unlockedDungeon:
-  - {fileID: 11400000, guid: 7051658dde0a89c43a9a59879f0bbafc, type: 2}
-  - {fileID: 11400000, guid: d9f95f1e8ce9b7b46840a89744f9ae97, type: 2}
-  - {fileID: 11400000, guid: d9f95f1e8ce9b7b46840a89744f9ae97, type: 2}
 --- !u!1 &5454522815377610609
 GameObject:
   m_ObjectHideFlags: 0
