@@ -827,7 +827,7 @@ MonoBehaviour:
   item_image: {fileID: 21300000, guid: eafd5ca6d3a28dc45a1a7520e58f8b33, type: 3}
   RecipePfb_for_mat: {fileID: 7553231846092469966, guid: ad962e750451d6149b7a221a33bbe194, type: 3}
   framePfb_for_mat: {fileID: 2557269781273748377, guid: a79d76f2b2b20704cbcbb2eb132fefe1, type: 3}
-  namePlatePfb: {fileID: 8913553174201164980, guid: f5c24803ff33848a38e29b3bdf83743c, type: 3}
+  namePlatePfb: {fileID: 8913553174201164980, guid: e53ffd6bb1fc4c94a89b3e50e67e546c, type: 3}
   unlockedMaterial:
   - {fileID: 1128425530542487637, guid: 6f07a0ae4a7aa47499f950b1e7df3292, type: 3}
   - {fileID: 408756892454182970, guid: ce6fc63fb370b384789343cd9bb8da62, type: 3}
@@ -1137,7 +1137,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 155778523}
   m_HandleRect: {fileID: 155778522}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3629,8 +3629,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 200925456}
   m_HandleRect: {fileID: 200925455}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.99999994
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
