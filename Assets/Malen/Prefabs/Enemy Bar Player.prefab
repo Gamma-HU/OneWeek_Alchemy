@@ -237,6 +237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4284531210683957163}
+  - component: {fileID: 2188958159092151907}
   m_Layer: 5
   m_Name: Enemy Bar Player
   m_TagString: Untagged
@@ -253,7 +254,7 @@ RectTransform:
   m_GameObject: {fileID: 4191095586280884009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5871914876261651185}
@@ -268,6 +269,20 @@ RectTransform:
   m_AnchoredPosition: {x: -211.98, y: -272}
   m_SizeDelta: {x: 100, y: 17}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2188958159092151907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4191095586280884009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4267a35751c5554d914aee917ea7d90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpBarImage: {fileID: 3374669760562255926}
+  hpBarPropety: {fileID: 11400000, guid: 2ffa8fd5bd84a734ba2183985c3c0fc0, type: 2}
 --- !u!1 &8994666155189190746
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,7 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.011044025, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.15294118, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -339,7 +354,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.41
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
