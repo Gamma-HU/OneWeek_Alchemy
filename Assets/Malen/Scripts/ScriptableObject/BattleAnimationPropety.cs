@@ -24,11 +24,24 @@ public class BattleAnimationPropety : ScriptableObject
     [Header("アニメーション時間")] public float durationOnHealed;
 
     [Header("\n=====<ダメージ表示用プロパティ>=====")]
-    [Header("表示用ゲームオブジェクト")] public GameObject indicator;
+    [Header("表示用ゲームオブジェクト")] public GameObject damageIndicator;
     [Header("ダメージカラー")] public Color damageColor;
+    [Header("ダメージカラー(アウトライン)")] public Color damageColorOutline;
     [Header("回復カラー")] public Color healColor;
-    [Header("移動オフセット")] public Vector3 offset;
-    [Header("消滅までの時間")] public float timeToDismiss;
-    [Header("表示位置のばらつき")] public float scattering;
+    [Header("回復カラー(アウトライン)")] public Color healColorOutline;
+    [Header("移動オフセット")] public Vector3 damageOffset;
+    [Header("消滅までの時間")] public float damageTimeToDismiss;
+    [Header("表示位置のばらつき")] public float damageScattering;
+
+    [Header("\n=====<状態異常用プロパティ>=====")]
+    [Header("表示用ゲームオブジェクト")] public GameObject paramsIndicator;
+    [Header("カラー(仮置)")] public Color paramsColor;
+    [Header("デバフカラー")] public Color paramsColorDebuff;
+    [Header("デバフカラー(アウトライン)")] public Color paramsColorDebuffOutline;
+    [Header("バフカラー")] public Color paramsColorBuff;
+    [Header("バフカラー(アウトライン)")] public Color paramsColorBuffOutline;
+    [Header("移動オフセット")] public Vector3 paramsOffset;
+    [Header("消滅までの時間")] public float paramsTimeToDismiss;
+    [Header("表示位置のばらつき")] public float paramsScattering;
 } 
 

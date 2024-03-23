@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 4284531210683957163}
   - component: {fileID: 2188958159092151907}
   m_Layer: 5
-  m_Name: Enemy Bar Player
+  m_Name: HP Bar Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
