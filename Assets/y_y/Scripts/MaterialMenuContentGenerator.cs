@@ -5,20 +5,21 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEditor.Progress;
-using static Item;
 
 public class MaterialMenuContentGenerator : MonoBehaviour
 {
+    public int item_total_num = 10;
+    public Sprite item_image;
     [SerializeField] private GameObject RecipePfb_for_mat;
     [SerializeField] private GameObject framePfb_for_mat;
     [SerializeField] private GameObject namePlatePfb;
 
-    public List<GameObject> unlockedMaterial = new List<GameObject>();//‰ğ•ú‚³‚ê‚Ä‚¢‚é‘fŞ
+    public List<GameObject> unlockedMaterial = new List<GameObject>();//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½fï¿½ï¿½
 
     // Start is called before the first frame update
     void Start()
     {
-        GenerateContent(unlockedMaterial.Count);
+        GenerateContent(item_total_num);
     }
 
     private void GenerateContent(int item_total_num)
@@ -36,8 +37,7 @@ public class MaterialMenuContentGenerator : MonoBehaviour
             frame.transform.SetParent(recipePfb.transform, false);
 
             GameObject image = frame.transform.GetChild(0).gameObject;
-            ItemData itemData = unlockedMaterial[i].GetComponent<Item>().GetItemData();
-            image.GetComponent<Image>().sprite = itemData.itemSprite;
+            image.GetComponent<Image>().sprite = item_image;
             image.AddComponent<IconInRecipe>();
             image.GetComponent<IconInRecipe>().namePlatePfb = namePlatePfb;
             image.GetComponent<IconInRecipe>().itemName = unlockedMaterial[i].GetComponent<Item>().GetItemName();
