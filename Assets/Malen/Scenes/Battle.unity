@@ -1744,10 +1744,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HP Bar Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6583522772057775567, guid: 6e61a552acfb7044aa6f9e9fe99d675c, type: 3}
-      propertyPath: hpBarPropety
-      value: 
-      objectReference: {fileID: 11400000, guid: 2ffa8fd5bd84a734ba2183985c3c0fc0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1761,10 +1757,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1688774101}
     m_Modifications:
-    - target: {fileID: 2188958159092151907, guid: bcadb5f849bf40949b6806d528671804, type: 3}
-      propertyPath: hpBarPropety
-      value: 
-      objectReference: {fileID: 11400000, guid: 2ffa8fd5bd84a734ba2183985c3c0fc0, type: 2}
     - target: {fileID: 4191095586280884009, guid: bcadb5f849bf40949b6806d528671804, type: 3}
       propertyPath: m_Name
       value: HP Bar Enemy
