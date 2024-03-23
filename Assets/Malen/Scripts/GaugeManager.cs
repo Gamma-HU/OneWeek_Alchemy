@@ -10,11 +10,9 @@ public class GaugeManager : MonoBehaviour
     [SerializeField] Image hpBarImage;
     [SerializeField] HPBarPropety hpBarPropety;
 
-    private float displayedHPRatio;
-
     public void UpdateHPGauge(float targetHPRatio)
     {
-        displayedHPRatio = hpBarImage.fillAmount;
+        float displayedHPRatio = hpBarImage.fillAmount;
         float[] criteria = hpBarPropety.HPColorCriteria;
         DOTween.To(() => displayedHPRatio, x => displayedHPRatio = x, targetHPRatio, hpBarPropety.gaugeTransitionTime)
             .OnUpdate(() =>
