@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1274222725523604865}
-  - component: {fileID: -3638490568025339804}
+  - component: {fileID: 455042188769201843}
   m_Layer: 0
-  m_Name: Eq_Sling_PA
+  m_Name: PA_Eq_Torch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-3638490568025339804
+--- !u!114 &455042188769201843
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,20 +41,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 8313083597182299096}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df25135e747afb54b9add482275f7cd2, type: 3}
+  m_Script: {fileID: 11500000, guid: bb08e85900ccbea41bf200e1abb2e750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PAName: "\u30B9\u30EA\u30F3\u30B0"
-  PAInfo: "\u5404\u6226\u95D8\u306E\u958B\u59CB\u6642\u306B\u3001\u81EA\u5206\u306B\u529B50\u3092\u4ED8\u4E0E"
+  PAName: "\u677E\u660E"
+  PAInfo: "\u5404\u6226\u95D81\u56DE\u3001\u81EA\u5206\u306B\u76F2\u76EE\u304C\u4ED8\u4E0E\u3055\u308C\u305F\u6642\u306B\u305D\u308C\u3092\u9664\u53BB\u3059\u308B"
   exHP: 0
   exATK: 0
+  blind: {fileID: 2510622262790149085, guid: 14ab0718acf084b4b907936ac46fb402, type: 3}
   action:
     owner: {fileID: 0}
     target: {fileID: 0}
     attack: 0
     DMG: 0
     heal: 0
-    applyStE:
-    - StE: {fileID: 2510622262790149085, guid: 2d44b09f2d9859347acdafdf826ef663, type: 3}
-      amount: 50
-    removeStE: []
+    applyStE: []
+    removeStE:
+    - {fileID: 2510622262790149085, guid: 14ab0718acf084b4b907936ac46fb402, type: 3}

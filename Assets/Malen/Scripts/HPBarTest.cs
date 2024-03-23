@@ -36,4 +36,10 @@ public class HPBarTest : MonoBehaviour
         bam.SetPlayerPropety(player);
         bam.PlayHealedAnimation(character.GetCharacterStatus());
     }
+
+    public void Display(float amount)
+    {
+        Character character = player.GetComponent<Character>();
+        bam.ShowDamageIndicator(character.gameObject, amount);
+    }
 }

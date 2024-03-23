@@ -4,7 +4,11 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UIElements.Experimental;
 using UnityEngine.TextCore.Text;
+using UnityEngine.UI;
 
+/// <summary>
+/// 行動のアニメーションとダメージと状態異常の表示を管理
+/// </summary>
 public class BattleAnimationManager : MonoBehaviour
 {
 
@@ -29,6 +33,10 @@ public class BattleAnimationManager : MonoBehaviour
         public Vector3 defaultPosition;
     }
 
+    /// <summary>
+    /// 攻撃アニメーションを再生
+    /// </summary>
+    /// <param name="status"></param>
     public void PlayAttackAnimation(Character.CharacterStatus status)
     {
         if (battleAnimationPropety.isAnimationPlayedOnAttack)
@@ -50,6 +58,10 @@ public class BattleAnimationManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 被ダメージアニメーションを再生
+    /// </summary>
+    /// <param name="status"></param>
     public void PlayDamagedAnimation(Character.CharacterStatus status)
     {
         if (battleAnimationPropety.isAnimationPlayedOnDamaged)
@@ -62,6 +74,10 @@ public class BattleAnimationManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 回復アニメーションを再生
+    /// </summary>
+    /// <param name="status"></param>
     public void PlayHealedAnimation(Character.CharacterStatus status)
     {
         if(battleAnimationPropety.isAnimationPlayedOnHealed)
@@ -75,6 +91,31 @@ public class BattleAnimationManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// ダメージ表示 (被ダメージはマイナス値、与ダメージはプラス値で指定)
+    /// </summary>
+    /// <param name="amount"></param>
+    public void ShowDamageIndicator(GameObject targetCharacter, float amount)
+    {
+        GameObject indicator = Instantiate(battleAnimationPropety.indicator);
+        GameObject indicatorCanvas = GameObject.Find("IndicatorCanvas");
+        float scattering = battleAnimationPropety.scattering;
+        indicator.transform.SetParent(indicatorCanvas.transform);
+        indicator.transform.position = targetCharacter.transform.position + new Vector3(Random.Range(-scattering, scattering), Random.Range(-scattering, scattering), 0);
+        indicator.transform.localScale = Vector3.one;
+        Text text = indicator.GetComponent<Text>();
+        if(amount < 0)
+        {
+            text.color = battleAnimationPropety.damageColor;
+            text.text = "" + amount;
+        }
+        else
+        {
+            text.color = battleAnimationPropety.healColor;
+            text.text = "+" + amount;
+        }
+    }
+
     public void SetPlayerPropety(GameObject playerObject)
     {
         player.characterObject = playerObject;
@@ -85,13 +126,13 @@ public class BattleAnimationManager : MonoBehaviour
     public void SetEnemyProtery(GameObject enemyObject)
     {
         enemy.characterObject = enemyObject;
-        enemy.characterSide = CharacterSide.Right;
+        enemy.characterSide = CharacterSide.Left;
         enemy.defaultPosition = enemyObject.transform.position;
     }
 
     private CharacterAnimationInfo GetInfo(Character.CharacterStatus status)
     {
-        if (status.charaName == "プレイヤー")
+        if (status.player)
         {
             return player;
         }
