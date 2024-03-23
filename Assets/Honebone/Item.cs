@@ -13,7 +13,9 @@ public class Item : MonoBehaviour
         public string itemName;
         public Sprite itemSprite;
         public bool canEquip;
-       [Header("装備可能アイテムのみ")] public GameObject passiveAbility;
+        public bool weapon;
+        public bool armor;
+        [Header("装備可能アイテムのみ")] public GameObject passiveAbility;
     }
     [SerializeField]
     ItemData itemData;
@@ -65,7 +67,7 @@ public class Item : MonoBehaviour
                 onSlot_Alchemy.SetItem(this);
                 rb.MovePosition(onSlot_Alchemy.transform.position);
             }
-            if (onSlot_Equipment != null && itemData.canEquip)//装備品が装備品スロット上にあるなら
+            else if (onSlot_Equipment != null && itemData.canEquip)//装備品が装備品スロット上にあるなら
             {
                 onSlot_Equipment.SetItem(this);
                 rb.MovePosition(onSlot_Equipment.transform.position);
@@ -88,6 +90,7 @@ public class Item : MonoBehaviour
     public void ResetSlot()
     {
         onSlot_Alchemy = null;
+        onSlot_Equipment = null;
         rb.bodyType = RigidbodyType2D.Dynamic;
         Snap();
     }

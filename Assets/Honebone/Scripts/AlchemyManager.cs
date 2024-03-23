@@ -8,6 +8,8 @@ public class AlchemyManager : MonoBehaviour
     [SerializeField]
     List<AlchemyRecipe> alchemyRecipes = new List<AlchemyRecipe>();
     [SerializeField]
+    GameObject slotsP;
+    [SerializeField]
     AlchemySlot slot_L;
     [SerializeField]
     AlchemySlot slot_R;
@@ -35,6 +37,15 @@ public class AlchemyManager : MonoBehaviour
     public void SetDraggingItemText(string s)
     {
         draggingItemText.text = s;
+    }
+    public void ToggleEquipmentSlots()
+    {
+        if (slotsP.activeSelf)
+        {
+            slot_L.SnapItem();
+            slot_R.SnapItem();
+        }
+        slotsP.SetActive(!slotsP.activeSelf);
     }
     public void SetAlchemyButton()
     {
