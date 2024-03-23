@@ -31,6 +31,14 @@ public class AlchemySlot : MonoBehaviour
         itemNameText.text = string.Empty;
         alchemyManager.SetAlchemyButton();
     }
+    public void SnapItem()
+    {
+        if (setItem != null)
+        {
+            setItem.ResetSlot();
+            ResetItem();
+        }
+    }
 
     public void ConsumeItem()
     {
