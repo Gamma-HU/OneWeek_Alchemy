@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class SetContentElement : MonoBehaviour
 {
     [SerializeField] private Image BackgroundImage;
-    [SerializeField] private TextMeshProUGUI StageTitleText;
-    [SerializeField] private TextMeshProUGUI Difficulty_Text;
-    [SerializeField] private TextMeshProUGUI DungeonInfo;
+    [SerializeField] private Text StageTitleText;
+    [SerializeField] private Text Difficulty_Text;
+    [SerializeField] private Text DungeonInfo;
 
     public void setElement(Sprite image, string text_stageTitle, int text_difficulty, string text_dungeonInfo)
     {
