@@ -31,9 +31,9 @@ public class BattleAnimationManager : MonoBehaviour
 
     public void PlayAttackAnimation(Character.CharacterStatus status)
     {
-        CharacterAnimationInfo info = GetInfo(status);
         if (battleAnimationPropety.isAnimationPlayedOnAttack)
         {
+            CharacterAnimationInfo info = GetInfo(status);
             Sequence sequence = DOTween.Sequence();
             if (info.characterSide == CharacterSide.Right)
             {
@@ -52,21 +52,26 @@ public class BattleAnimationManager : MonoBehaviour
 
     public void PlayDamagedAnimation(Character.CharacterStatus status)
     {
-        CharacterAnimationInfo info = GetInfo(status);
         if (battleAnimationPropety.isAnimationPlayedOnDamaged)
         {
+            CharacterAnimationInfo info = GetInfo(status);
             Sequence sequence = DOTween.Sequence();
-            sequence.Append(info.characterObject.transform.DOMove(info.defaultPosition, battleAnimationPropety.durationOnAttack / 10));
-            sequence.Join(info.characterObject.transform.DORotate(Vector3.zero, battleAnimationPropety.durationOnAttack / 10, RotateMode.Fast));
+            sequence.Append(info.characterObject.transform.DOMove(info.defaultPosition, battleAnimationPropety.durationOnDamaged / 10));
+            sequence.Join(info.characterObject.transform.DORotate(Vector3.zero, battleAnimationPropety.durationOnDamaged / 10, RotateMode.Fast));
             sequence.Join(info.characterObject.transform.DOShakePosition(battleAnimationPropety.durationOnDamaged, battleAnimationPropety.vibrationStrengthOnDamaged, battleAnimationPropety.vibrationCountOnDamaged));
         }
     }
 
-    public void PlayHealedAnimation()
+    public void PlayHealedAnimation(Character.CharacterStatus status)
     {
         if(battleAnimationPropety.isAnimationPlayedOnHealed)
         {
-
+            CharacterAnimationInfo info = GetInfo(status);
+            Sequence sequence = DOTween.Sequence();
+            sequence.Append(info.characterObject.transform.DOMove(info.defaultPosition, battleAnimationPropety.durationOnHealed / 10));
+            sequence.Join(info.characterObject.transform.DORotate(Vector3.zero, battleAnimationPropety.durationOnHealed / 10, RotateMode.Fast));
+            sequence.Append(info.characterObject.transform.DOMove(info.defaultPosition + new Vector3(0, battleAnimationPropety.jumpDistanceOnHealed, 0), battleAnimationPropety.durationOnHealed / 2));
+            sequence.Append(info.characterObject.transform.DOMove(info.defaultPosition, battleAnimationPropety.durationOnHealed / 2));
         }
     }
 

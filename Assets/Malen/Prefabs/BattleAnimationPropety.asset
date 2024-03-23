@@ -12,5 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 113b4e31a454b0e45a4c2377ea229d61, type: 3}
   m_Name: BattleAnimationPropety
   m_EditorClassIdentifier: 
-  forwardDistance: 0
-  angleAtAttack: 0
+  isAnimationPlayedOnAttack: 1
+  forwardDistanceOnAttack: 5
+  angleOnAttack: 15
+  durationOnAttack: 0.25
+  isAnimationPlayedOnDamaged: 1
+  vibrationStrengthOnDamaged: 2
+  vibrationCountOnDamaged: 50
+  durationOnDamaged: 0.25
+  isAnimationPlayedOnHealed: 1
+  jumpDistanceOnHealed: 1
+  durationOnHealed: 0.25

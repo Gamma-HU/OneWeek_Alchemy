@@ -22,4 +22,18 @@ public class HPBarTest : MonoBehaviour
         bam.SetPlayerPropety(player);
         bam.PlayAttackAnimation(character.GetCharacterStatus());
     }
+
+    public void Damaged()
+    {
+        Character character = player.GetComponent<Character>();
+        bam.SetPlayerPropety(player);
+        bam.PlayDamagedAnimation(character.GetCharacterStatus());
+    }
+
+    public void Healed()
+    {
+        Character character = player.GetComponent<Character>();
+        bam.SetPlayerPropety(player);
+        bam.PlayHealedAnimation(character.GetCharacterStatus());
+    }
 }
