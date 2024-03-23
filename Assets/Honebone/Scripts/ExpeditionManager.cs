@@ -27,6 +27,7 @@ public class ExpeditionManager : MonoBehaviour
 
         player.Init(battleManager,playerGauge);
         player.Equip(gameManager.GetEquipments());
+        FindObjectOfType<BattleAnimationManager>().SetPlayerPropety(player.gameObject);
 
         StartExpedition(gameManager.GetSelectedDugeon());
         Debug.Log("’TõŠJn");
