@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: d014152ebca2a0e47955a5e4e0b7262c, type: 3}
   m_Name: HPBarPropety
-  m_EditorClassIdentifier: Assembly-CSharp::GaugeManager/HPBarPropety
-  normalColor: {r: 0.031396866, g: 1, b: 0, a: 1}
-  damagedColor: {r: 1, g: 0.7957734, b: 0, a: 1}
+  m_EditorClassIdentifier: 
+  normalColor: {r: 0.041301847, g: 1, b: 0, a: 1}
+  damagedColor: {r: 1, g: 0.8795767, b: 0, a: 1}
   dangerColor: {r: 1, g: 0, b: 0, a: 1}
   gaugeTransitionTime: 0.2
   HPColorCriteria:

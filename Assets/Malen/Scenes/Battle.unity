@@ -514,28 +514,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05bc49f17be5342498659940212d17a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PAName: 
-  PAInfo: 
-  exHP: 0
-  exATK: 0
-  character: {fileID: 0}
-  characterStatus:
-    charaName: 
-    maxHP: 0
-    ATK: 0
-    passiveAbilities: []
-    exDMG_int: 0
-    exDMG_mul: 0
-    PROT_int: 0
-    PROT_mul: 0
-    RHeal_mul: 0
-    HP: 0
-    dead: 0
-    blind: 0
-  battleManager: {fileID: 0}
-  player: {fileID: 1582676303}
-  characterPlayer: {fileID: 0}
-  stEParams: {StE: {fileID: 0}, amount: 0}
 --- !u!4 &438954817
 Transform:
   m_ObjectHideFlags: 0
@@ -1766,6 +1744,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HP Bar Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6583522772057775567, guid: 6e61a552acfb7044aa6f9e9fe99d675c, type: 3}
+      propertyPath: hpBarPropety
+      value: 
+      objectReference: {fileID: 11400000, guid: 2ffa8fd5bd84a734ba2183985c3c0fc0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1779,6 +1761,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1688774101}
     m_Modifications:
+    - target: {fileID: 2188958159092151907, guid: bcadb5f849bf40949b6806d528671804, type: 3}
+      propertyPath: hpBarPropety
+      value: 
+      objectReference: {fileID: 11400000, guid: 2ffa8fd5bd84a734ba2183985c3c0fc0, type: 2}
     - target: {fileID: 4191095586280884009, guid: bcadb5f849bf40949b6806d528671804, type: 3}
       propertyPath: m_Name
       value: HP Bar Enemy
