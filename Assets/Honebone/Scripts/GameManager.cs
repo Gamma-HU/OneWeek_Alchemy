@@ -11,6 +11,11 @@ public class GameManager : MonoBehaviour
     List<DungeonData> unlockedDungeon = new List<DungeonData>();//解放されている未クリアのダンジョン
     List<GameObject> unlockedMaterial = new List<GameObject>();
     List<AlchemyRecipe> unlockedRecipe = new List<AlchemyRecipe>();
+
+    [SerializeField]//test
+    DungeonData selectedDungeon;
+    [SerializeField]//test
+    List<GameObject> equipments;
     void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -40,11 +45,16 @@ public class GameManager : MonoBehaviour
     {
         
     }
-    public void EnterDungeon(DungeonData enter,List<PassiveAbility> equipments)
+    public void EnterDungeon(DungeonData enter,List<GameObject> eq)
     {
-
+        selectedDungeon = enter;
+        equipments = eq;
+        SceneManager.LoadScene("Battle");
     }
     public List<DungeonData> GetUnlockedDungeon() { return unlockedDungeon; }
     public List<GameObject> GetUnlockedMaterial() { return unlockedMaterial; }
     public List<AlchemyRecipe> GEtUnlockedRecipe() { return unlockedRecipe; }
+
+    public List<GameObject> GetEquipments() { return equipments; }
+    public DungeonData GetSelectedDugeon() { return selectedDungeon; }
 }
