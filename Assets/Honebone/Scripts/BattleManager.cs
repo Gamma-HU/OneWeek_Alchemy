@@ -130,9 +130,10 @@ public class BattleManager : MonoBehaviour
                 {
                     action.target.RemoveStE(removeStE);
                 }
-                actionQueue.RemoveAt(0);
-                StartCoroutine(ActionInterval());
+                
             }
+            actionQueue.RemoveAt(0);
+            StartCoroutine(ActionInterval());
         }
         else
         {
