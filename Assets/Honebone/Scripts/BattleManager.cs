@@ -45,15 +45,19 @@ public class BattleManager : MonoBehaviour
     DungeonEffect dungeonEffect;
 
     ExpeditionManager expeditionManager;
+    BattleAnimationManager battleAnimManager;
     private void Start()//test
     {
         expeditionManager = FindObjectOfType<ExpeditionManager>();
+        battleAnimManager = FindObjectOfType<BattleAnimationManager>();
     }
     public void StartBattle(GameObject enemyObj)
     {
         var e = Instantiate(enemyObj, enemyP);
         enemy = e.GetComponent<Character>();
         enemy.Init(this, enemyGauge);
+        battleAnimManager.SetEnemyProtery(e);
+
         enemy.SetOpponent(player);
         player.SetOpponent(enemy);
         Debug.Log("êÌì¨äJén");

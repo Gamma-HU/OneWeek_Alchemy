@@ -46,6 +46,7 @@ public class Character : MonoBehaviour
     CharacterStatus opponetnStatus;
     BattleManager battleManager;
     GaugeManager HPGauge;
+    BattleAnimationManager animManager;
 
     public void Init(BattleManager bm,GaugeManager gauge)
     {
@@ -53,6 +54,7 @@ public class Character : MonoBehaviour
         HPGauge = gauge;
         status.HP = status.maxHP;
         HPGauge.UpdateHPGauge(status.GetHPPercent());
+        animManager = FindObjectOfType<BattleAnimationManager>();
         foreach (GameObject passiveAbility in status.passiveAbilities)//stausにあるパッシブアビリティから、スクリプトだけを抽出(誘発処理の際の簡略化のため)
         {
             var p = Instantiate(passiveAbility, transform);
@@ -96,7 +98,8 @@ public class Character : MonoBehaviour
             opponent.OnAttacked(0, true);
             Debug.Log("Miss");
         }
-        //===============================================[[攻撃時演出]]===================================================
+        //if (status.player) { animManager.PlayAttackAnimation(status); }
+        animManager.PlayAttackAnimation(status);
     }
     public void Damage(int DMG,bool byOpponent)
     {
@@ -105,6 +108,8 @@ public class Character : MonoBehaviour
         HPGauge.UpdateHPGauge(status.GetHPPercent());
         Debug.Log(string.Format("{0}は{1}ダメージ(残り{2})", status.charaName, DMG, status.HP));
         OnDamaged(DMG, byOpponent);
+        //if (status.player) { animManager.PlayDamagedAnimation(status); }
+        animManager.PlayDamagedAnimation(status);
         if (status.HP <= 0) { Die(); }
     }
     public void Heal(int value)
@@ -113,6 +118,8 @@ public class Character : MonoBehaviour
         int heal = Mathf.RoundToInt(value * exHeal);
         status.HP = Mathf.Min(status.HP + heal, status.maxHP);
         HPGauge.UpdateHPGauge(status.GetHPPercent());
+        //if (status.player) { animManager.PlayHealedAnimation(status); }
+        animManager.PlayHealedAnimation(status);
         //===============================================[[数値表示]]HealLog(int value)===================================================
         Debug.Log(string.Format("{0}は{1}回復", status.charaName, heal));
         OnHealed(heal);
