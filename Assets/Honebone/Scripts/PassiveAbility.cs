@@ -17,6 +17,7 @@ public class PassiveAbility : MonoBehaviour
         characterStatus = character.GetCharacterStatus();
         battleManager = bm;
 
+        characterStatus.maxHP += exHP;
         characterStatus.HP += exHP;
         characterStatus.ATK += exATK;
     }

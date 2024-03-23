@@ -44,11 +44,14 @@ public class Character : MonoBehaviour
     Character opponent;
     CharacterStatus opponetnStatus;
     BattleManager battleManager;
+    GaugeManager HPGauge;
 
-    public void Init(BattleManager bm)
+    public void Init(BattleManager bm,GaugeManager gauge)
     {
         battleManager = bm;
+        HPGauge = gauge;
         status.HP = status.maxHP;
+        HPGauge.UpdateHPGauge(status.GetHPPercent());
         foreach (GameObject passiveAbility in status.passiveAbilities)//stausにあるパッシブアビリティから、スクリプトだけを抽出(誘発処理の際の簡略化のため)
         {
             var p = Instantiate(passiveAbility, transform);
@@ -64,6 +67,7 @@ public class Character : MonoBehaviour
             p.GetComponent<PassiveAbility>().Init(this, battleManager);
             passiveAbilities.Add(p.GetComponent<PassiveAbility>());
         }
+        HPGauge.UpdateHPGauge(status.GetHPPercent());
     }
 
 
@@ -97,6 +101,7 @@ public class Character : MonoBehaviour
     {
         //===============================================[[数値表示]]DamageLog(int DMG)===================================================
         status.HP-= DMG;
+        HPGauge.UpdateHPGauge(status.GetHPPercent());
         Debug.Log(string.Format("{0}は{1}ダメージ(残り{2})", status.charaName, DMG, status.HP));
         OnDamaged(DMG, byOpponent);
         if (status.HP <= 0) { Die(); }
@@ -106,6 +111,7 @@ public class Character : MonoBehaviour
         float exHeal = Mathf.Max(0f, 1 + status.RHeal_mul);
         int heal = Mathf.RoundToInt(value * exHeal);
         status.HP = Mathf.Min(status.HP + heal, status.maxHP);
+        HPGauge.UpdateHPGauge(status.GetHPPercent());
         //===============================================[[数値表示]]HealLog(int value)===================================================
         Debug.Log(string.Format("{0}は{1}回復", status.charaName, heal));
         OnHealed(heal);
@@ -129,7 +135,7 @@ public class Character : MonoBehaviour
             p.GetComponent<PA_StatusEffects>().StEInit(stEParams.amount);
             passiveAbilities.Add(p.GetComponent<PassiveAbility>());
         }
-        Debug.Log(string.Format("{0}に{1}を{2}付与", status.charaName, StEName, stEParams.amount));
+        Debug.Log(string.Format("{0}に{1}{2}を付与", status.charaName, StEName, stEParams.amount));
         OnAppliedStE(stEParams);
     }
     public void RemoveStE(GameObject remove)

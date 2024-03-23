@@ -36,6 +36,8 @@ public class BattleManager : MonoBehaviour
     List<Action> actionQueue = new List<Action>();
 
     [SerializeField]
+    GaugeManager enemyGauge;
+    [SerializeField]
     Character player;
     Character enemy;
     bool playerTurn;
@@ -49,11 +51,16 @@ public class BattleManager : MonoBehaviour
     {
         var e = Instantiate(enemyObj, enemyP);
         enemy = e.GetComponent<Character>();
-        enemy.Init(this);
+        enemy.Init(this, enemyGauge);
         enemy.SetOpponent(player);
         player.SetOpponent(enemy);
         Debug.Log("êÌì¨äJén");
 
+        StartCoroutine(BattleStartDelay());
+    }
+    IEnumerator BattleStartDelay()
+    {
+        yield return new WaitForSeconds(1f);
         //DungeonEffect
         player.OnBattleStart();
         enemy.OnBattleStart();

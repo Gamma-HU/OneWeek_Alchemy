@@ -20,13 +20,16 @@ public class AlchemyManager : MonoBehaviour
     [SerializeField]
     Text draggingItemText;
 
+    GameManager gameManager;
+    AlchemySceneManager alchemySceneManager;
+
     [SerializeField]
     Vector2 spawnPos;
 
-    List<AlchemyRecipe> unlockedRecipes;
     void Start()
     {
-        unlockedRecipes = new List<AlchemyRecipe>();
+        gameManager = FindObjectOfType<GameManager>();
+        alchemySceneManager = FindObjectOfType<AlchemySceneManager>();
     }
 
     // Update is called once per frame
@@ -58,7 +61,7 @@ public class AlchemyManager : MonoBehaviour
             {
                 if (recipe.CheckMaterial(name1, name2))
                 {
-                    if (unlockedRecipes.Contains(recipe)) { productNameText.text = recipe.product.GetComponent<Item>().GetItemName(); }
+                    if (gameManager.GetUnlockedRecipe().Contains(recipe)) { productNameText.text = recipe.product.GetComponent<Item>().GetItemName(); }
                     else { productNameText.text = "???"; }
                     return;
                 }
@@ -81,13 +84,11 @@ public class AlchemyManager : MonoBehaviour
             {
                 if (recipe.CheckMaterial(name1, name2))
                 {
-                    var p = Instantiate(recipe.product, spawnPos, Quaternion.identity);
-                    p.GetComponent<Item>().Init();
-                    p.GetComponent<Item>().Snap();
+                    alchemySceneManager.SpawnItem(recipe.product, spawnPos);
 
                     slot_L.ConsumeItem();
                     slot_R.ConsumeItem();
-                    if (!unlockedRecipes.Contains(recipe)) { unlockedRecipes.Add(recipe); }
+                    if (!gameManager.GetUnlockedRecipe().Contains(recipe)) { gameManager.UnlockRecipe(recipe); }
                     SetAlchemyButton();
                 }
             }

@@ -9,6 +9,8 @@ public class ExpeditionManager : MonoBehaviour
     BattleManager battleManager;
 
     [SerializeField]
+    GaugeManager playerGauge;
+    [SerializeField]
     Character player;
 
     [SerializeField]
@@ -19,7 +21,7 @@ public class ExpeditionManager : MonoBehaviour
     {
         battleManager = FindObjectOfType<BattleManager>();
 
-        player.Init(battleManager);
+        player.Init(battleManager,playerGauge);
         player.Equip(FindObjectOfType<GameManager>().GetEquipments());
 
         StartExpedition(FindObjectOfType<GameManager>().GetSelectedDugeon());
@@ -39,6 +41,10 @@ public class ExpeditionManager : MonoBehaviour
             Debug.Log("ダンジョンクリア");
         }
         else { StartCoroutine(BattleInterval()); }
+    }
+    public void EndExpedition()
+    {
+        
     }
     IEnumerator BattleInterval()
     {
