@@ -7,17 +7,26 @@ using UnityEngine.SceneManagement;
 public class ButtonScript : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField,Tooltip("多重クリック防止のための判定")]
-    bool IsClicked = false;
+    public bool IsClicked = false;
+    [SerializeField]
+    PanelAnimScript PanelAnimScript;
 
     public void OnPointerClick(PointerEventData eventData)
     {
         if (!IsClicked)
         {
             IsClicked = true;
-            SceneManager.LoadScene("Alchemy");
+            StartCoroutine(WaitCorou());
+            PanelAnimScript.AnimStart();
         } else
         {
             return;
         }
+    }
+    IEnumerator WaitCorou()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("Alchemy");
+
     }
 }

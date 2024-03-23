@@ -135,8 +135,8 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Hamon: 0.14
-    - _Hamon_seisei: 1.08
-    - _Hamon_ugokasu: 6.25
+    - _Hamon_seisei: 1.5
+    - _Hamon_ugokasu: 4.52939
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
