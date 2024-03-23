@@ -7,6 +7,7 @@ public class Character : MonoBehaviour
     [System.Serializable]
     public class CharacterStatus
     {
+        public bool player;
         public string charaName;
 
         [Header("最大HP")] public int maxHP;
@@ -203,6 +204,7 @@ public class Character : MonoBehaviour
     }
 
     public CharacterStatus GetCharacterStatus() { return status; }
+    public Character GetOpponent() { return opponent; }
     public string GetInfo()
     {
         string s = "";

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7528219832666201832}
   - component: {fileID: 3282118471336759238}
   m_Layer: 0
-  m_Name: Chara_Slime
+  m_Name: Chara_PoisonFrog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9d7316efbcae68346b02edaccb82a626, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 46f466595f5696048b3601933c562c96, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -99,10 +99,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   status:
     player: 0
-    charaName: "\u30B9\u30E9\u30A4\u30E0"
+    charaName: "\u6BD2\u30AC\u30A8\u30EB"
     maxHP: 40
-    ATK: 4
-    passiveAbilities: []
+    ATK: 2
+    passiveAbilities:
+    - {fileID: 5674685493744237135, guid: 08408e19b8d09f84888bbe0da722e333, type: 3}
     exDMG_int: 0
     exDMG_mul: 0
     PROT_int: 0

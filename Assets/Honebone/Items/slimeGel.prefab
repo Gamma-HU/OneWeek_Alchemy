@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2241911426083760534}
   - component: {fileID: 3437269811183131551}
   m_Layer: 0
-  m_Name: Leather
+  m_Name: slimeGel
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData:
-    itemName: "\u9769"
+    itemName: "\u30B9\u30E9\u30A4\u30E0\u30B8\u30A7\u30EB"
     itemSprite: {fileID: 21300000, guid: 46f466595f5696048b3601933c562c96, type: 3}
     canEquip: 0
     weapon: 0

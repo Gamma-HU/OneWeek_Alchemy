@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8313083597182299096
+--- !u!1 &5674685493744237135
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,44 +8,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1274222725523604865}
-  - component: {fileID: -3638490568025339804}
+  - component: {fileID: 2519544292671379023}
+  - component: {fileID: 382097130899055021}
   m_Layer: 0
-  m_Name: Eq_Sling_PA
+  m_Name: PA_PoisonFrog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1274222725523604865
+--- !u!4 &2519544292671379023
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8313083597182299096}
+  m_GameObject: {fileID: 5674685493744237135}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-3638490568025339804
+--- !u!114 &382097130899055021
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8313083597182299096}
+  m_GameObject: {fileID: 5674685493744237135}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df25135e747afb54b9add482275f7cd2, type: 3}
+  m_Script: {fileID: 11500000, guid: be6d6341501f6a2488951bd63330baba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PAName: "\u30B9\u30EA\u30F3\u30B0"
-  PAInfo: "\u5404\u6226\u95D8\u306E\u958B\u59CB\u6642\u306B\u3001\u81EA\u5206\u306B\u529B50\u3092\u4ED8\u4E0E"
+  PAName: "\u6BD2\u30AC\u30A8\u30EB"
+  PAInfo: "2\u56DE\u653B\u6483\u3059\u308B\u305F\u3073\u306B\u3001\u76F8\u624B\u306B\u6BD23\u3092\u4ED8\u4E0E"
   exHP: 0
   exATK: 0
   action:
@@ -55,6 +55,6 @@ MonoBehaviour:
     DMG: 0
     heal: 0
     applyStE:
-    - StE: {fileID: 2510622262790149085, guid: 2d44b09f2d9859347acdafdf826ef663, type: 3}
-      amount: 50
+    - StE: {fileID: 2510622262790149085, guid: 106763312a705be419cb3414d5a3ef4a, type: 3}
+      amount: 3
     removeStE: []

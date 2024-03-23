@@ -54,6 +54,11 @@ public class GameManager : MonoBehaviour
         equipments = eq;
         SceneManager.LoadScene("Battle");
     }
+    public void ReturnToAlchemyScene()
+    {
+        equipments = new List<GameObject>();
+        SceneManager.LoadScene("Alchemy");
+    }
     public void UnlockRecipe(AlchemyRecipe recipe) { unlockedRecipe.Add(recipe); }
     public void UnlockMaterial(GameObject material) { unlockedMaterial.Add(material); }
     public void UnlockDungeon(DungeonData dungeon) { unlockedDungeon.Add(dungeon); }

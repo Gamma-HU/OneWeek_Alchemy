@@ -42,6 +42,8 @@ public class BattleManager : MonoBehaviour
     Character enemy;
     bool playerTurn;
 
+    DungeonEffect dungeonEffect;
+
     ExpeditionManager expeditionManager;
     private void Start()//test
     {
@@ -61,7 +63,7 @@ public class BattleManager : MonoBehaviour
     IEnumerator BattleStartDelay()
     {
         yield return new WaitForSeconds(1f);
-        //DungeonEffect
+        if (dungeonEffect != null) { dungeonEffect.OnBattleStart(); }
         player.OnBattleStart();
         enemy.OnBattleStart();
         StartResolve();
@@ -152,6 +154,8 @@ public class BattleManager : MonoBehaviour
         StartCoroutine(TurnInterval());
     }
 
+    public void SetDungeonEffect(DungeonEffect effect) { dungeonEffect = effect; }
+
     IEnumerator ActionInterval()
     {
         yield return new WaitForSeconds(actionInterval);
@@ -162,4 +166,7 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(turnInterval);
         NextTurn();
     }
+
+    public Character GetPlayer() { return player; }
+    public Character GetEnemy() { return enemy; }
 }
