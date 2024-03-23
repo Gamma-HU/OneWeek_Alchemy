@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b3393a966dd11f448afd3d6f1745b77, type: 3}
+  m_Name: 4-1Cave
+  m_EditorClassIdentifier: 
+  dungeonName: "\u6D1E\u7A9F"
+  dungeonEffect: {fileID: 286343360132725658, guid: 3c0b105f1cd389c4f90fa828c0153336, type: 3}
+  background: {fileID: 21300000, guid: 986cedb2c018146e69181fe4e2821dc2, type: 3}
+  difficulty: 4
+  dungeonInfo: "\u6697\u95C7\u306E\u305B\u3044\u3067\u653B\u6483\u304C\u5916\u308C\u308B"
+  enemies:
+  - {fileID: 3164025572629520509, guid: c3ef90d57673fb6498a27d28e05cc6b0, type: 3}
+  - {fileID: 3164025572629520509, guid: c3ef90d57673fb6498a27d28e05cc6b0, type: 3}
+  rewardItems: []
+  nextDungeons: []

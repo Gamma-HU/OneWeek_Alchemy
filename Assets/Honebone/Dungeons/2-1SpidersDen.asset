@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b3393a966dd11f448afd3d6f1745b77, type: 3}
-  m_Name: SpidersDen
+  m_Name: 2-1SpidersDen
   m_EditorClassIdentifier: 
   dungeonName: "\u8718\u86DB\u306E\u5DE3"
   dungeonEffect: {fileID: 0}
@@ -24,4 +24,6 @@ MonoBehaviour:
   rewardItems:
   - {fileID: 369480470792548374, guid: d7bccfe48e747c84ba193c0ef5115e40, type: 3}
   - {fileID: 369480470792548374, guid: 293a156e08c243e4c820fd2905cc83cb, type: 3}
-  nextDungeons: []
+  nextDungeons:
+  - {fileID: 11400000, guid: de1b37bdc9cbf794ca8ac92028bfaa26, type: 2}
+  - {fileID: 11400000, guid: 964abd9cbb05e0a4fa6eda52f4080293, type: 2}

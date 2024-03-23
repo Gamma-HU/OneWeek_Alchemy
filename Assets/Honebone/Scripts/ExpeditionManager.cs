@@ -16,21 +16,32 @@ public class ExpeditionManager : MonoBehaviour
     [SerializeField]
     float battleInterval;
 
+    GameManager gameManager;
+    DungeonEffect dungeonEffect;
+
     int layer;
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         battleManager = FindObjectOfType<BattleManager>();
 
         player.Init(battleManager,playerGauge);
-        player.Equip(FindObjectOfType<GameManager>().GetEquipments());
+        player.Equip(gameManager.GetEquipments());
 
-        StartExpedition(FindObjectOfType<GameManager>().GetSelectedDugeon());
+        StartExpedition(gameManager.GetSelectedDugeon());
         Debug.Log("探索開始");
     }
 
     public void StartExpedition(DungeonData dungeon)
     {
         currentDungeon = dungeon;
+        if (currentDungeon.dungeonEffect != null)
+        {
+            var d = Instantiate(dungeon.dungeonEffect);
+            dungeonEffect = d.GetComponent<DungeonEffect>();
+            dungeonEffect.Init(battleManager);
+            battleManager.SetDungeonEffect(dungeonEffect);
+        }
         battleManager.StartBattle(currentDungeon.enemies[0]);
     }
     public void NextLayer()
@@ -39,13 +50,24 @@ public class ExpeditionManager : MonoBehaviour
         if (currentDungeon.enemies.Count == layer)
         {
             Debug.Log("ダンジョンクリア");
+            CompleteExpedition();
         }
         else { StartCoroutine(BattleInterval()); }
     }
-    public void EndExpedition()
+    void CompleteExpedition()
     {
-        
+        foreach(GameObject reward in currentDungeon.rewardItems)
+        {
+            Debug.Log(string.Format("新たな錬金素材「{0}」をアンロック", reward.GetComponent<Item>().GetItemName()));
+            gameManager.UnlockMaterial(reward);
+        }
+        foreach(DungeonData dungeon in currentDungeon.nextDungeons)
+        {
+            Debug.Log(string.Format("新たなダンジョン「{0}」をアンロック", dungeon.dungeonName));
+            gameManager.UnlockDungeon(dungeon);
+        }
     }
+  
     IEnumerator BattleInterval()
     {
         yield return new WaitForSeconds(battleInterval);

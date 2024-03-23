@@ -38,6 +38,11 @@ public class EquipmentsSetManager : MonoBehaviour
                     slot.SnapItem();
                     return;
                 }
+                if (slot.GetItem().GetItemName() == itemData.itemName)
+                {
+                    slot.SnapItem();
+                    return;
+                }
             }
         }
     }
