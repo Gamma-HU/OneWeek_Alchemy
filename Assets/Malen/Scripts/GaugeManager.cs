@@ -35,12 +35,4 @@ public class GaugeManager : MonoBehaviour
         }
         image.fillAmount = hpRatio;
     }
-
-    private class PA : PassiveAbility
-    {
-        public override void OnAttacked(int DMG, bool missed)
-        {
-            Debug.Log(DMG);
-        }
-    }
 }
