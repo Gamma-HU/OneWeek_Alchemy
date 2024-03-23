@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,24 +9,24 @@ public class Character : MonoBehaviour
     {
         public string charaName;
 
-        [Header("Å‘åHP")] public int maxHP;
-        [Header("UŒ‚—Í")] public int ATK;
+        [Header("æœ€å¤§HP")] public int maxHP;
+        [Header("æ”»æ’ƒåŠ›")] public int ATK;
 
-        [Header("‘•”õ•iA“GƒLƒƒƒ‰‚Ì“Á«Aó‘ÔˆÙí\n(PassiveAbility‚ªƒAƒ^ƒbƒ`‚³‚ê‚Ä‚¢‚éGameObjrct)")] public List<GameObject> passiveAbilities;
+        [Header("è£…å‚™å“ã€æ•µã‚­ãƒ£ãƒ©ã®ç‰¹æ€§ã€çŠ¶æ…‹ç•°å¸¸\n(PassiveAbilityãŒã‚¢ã‚¿ãƒƒãƒã•ã‚Œã¦ã„ã‚‹GameObjrct)")] public List<GameObject> passiveAbilities;
 
 
-        [Header("\n\n=====<ˆÈ‰º‚ÌƒXƒe[ƒ^ƒX‚Íí“¬’†‚É•Ï‰»>=====\n\n")]
-        [Header("UŒ‚‚Ìƒ_ƒ[ƒW—Ê‚É‰ÁZEæZ")]
+        [Header("\n\n=====<ä»¥ä¸‹ã®ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã¯æˆ¦é—˜ä¸­ã«å¤‰åŒ–>=====\n\n")]
+        [Header("æ”»æ’ƒæ™‚ã®ãƒ€ãƒ¡ãƒ¼ã‚¸é‡ã«åŠ ç®—ãƒ»ä¹—ç®—")]
         public int exDMG_int;
         public float exDMG_mul;
 
-        [Header("“G‚©‚ç‚Ì”íƒ_ƒ[ƒW—Ê‚É‰ÁZEæZ")]
+        [Header("æ•µã‹ã‚‰ã®è¢«ãƒ€ãƒ¡ãƒ¼ã‚¸é‡ã«åŠ ç®—ãƒ»ä¹—ç®—")]
         public int PROT_int;
         public float PROT_mul;
 
-        [Header("”í‰ñ•œ—Ê‚ÉæZ")] public float RHeal_mul;
+        [Header("è¢«å›å¾©é‡ã«ä¹—ç®—")] public float RHeal_mul;
 
-        [Header("Œ»İHP")] public int HP;
+        [Header("ç¾åœ¨HP")] public int HP;
 
         public bool dead;
         public int blind;
@@ -49,16 +49,25 @@ public class Character : MonoBehaviour
     {
         battleManager = bm;
         status.HP = status.maxHP;
-        foreach (GameObject passiveAbility in status.passiveAbilities)//staus‚É‚ ‚éƒpƒbƒVƒuƒAƒrƒŠƒeƒB‚©‚çAƒXƒNƒŠƒvƒg‚¾‚¯‚ğ’Šo(—U”­ˆ—‚ÌÛ‚ÌŠÈ—ª‰»‚Ì‚½‚ß)
+        foreach (GameObject passiveAbility in status.passiveAbilities)//stausã«ã‚ã‚‹ãƒ‘ãƒƒã‚·ãƒ–ã‚¢ãƒ“ãƒªãƒ†ã‚£ã‹ã‚‰ã€ã‚¹ã‚¯ãƒªãƒ—ãƒˆã ã‘ã‚’æŠ½å‡º(èª˜ç™ºå‡¦ç†ã®éš›ã®ç°¡ç•¥åŒ–ã®ãŸã‚)
         {
             var p = Instantiate(passiveAbility, transform);
             p.GetComponent<PassiveAbility>().Init(this,battleManager);
             passiveAbilities.Add(p.GetComponent<PassiveAbility>());
         }
     }
+    public void Equip(List<GameObject> equipments)//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ã¿ä½¿ç”¨ã€€æ¢ç´¢é–‹å§‹æ™‚ã«æŒã¡è¾¼ã‚“ã è£…å‚™å“ã‚’è£…å‚™
+    {
+        foreach(GameObject e in equipments)
+        {
+            var p = Instantiate(e, transform);
+            p.GetComponent<PassiveAbility>().Init(this, battleManager);
+            passiveAbilities.Add(p.GetComponent<PassiveAbility>());
+        }
+    }
 
 
-    public void SetOpponent(Character chara) //í“¬‘Šè‚Ìİ’è
+    public void SetOpponent(Character chara) //æˆ¦é—˜ç›¸æ‰‹ã®è¨­å®š
     {
         opponent = chara;
         opponetnStatus = opponent.GetCharacterStatus();
@@ -67,12 +76,12 @@ public class Character : MonoBehaviour
     {
         if (status.blind == 0)
         {
-            float fDMG = status.ATK;//Šî‘bƒ_ƒ[ƒW
-            float exDMG_mul = Mathf.Max(0f, 1f + status.exDMG_mul - opponetnStatus.PROT_mul);//ƒ_ƒ[ƒW”{—¦•â³ = 1 + [©g‚Ì—^ƒ_ƒ[ƒW—¦•â³] - [‘Šè‚Ì”íƒ_ƒ[ƒW—¦•â³] (•‰‚É‚Í‚È‚ç‚È‚¢)
-            int exDMG_int = status.exDMG_int - opponetnStatus.PROT_int;//ƒ_ƒ[ƒWÀ”•â³ = [©g‚Ì—^ƒ_ƒ[ƒW•â³] - [‘Šè‚Ì”íƒ_ƒ[ƒW•â³]
-            fDMG = Mathf.Max(0f, (fDMG * exDMG_mul) + exDMG_int);//ƒ_ƒ[ƒW = ([Šî‘bƒ_ƒ[ƒW] * [ƒ_ƒ[ƒW”{—¦•â³]) + [ƒ_ƒ[ƒWÀ”•â³]
+            float fDMG = status.ATK;//åŸºç¤ãƒ€ãƒ¡ãƒ¼ã‚¸
+            float exDMG_mul = Mathf.Max(0f, 1f + status.exDMG_mul - opponetnStatus.PROT_mul);//ãƒ€ãƒ¡ãƒ¼ã‚¸å€ç‡è£œæ­£ = 1 + [è‡ªèº«ã®ä¸ãƒ€ãƒ¡ãƒ¼ã‚¸ç‡è£œæ­£] - [ç›¸æ‰‹ã®è¢«ãƒ€ãƒ¡ãƒ¼ã‚¸ç‡è£œæ­£] (è² ã«ã¯ãªã‚‰ãªã„)
+            int exDMG_int = status.exDMG_int - opponetnStatus.PROT_int;//ãƒ€ãƒ¡ãƒ¼ã‚¸å®Ÿæ•°è£œæ­£ = [è‡ªèº«ã®ä¸ãƒ€ãƒ¡ãƒ¼ã‚¸è£œæ­£] - [ç›¸æ‰‹ã®è¢«ãƒ€ãƒ¡ãƒ¼ã‚¸è£œæ­£]
+            fDMG = Mathf.Max(0f, (fDMG * exDMG_mul) + exDMG_int);//ãƒ€ãƒ¡ãƒ¼ã‚¸ = ([åŸºç¤ãƒ€ãƒ¡ãƒ¼ã‚¸] * [ãƒ€ãƒ¡ãƒ¼ã‚¸å€ç‡è£œæ­£]) + [ãƒ€ãƒ¡ãƒ¼ã‚¸å®Ÿæ•°è£œæ­£]
             int DMG = Mathf.RoundToInt(fDMG);
-            opponent.Damage(DMG,true);//lÌŒÜ“ü‚µ‚Ä‘Šè‚ÌDamageŠÖ”‚É“n‚·
+            opponent.Damage(DMG,true);//å››æ¨äº”å…¥ã—ã¦ç›¸æ‰‹ã®Damageé–¢æ•°ã«æ¸¡ã™
             OnAttack(DMG, false);
             opponent.OnAttacked(DMG, false);
         }
@@ -82,13 +91,13 @@ public class Character : MonoBehaviour
             opponent.OnAttacked(0, true);
             Debug.Log("Miss");
         }
-        //===============================================[[UŒ‚‰‰o]]===================================================
+        //===============================================[[æ”»æ’ƒæ™‚æ¼”å‡º]]===================================================
     }
     public void Damage(int DMG,bool byOpponent)
     {
-        //===============================================[[”’l•\¦]]DamageLog(int DMG)===================================================
+        //===============================================[[æ•°å€¤è¡¨ç¤º]]DamageLog(int DMG)===================================================
         status.HP-= DMG;
-        Debug.Log(string.Format("{0}‚Í{1}ƒ_ƒ[ƒW(c‚è{2})", status.charaName, DMG, status.HP));
+        Debug.Log(string.Format("{0}ã¯{1}ãƒ€ãƒ¡ãƒ¼ã‚¸(æ®‹ã‚Š{2})", status.charaName, DMG, status.HP));
         OnDamaged(DMG, byOpponent);
         if (status.HP <= 0) { Die(); }
     }
@@ -97,8 +106,8 @@ public class Character : MonoBehaviour
         float exHeal = Mathf.Max(0f, 1 + status.RHeal_mul);
         int heal = Mathf.RoundToInt(value * exHeal);
         status.HP = Mathf.Min(status.HP + heal, status.maxHP);
-        //===============================================[[”’l•\¦]]HealLog(int value)===================================================
-        Debug.Log(string.Format("{0}‚Í{1}‰ñ•œ", status.charaName, heal));
+        //===============================================[[æ•°å€¤è¡¨ç¤º]]HealLog(int value)===================================================
+        Debug.Log(string.Format("{0}ã¯{1}å›å¾©", status.charaName, heal));
         OnHealed(heal);
     }
     public void ApplyStE(BattleManager.StEParams stEParams)
@@ -120,7 +129,7 @@ public class Character : MonoBehaviour
             p.GetComponent<PA_StatusEffects>().StEInit(stEParams.amount);
             passiveAbilities.Add(p.GetComponent<PassiveAbility>());
         }
-        Debug.Log(string.Format("{0}‚É{1}‚ğ{2}•t—^", status.charaName, StEName, stEParams.amount));
+        Debug.Log(string.Format("{0}ã«{1}ã‚’{2}ä»˜ä¸", status.charaName, StEName, stEParams.amount));
         OnAppliedStE(stEParams);
     }
     public void RemoveStE(GameObject remove)
@@ -132,7 +141,7 @@ public class Character : MonoBehaviour
             {
                 passiveAbility.GetComponent<PA_StatusEffects>().DisableStE();
                 DisableStE(passiveAbility);
-                Debug.Log(string.Format("{0}‚Ì{1}‚ğœ‹", status.charaName, StEName));
+                Debug.Log(string.Format("{0}ã®{1}ã‚’é™¤å»", status.charaName, StEName));
             }
         }
     }
@@ -142,45 +151,45 @@ public class Character : MonoBehaviour
     }
     void Die()
     {
-        //===============================================[[€–S‰‰o]]===================================================
-        Debug.Log(string.Format("{0}‚Í‚½‚¨‚ê‚½", status.charaName));
+        //===============================================[[æ­»äº¡æ™‚æ¼”å‡º]]===================================================
+        Debug.Log(string.Format("{0}ã¯ãŸãŠã‚ŒãŸ", status.charaName));
         status.dead = true;
     }
 
-    //-----------------------------------------------------<ˆÈ‰º—U”­ˆ—>-----------------------------------------------------
+    //-----------------------------------------------------<ä»¥ä¸‹èª˜ç™ºå‡¦ç†>-----------------------------------------------------
 
     public void OnBattleStart()
     {
         List<PassiveAbility> PA = new List<PassiveAbility>(passiveAbilities);
         foreach (PassiveAbility passiveAbility in PA) { passiveAbility.OnBattleStart(); }
     }
-    /// <summary>UŒ‚A–½’†‚µ‚½‚©‚ÉŠÖ‚í‚ç‚¸—U”­</summary>
+    /// <summary>æ”»æ’ƒæ™‚ã€å‘½ä¸­ã—ãŸã‹ã«é–¢ã‚ã‚‰ãšèª˜ç™º</summary>
     public void OnAttack(int DMG, bool missed)
     {
         List<PassiveAbility> PA = new List<PassiveAbility>(passiveAbilities);
         foreach (PassiveAbility passiveAbility in PA) { passiveAbility.OnAttack(DMG, missed); }
     }
-    /// <summary>UŒ‚‚³‚ê‚½A–½’†‚µ‚½‚©‚ÉŠÖ‚í‚ç‚¸—U”­</summary>
+    /// <summary>æ”»æ’ƒã•ã‚ŒãŸæ™‚ã€å‘½ä¸­ã—ãŸã‹ã«é–¢ã‚ã‚‰ãšèª˜ç™º</summary>
     public void OnAttacked(int DMG, bool missed)
     {
         List<PassiveAbility> PA = new List<PassiveAbility>(passiveAbilities);
         foreach (PassiveAbility passiveAbility in PA) { passiveAbility.OnAttacked(DMG, missed); }
     }
 
-    /// <summary>”íƒ_ƒ[ƒW—U”­</summary>
+    /// <summary>è¢«ãƒ€ãƒ¡ãƒ¼ã‚¸æ™‚èª˜ç™º</summary>
     public void OnDamaged(int DMG, bool byOpponent)
     {
         List<PassiveAbility> PA = new List<PassiveAbility>(passiveAbilities);
         foreach (PassiveAbility passiveAbility in PA) { passiveAbility.OnDamaged(DMG, byOpponent); }
     }
 
-    /// <summary>”í‰ñ•œ—U”­</summary>
+    /// <summary>è¢«å›å¾©æ™‚èª˜ç™º</summary>
     public void OnHealed(int healedValue)
     {
         List<PassiveAbility> PA = new List<PassiveAbility>(passiveAbilities);
         foreach (PassiveAbility passiveAbility in PA) { passiveAbility.OnHealed(healedValue); }
     }
-    /// <summary>ó‘ÔˆÙí•t—^‚³‚ê‚½—U”­</summary>
+    /// <summary>çŠ¶æ…‹ç•°å¸¸ä»˜ä¸ã•ã‚ŒãŸæ™‚èª˜ç™º</summary>
     public void OnAppliedStE(BattleManager.StEParams applied)
     {
         List<PassiveAbility> PA = new List<PassiveAbility>(passiveAbilities);
@@ -191,9 +200,9 @@ public class Character : MonoBehaviour
     public string GetInfo()
     {
         string s = "";
-        s += string.Format("‘Ì—ÍF{0}/{1}", status.HP, status.maxHP);
-        s += string.Format("UŒ‚—ÍF{0}",status.ATK);
-        //ŠePssiveAbility‚©‚ç
+        s += string.Format("ä½“åŠ›ï¼š{0}/{1}", status.HP, status.maxHP);
+        s += string.Format("æ”»æ’ƒåŠ›ï¼š{0}",status.ATK);
+        //å„PssiveAbilityã‹ã‚‰
         return s;
     }
 }

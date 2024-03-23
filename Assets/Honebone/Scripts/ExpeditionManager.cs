@@ -6,9 +6,11 @@ public class ExpeditionManager : MonoBehaviour
 {
     [SerializeField]//test
     DungeonData currentDungeon;
-    [SerializeField]//test
-    Character player;//test
     BattleManager battleManager;
+
+    [SerializeField]
+    Character player;
+
     [SerializeField]
     float battleInterval;
 
@@ -16,14 +18,18 @@ public class ExpeditionManager : MonoBehaviour
     void Start()
     {
         battleManager = FindObjectOfType<BattleManager>();
+
         player.Init(battleManager);
-        battleManager.StartBattle(currentDungeon.enemies[0]);//test
+        player.Equip(FindObjectOfType<GameManager>().GetEquipments());
+
+        StartExpedition(FindObjectOfType<GameManager>().GetSelectedDugeon());
         Debug.Log("íTçıäJén");
     }
 
     public void StartExpedition(DungeonData dungeon)
     {
         currentDungeon = dungeon;
+        battleManager.StartBattle(currentDungeon.enemies[0]);
     }
     public void NextLayer()
     {
@@ -39,4 +45,6 @@ public class ExpeditionManager : MonoBehaviour
         yield return new WaitForSeconds(battleInterval);
         battleManager.StartBattle(currentDungeon.enemies[layer]);
     }
+
+    public DungeonData GetCurrentDungeon() { return currentDungeon; }
 }

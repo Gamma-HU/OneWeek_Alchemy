@@ -35,7 +35,7 @@ public class BattleManager : MonoBehaviour
 
     List<Action> actionQueue = new List<Action>();
 
-    [SerializeField]//test
+    [SerializeField]
     Character player;
     Character enemy;
     bool playerTurn;
@@ -101,22 +101,25 @@ public class BattleManager : MonoBehaviour
     }
     void Resolve()
     {
-        if(actionQueue.Count > 0)
+        if (actionQueue.Count > 0)
         {
             Action action = actionQueue[0];
-            if (action.attack) { action.owner.Attack(); }
-            if (action.DMG>0) { action.target.Damage(action.DMG, false); }
-            if (action.heal > 0) { action.target.Heal(action.heal); }
-            foreach(StEParams StEParams in action.applyStE)
+            if (!action.owner.GetCharacterStatus().dead && !action.target.GetCharacterStatus().dead)
             {
-                action.target.ApplyStE(StEParams);
+                if (action.attack) { action.owner.Attack(); }
+                if (action.DMG > 0) { action.target.Damage(action.DMG, false); }
+                if (action.heal > 0) { action.target.Heal(action.heal); }
+                foreach (StEParams StEParams in action.applyStE)
+                {
+                    action.target.ApplyStE(StEParams);
+                }
+                foreach (GameObject removeStE in action.removeStE)
+                {
+                    action.target.RemoveStE(removeStE);
+                }
+                actionQueue.RemoveAt(0);
+                StartCoroutine(ActionInterval());
             }
-            foreach(GameObject removeStE in action.removeStE)
-            {
-                action.target.RemoveStE(removeStE);
-            }
-            actionQueue.RemoveAt(0);
-            if (!CheckBattleEnd()) { StartCoroutine(ActionInterval()); }
         }
         else
         {

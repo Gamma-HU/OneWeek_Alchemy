@@ -13,6 +13,8 @@ public class DebugFunctions : MonoBehaviour
     [SerializeField]
     AlchemyManager alchemyManager;
 
+    [SerializeField]
+    DungeonData forest;
     
     void Start()
     {
@@ -35,6 +37,10 @@ public class DebugFunctions : MonoBehaviour
             {
                 alchemyManager.ToggleEquipmentSlots();
                 equipmentsManager.ToggleEquipmentSlots();
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                FindObjectOfType<GameManager>().EnterDungeon(forest, equipmentsManager.GetPassiveAbilities());
             }
         }
     }
