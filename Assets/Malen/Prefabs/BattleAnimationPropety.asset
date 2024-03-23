@@ -23,3 +23,9 @@ MonoBehaviour:
   isAnimationPlayedOnHealed: 1
   jumpDistanceOnHealed: 1
   durationOnHealed: 0.25
+  indicator: {fileID: 6413659497293174909, guid: 750e5c5440b71a44a9b21b22f6a0a437, type: 3}
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  healColor: {r: 0, g: 1, b: 0.02162838, a: 1}
+  offset: {x: 0, y: 1, z: 0}
+  timeToDismiss: 1
+  scattering: 3
