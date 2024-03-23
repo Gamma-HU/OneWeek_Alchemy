@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 116287776}
   - component: {fileID: 116287775}
   - component: {fileID: 116287778}
+  - component: {fileID: 116287779}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -394,6 +395,22 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &116287779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116287774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56666c5a40171f54783dd416a44f42bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!1 &155778521
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,8 +840,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82499816c966eec4688afd0e05160eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item_total_num: 7
-  item_image: {fileID: 21300000, guid: eafd5ca6d3a28dc45a1a7520e58f8b33, type: 3}
   RecipePfb_for_mat: {fileID: 7553231846092469966, guid: ad962e750451d6149b7a221a33bbe194, type: 3}
   framePfb_for_mat: {fileID: 2557269781273748377, guid: a79d76f2b2b20704cbcbb2eb132fefe1, type: 3}
   namePlatePfb: {fileID: 8913553174201164980, guid: e53ffd6bb1fc4c94a89b3e50e67e546c, type: 3}
