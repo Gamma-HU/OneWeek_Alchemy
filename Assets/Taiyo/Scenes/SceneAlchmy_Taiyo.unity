@@ -452,7 +452,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 0266252e4f84747cfb17b8555b4b447d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1490,6 +1490,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openX: 0
   closeX: -820
+  openY: 0
+  closeY: 0
 --- !u!114 &866010185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2111,6 +2113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openX: 30
   closeX: 820
+  openY: 0
+  closeY: 0
 --- !u!1001 &1323628239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3058,7 +3062,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 200925455}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
