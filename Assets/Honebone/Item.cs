@@ -119,6 +119,7 @@ public class Item : MonoBehaviour
         Vector2 dir = deg.UnitCircle();
         rb.AddForce(dir * 1000f);
         rb.AddTorque(Random.Range(500f,1500f));
+        alchemySceneManager.PlaySE_Snap();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

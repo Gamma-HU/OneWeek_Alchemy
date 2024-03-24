@@ -44,6 +44,10 @@ public class DebugFunctions : MonoBehaviour
                // gameManager.SelectDungeon(forest);
                 gameManager.EnterDungeon(equipmentsManager.GetPassiveAbilities());
             }
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                FindObjectOfType<MessageText>().SetMessage("HELLO", 0);
+            }
         }
     }
 }

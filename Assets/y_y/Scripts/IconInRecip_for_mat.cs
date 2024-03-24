@@ -43,9 +43,18 @@ public class IconInRecip_for_mat : MonoBehaviour, IPointerClickHandler
         Destroy(namePlate);
     }
 
+    GameObject displayingItem;
+    /// <summary>素材画面の方で生成した際に呼ばれる(honebone)</summary>
+    public void Init_AsMaterialIcon(GameObject item)
+    {
+        displayingItem = item;
+    }
     // クリックされたときに呼び出されるメソッド(y_y)
     public void OnPointerClick(PointerEventData eventData)
     {
-        print("素材がポポポポーン(解放済み素材)");
+        if (displayingItem != null)
+        {
+            FindObjectOfType<AlchemySceneManager>().SpawnItem(displayingItem, Vector2.zero);
+        }
     }
 }

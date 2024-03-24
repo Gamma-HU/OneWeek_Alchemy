@@ -54,6 +54,7 @@ MonoBehaviour:
     weapon: 0
     armor: 1
     passiveAbility: {fileID: 8313083597182299096, guid: 48c75b472e57fe243b1a92097f40134f, type: 3}
+  SE_hold: {fileID: 0}
 --- !u!212 &6265871650062159155
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -92,8 +93,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1107438299
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ad22907e995d041dc99c22d5f03df6df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

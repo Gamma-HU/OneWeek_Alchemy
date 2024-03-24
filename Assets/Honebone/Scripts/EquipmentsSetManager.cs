@@ -9,6 +9,16 @@ public class EquipmentsSetManager : MonoBehaviour
     [SerializeField]
     GameObject slotsP;
 
+    [SerializeField]
+    List<AudioClip> SE_equip;
+
+    MessageText message;
+    SEManager SEManager;
+    private void Start()
+    {
+         message=FindObjectOfType<MessageText>();
+        SEManager = FindObjectOfType<SEManager>();
+    }
     public List<GameObject> GetPassiveAbilities()
     {
         List<GameObject> PA = new List<GameObject>();
@@ -31,16 +41,19 @@ public class EquipmentsSetManager : MonoBehaviour
                 if (slot.GetItem().GetItemData().weapon && itemData.weapon)
                 {
                     slot.SnapItem();
+                    message.SetMessage("武器は一つまで", 0f);
                     return;
                 }
                 if (slot.GetItem().GetItemData().armor && itemData.armor)
                 {
                     slot.SnapItem();
+                    message.SetMessage("防具は一つまで", 0f);
                     return;
                 }
                 if (slot.GetItem().GetItemName() == itemData.itemName)
                 {
                     slot.SnapItem();
+                    message.SetMessage("同じ装備は一つまで", 0f);
                     return;
                 }
             }
@@ -55,6 +68,14 @@ public class EquipmentsSetManager : MonoBehaviour
                 slot.SnapItem();
             }
         }
+        else
+        {
+            message.SetMessage("装備するアイテムを選択", 0.25f);
+        }
         slotsP.SetActive(!slotsP.activeSelf);
+    }
+    public void PlayEquipSE()
+    {
+        SEManager.PlaySE(SE_equip.Choice());
     }
 }

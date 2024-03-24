@@ -7,13 +7,14 @@ public class EquipmentSlot : MonoBehaviour
 {
     //[SerializeField]
     //Text itemNameText;
-    [SerializeField]
     EquipmentsSetManager equipmentManager;
+    SEManager SEManager;
     Item setItem;
 
     private void Start()
     {
         equipmentManager = FindObjectOfType<EquipmentsSetManager>();
+        SEManager = FindObjectOfType<SEManager>();
     }
     public void SetItem(Item item)
     {
@@ -21,6 +22,7 @@ public class EquipmentSlot : MonoBehaviour
         {
             setItem.ResetSlot();
         }
+        equipmentManager.PlayEquipSE();
         setItem = item;
         equipmentManager.CheckEquipments(this, setItem.GetItemData());
         //itemNameText.text = item.GetItemName();
