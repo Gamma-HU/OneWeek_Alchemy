@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8313083597182299096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1274222725523604865}
+  - component: {fileID: 5635578092358330353}
+  m_Layer: 0
+  m_Name: PA_Eq_MidnightRobe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1274222725523604865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8313083597182299096}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5635578092358330353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8313083597182299096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b0735284aafe9b47898073e27ff9d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PAName: "\u771F\u591C\u4E2D\u306E\u30ED\u30FC\u30D6"
+  PAInfo: "\u6226\u95D8\u958B\u59CB\u6642\u3001\u76F8\u624B\u306B\u76F2\u76EE1\u3092\u4ED8\u4E0E"
+  exHP: 30
+  exATK: 0
+  action:
+    owner: {fileID: 0}
+    target: {fileID: 0}
+    attack: 0
+    DMG: 0
+    heal: 0
+    applyStE:
+    - StE: {fileID: 2510622262790149085, guid: 14ab0718acf084b4b907936ac46fb402, type: 3}
+      amount: 1
+    removeStE: []

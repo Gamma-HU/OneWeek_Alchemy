@@ -6,6 +6,8 @@ public class EquipmentsSetManager : MonoBehaviour
 {
     [SerializeField]
     List<EquipmentSlot> equipmentSlots;
+    [SerializeField]
+    GameObject slotsP;
 
     public List<GameObject> GetPassiveAbilities()
     {
@@ -18,5 +20,41 @@ public class EquipmentsSetManager : MonoBehaviour
             }
         }
         return PA;
+    }
+    public void CheckEquipments(EquipmentSlot set, Item.ItemData itemData)
+    {
+        foreach (EquipmentSlot slot in equipmentSlots)
+        {
+            if (slot == set) { continue; }
+            if (slot.GetItem() != null)
+            {
+                if (slot.GetItem().GetItemData().weapon && itemData.weapon)
+                {
+                    slot.SnapItem();
+                    return;
+                }
+                if (slot.GetItem().GetItemData().armor && itemData.armor)
+                {
+                    slot.SnapItem();
+                    return;
+                }
+                if (slot.GetItem().GetItemName() == itemData.itemName)
+                {
+                    slot.SnapItem();
+                    return;
+                }
+            }
+        }
+    }
+    public void ToggleEquipmentSlots()
+    {
+        if (slotsP.activeSelf)
+        {
+            foreach(EquipmentSlot slot in equipmentSlots)
+            {
+                slot.SnapItem();
+            }
+        }
+        slotsP.SetActive(!slotsP.activeSelf);
     }
 }

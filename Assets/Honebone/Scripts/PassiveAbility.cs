@@ -17,11 +17,13 @@ public class PassiveAbility : MonoBehaviour
         characterStatus = character.GetCharacterStatus();
         battleManager = bm;
 
+        characterStatus.maxHP += exHP;
         characterStatus.HP += exHP;
         characterStatus.ATK += exATK;
     }
 
     public virtual void OnBattleStart() { }
+    public virtual void OnStun() { }
     public virtual void OnAttack(int DMG, bool missed) { }
     public virtual void OnAttacked(int DMG, bool missed) { }
     public virtual void OnDamaged(int DMG, bool byOpponent) { }

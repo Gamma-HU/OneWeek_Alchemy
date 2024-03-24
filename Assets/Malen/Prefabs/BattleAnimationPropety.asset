@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 113b4e31a454b0e45a4c2377ea229d61, type: 3}
+  m_Name: BattleAnimationPropety
+  m_EditorClassIdentifier: 
+  isAnimationPlayedOnAttack: 1
+  forwardDistanceOnAttack: 5
+  angleOnAttack: 15
+  durationOnAttack: 0.25
+  isAnimationPlayedOnDamaged: 1
+  vibrationStrengthOnDamaged: 2
+  vibrationCountOnDamaged: 50
+  durationOnDamaged: 0.25
+  isAnimationPlayedOnHealed: 1
+  jumpDistanceOnHealed: 1
+  durationOnHealed: 0.25
+  damageIndicator: {fileID: 6413659497293174909, guid: 750e5c5440b71a44a9b21b22f6a0a437, type: 3}
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  healColor: {r: 0, g: 1, b: 0.02162838, a: 1}
+  damageOffset: {x: 0, y: 1, z: 0}
+  damageTimeToDismiss: 1
+  damageScattering: 3
+  paramsIndicator: {fileID: 0}
+  paramsColor: {r: 0, g: 0, b: 0, a: 0}
+  paramsOffset: {x: 0, y: 1, z: 0}
+  paramsTimeToDismiss: 1
+  paramsScattering: 3

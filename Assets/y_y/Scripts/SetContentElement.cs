@@ -6,16 +6,19 @@ using UnityEngine.UI;
 
 public class SetContentElement : MonoBehaviour
 {
-    [SerializeField] private Image BackgroundImage;
-    [SerializeField] private TextMeshProUGUI StageTitleText;
-    [SerializeField] private TextMeshProUGUI Difficulty_Text;
-    [SerializeField] private TextMeshProUGUI DungeonInfo;
+    [SerializeField] private GameObject BackgroundImage;
+    [SerializeField] private Text StageTitleText;
+    [SerializeField] private Text Difficulty_Text;
+    [SerializeField] private Text DungeonInfo;
+
+    public int dungeonNum;
 
     public void setElement(Sprite image, string text_stageTitle, int text_difficulty, string text_dungeonInfo)
     {
-        BackgroundImage.sprite = image;
+        BackgroundImage.GetComponent<Image>().sprite = image;
+        BackgroundImage.GetComponent<SelectDeungeonImageController>().SetDungeonNum(dungeonNum);
         StageTitleText.text = text_stageTitle;
-        Difficulty_Text.text = text_difficulty.ToString();
-        DungeonInfo.text = text_dungeonInfo;
+        Difficulty_Text.text += text_difficulty.ToString();
+        DungeonInfo.text += text_dungeonInfo;
     }
 }

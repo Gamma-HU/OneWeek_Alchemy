@@ -35,26 +35,39 @@ public class BattleManager : MonoBehaviour
 
     List<Action> actionQueue = new List<Action>();
 
-    [SerializeField]//test
+    [SerializeField]
+    GaugeManager enemyGauge;
+    [SerializeField]
     Character player;
     Character enemy;
     bool playerTurn;
 
+    DungeonEffect dungeonEffect;
+
     ExpeditionManager expeditionManager;
+    BattleAnimationManager battleAnimManager;
     private void Start()//test
     {
         expeditionManager = FindObjectOfType<ExpeditionManager>();
+        battleAnimManager = FindObjectOfType<BattleAnimationManager>();
     }
     public void StartBattle(GameObject enemyObj)
     {
         var e = Instantiate(enemyObj, enemyP);
         enemy = e.GetComponent<Character>();
-        enemy.Init(this);
+        enemy.Init(this, enemyGauge);
+        battleAnimManager.SetEnemyProtery(e);
+
         enemy.SetOpponent(player);
         player.SetOpponent(enemy);
         Debug.Log("í“¬ŠJŽn");
 
-        //DungeonEffect
+        StartCoroutine(BattleStartDelay());
+    }
+    IEnumerator BattleStartDelay()
+    {
+        yield return new WaitForSeconds(1f);
+        if (dungeonEffect != null) { dungeonEffect.OnBattleStart(); }
         player.OnBattleStart();
         enemy.OnBattleStart();
         StartResolve();
@@ -101,22 +114,26 @@ public class BattleManager : MonoBehaviour
     }
     void Resolve()
     {
-        if(actionQueue.Count > 0)
+        if (actionQueue.Count > 0)
         {
             Action action = actionQueue[0];
-            if (action.attack) { action.owner.Attack(); }
-            if (action.DMG>0) { action.target.Damage(action.DMG, false); }
-            if (action.heal > 0) { action.target.Heal(action.heal); }
-            foreach(StEParams StEParams in action.applyStE)
+            if (!action.owner.GetCharacterStatus().dead && !action.target.GetCharacterStatus().dead)
             {
-                action.target.ApplyStE(StEParams);
-            }
-            foreach(GameObject removeStE in action.removeStE)
-            {
-                action.target.RemoveStE(removeStE);
+                if (action.attack) { action.owner.Attack(); }
+                if (action.DMG > 0) { action.target.Damage(action.DMG, false); }
+                if (action.heal > 0) { action.target.Heal(action.heal); }
+                foreach (StEParams StEParams in action.applyStE)
+                {
+                    action.target.ApplyStE(StEParams);
+                }
+                foreach (GameObject removeStE in action.removeStE)
+                {
+                    action.target.RemoveStE(removeStE);
+                }
+                
             }
             actionQueue.RemoveAt(0);
-            if (!CheckBattleEnd()) { StartCoroutine(ActionInterval()); }
+            StartCoroutine(ActionInterval());
         }
         else
         {
@@ -142,6 +159,8 @@ public class BattleManager : MonoBehaviour
         StartCoroutine(TurnInterval());
     }
 
+    public void SetDungeonEffect(DungeonEffect effect) { dungeonEffect = effect; }
+
     IEnumerator ActionInterval()
     {
         yield return new WaitForSeconds(actionInterval);
@@ -152,4 +171,7 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(turnInterval);
         NextTurn();
     }
+
+    public Character GetPlayer() { return player; }
+    public Character GetEnemy() { return enemy; }
 }

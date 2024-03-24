@@ -22,6 +22,7 @@ public class EquipmentSlot : MonoBehaviour
             setItem.ResetSlot();
         }
         setItem = item;
+        equipmentManager.CheckEquipments(this, setItem.GetItemData());
         //itemNameText.text = item.GetItemName();
     }
     public void ResetItem()
@@ -30,11 +31,13 @@ public class EquipmentSlot : MonoBehaviour
         //itemNameText.text = string.Empty;
     }
 
-    public void ConsumeItem()
+    public void SnapItem()
     {
-        Destroy(setItem.gameObject);
-        setItem = null;
-        //itemNameText.text = string.Empty;
+        if (setItem != null)
+        {
+            setItem.ResetSlot();
+            setItem = null;
+        }
     }
 
     public Vector3 GetPos() { return transform.position; }

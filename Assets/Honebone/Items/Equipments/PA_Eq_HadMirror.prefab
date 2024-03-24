@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8313083597182299096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1274222725523604865}
+  - component: {fileID: -3668152901757161289}
+  m_Layer: 0
+  m_Name: PA_Eq_HadMirror
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1274222725523604865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8313083597182299096}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-3668152901757161289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8313083597182299096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d406d76f20fb994790103c022677ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PAName: "\u624B\u93E1"
+  PAInfo: "\u76F8\u624B\u306B\u653B\u6483\u3057\u305F\u3068\u304D\u3001\u76F8\u624B\u306B\u529B\u304C\u4ED8\u4E0E\u3055\u308C\u3066\u3044\u305F\u306A\u3089\u3001\u81EA\u5206\u306B\u529B50\u3092\u4ED8\u4E0E\n\u76F8\u624B\u304B\u3089\u653B\u6483\u3055\u308C\u305F\u3068\u304D\u3001\u76F8\u624B\u306B\u9632\u5FA1\u304C\u4ED8\u4E0E\u3055\u308C\u3066\u3044\u305F\u306A\u3089\u3001\u81EA\u5206\u306B\u9632\u5FA150\u3092\u4ED8\u4E0E"
+  exHP: 0
+  exATK: 0
+  strength: {fileID: 2510622262790149085, guid: 2d44b09f2d9859347acdafdf826ef663, type: 3}
+  guard: {fileID: 2510622262790149085, guid: 9680a2c517f511f42b8434a6100483da, type: 3}
+  action_str:
+    owner: {fileID: 0}
+    target: {fileID: 0}
+    attack: 0
+    DMG: 0
+    heal: 0
+    applyStE:
+    - StE: {fileID: 2510622262790149085, guid: 2d44b09f2d9859347acdafdf826ef663, type: 3}
+      amount: 50
+    removeStE: []
+  action_guard:
+    owner: {fileID: 0}
+    target: {fileID: 0}
+    attack: 0
+    DMG: 0
+    heal: 0
+    applyStE:
+    - StE: {fileID: 2510622262790149085, guid: 9680a2c517f511f42b8434a6100483da, type: 3}
+      amount: 50
+    removeStE: []

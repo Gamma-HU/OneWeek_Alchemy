@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class IconInRecipe : MonoBehaviour
+public class IconInRecipe : MonoBehaviour, IPointerClickHandler
 {
     public string itemName;
     public GameObject namePlatePfb;
@@ -40,5 +41,11 @@ public class IconInRecipe : MonoBehaviour
     {
         isMouswOn = false;
         Destroy(namePlate);
+    }
+
+    // クリックされたときに呼び出されるメソッド(y_y)
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        print("素材がポポポポーン");
     }
 }
