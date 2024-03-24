@@ -1,13 +1,13 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "HPBarPropety", menuName = "ScriptableObjects/HPBarPropety")]
 public class HPBarPropety : ScriptableObject
 {
-    [Header("HPƒJƒ‰[(‘½)")] public Color normalColor;
-    [Header("HPƒJƒ‰[(’†)")] public Color damagedColor;
-    [Header("HPƒJƒ‰[(­)")] public Color dangerColor;
-    [Header("HPƒQ[ƒW•Ï“®ŠÔ")] public float gaugeTransitionTime;
-    [Header("HPƒJƒ‰[Šî€’l")] public float[] HPColorCriteria;
+    [Header("HPã‚«ãƒ©ãƒ¼(å¤š)")] public Color normalColor;
+    [Header("HPã‚«ãƒ©ãƒ¼(ä¸­)")] public Color damagedColor;
+    [Header("HPã‚«ãƒ©ãƒ¼(å°‘)")] public Color dangerColor;
+    [Header("HPã‚²ãƒ¼ã‚¸å¤‰å‹•æ™‚é–“")] public float gaugeTransitionTime;
+    [Header("HPã‚«ãƒ©ãƒ¼åŸºæº–å€¤")] public float[] HPColorCriteria;
 }

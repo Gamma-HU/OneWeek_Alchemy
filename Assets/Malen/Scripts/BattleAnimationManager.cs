@@ -137,7 +137,7 @@ public class BattleAnimationManager : MonoBehaviour
         Outline outline = text.GetComponent<Outline>();
         Character.CharacterStatus status = targetCharacter.GetComponent<Character>().GetCharacterStatus();
         text.text = string.Format("+{0} {1}", StEName, stEParams.amount);
-        if (stEParams.)
+        if (stEParams.StE.GetComponent<PA_StatusEffects>().GetIsBuff())
         {
             text.color = battleAnimationPropety.paramsColorBuff;
             outline.effectColor = battleAnimationPropety.paramsColorBuffOutline;
