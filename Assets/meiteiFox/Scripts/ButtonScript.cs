@@ -12,15 +12,18 @@ public class ButtonScript : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     PanelAnimScript PanelAnimScript;
     Material material;
+    AudioSource audioSource;
     private void Awake()
     {
         material = GetComponent<Image>().material;
+        audioSource = GetComponent<AudioSource>();
     }
     public void OnPointerClick(PointerEventData eventData)
     {
         if (!IsClicked)
         {
             IsClicked = true;
+            audioSource.Play();
             StartCoroutine(WaitCorou());
             PanelAnimScript.AnimStart();
         } else
