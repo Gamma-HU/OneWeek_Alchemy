@@ -15,7 +15,7 @@ public class AlchemySlot : MonoBehaviour
 
     private void Start()
     {
-        alchemyManager=FindObjectOfType<AlchemyManager>();
+        alchemyManager = FindObjectOfType<AlchemyManager>();
     }
     public void SetItem(Item item)
     {
@@ -24,7 +24,7 @@ public class AlchemySlot : MonoBehaviour
             setItem.ResetSlot();
         }
         setItem = item;
-        itemNameText.text=item.GetItemName();
+        itemNameText.text = item.GetItemName();
         alchemyManager.SetAlchemyButton();
 
         //Sound Effect

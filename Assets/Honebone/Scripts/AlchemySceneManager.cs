@@ -18,6 +18,9 @@ public class AlchemySceneManager : MonoBehaviour
     AudioClip SE_HOLD;
     [SerializeField]
     AudioClip SE_Snap;
+
+    [SerializeField]
+    GameObject sucsessEffect;
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -49,5 +52,6 @@ public class AlchemySceneManager : MonoBehaviour
         i.GetComponent<Item>().Init();
         i.GetComponent<Item>().Snap();
         i.GetComponent<Item>().SE_hold = SE_HOLD;
+        Instantiate(sucsessEffect, spawnPos, Quaternion.identity);
     }
 }
