@@ -42,6 +42,14 @@ public class BattleManager : MonoBehaviour
     Character enemy;
     bool playerTurn;
 
+    [SerializeField]
+    SEManager SEManager;
+    [SerializeField] private AudioClip SE_attack;
+    [SerializeField] private AudioClip SE_attacked;
+    [SerializeField] private AudioClip SE_heal;
+    [SerializeField] private AudioClip SE_buff;
+    [SerializeField] private AudioClip SE_deBuff;
+
     DungeonEffect dungeonEffect;
 
     ExpeditionManager expeditionManager;
@@ -172,6 +180,12 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(turnInterval);
         NextTurn();
     }
+
+    public void PlaySE_Attack() { SEManager.PlaySE(SE_attack); }
+    public void PlaySE_Attacked() { SEManager.PlaySE(SE_attacked); }
+    public void PlaySE_ApplyBuff() { SEManager.PlaySE(SE_buff); }
+    public void PlaySE_ApplyDebuff() { SEManager.PlaySE(SE_deBuff); }
+    public void PlaySE_Heal() { SEManager.PlaySE(SE_heal); }
 
     public Character GetPlayer() { return player; }
     public Character GetEnemy() { return enemy; }

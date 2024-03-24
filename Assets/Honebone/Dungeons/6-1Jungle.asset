@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b3393a966dd11f448afd3d6f1745b77, type: 3}
-  m_Name: 4-2_PoisonSwamp
+  m_Name: 6-1Jungle
   m_EditorClassIdentifier: 
-  dungeonName: "\u6BD2\u6CBC"
+  dungeonName: "\u30B8\u30E3\u30F3\u30B0\u30EB"
   dungeonEffect: {fileID: 0}
-  background: {fileID: 21300000, guid: 757882ddeb0c042e68f0e435e00d3f9d, type: 3}
-  difficulty: 4
-  dungeonInfo: "\u30FB\u6BD2"
+  background: {fileID: 0}
+  difficulty: 6
+  dungeonInfo: "\u30FB\u6BD2\n\u30FB\u8106\u5F31\n\u30FB\u76F2\u76EE"
   enemies:
-  - {fileID: 3164025572629520509, guid: dbf4bb8017650844eaae768153858cdc, type: 3}
   - {fileID: 3164025572629520509, guid: 5ccfc9c202e77fa428b076ce502a6a41, type: 3}
-  - {fileID: 3164025572629520509, guid: 5ccfc9c202e77fa428b076ce502a6a41, type: 3}
+  - {fileID: 3164025572629520509, guid: 5198ded40111f454eb9091ba7df26732, type: 3}
+  - {fileID: 3164025572629520509, guid: 5198ded40111f454eb9091ba7df26732, type: 3}
   rewardItems: []
-  nextDungeons: []
+  nextDungeons:
+  - {fileID: 11400000, guid: d23555128fa21624ea4e7f291eb9b4e7, type: 2}

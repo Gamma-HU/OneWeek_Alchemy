@@ -20,5 +20,8 @@ MonoBehaviour:
   enemies:
   - {fileID: 3164025572629520509, guid: c3ef90d57673fb6498a27d28e05cc6b0, type: 3}
   - {fileID: 3164025572629520509, guid: c3ef90d57673fb6498a27d28e05cc6b0, type: 3}
-  rewardItems: []
-  nextDungeons: []
+  rewardItems:
+  - {fileID: 369480470792548374, guid: bce0926900c0a2146a809636bb8d8132, type: 3}
+  nextDungeons:
+  - {fileID: 11400000, guid: 7ce5026ed797fba41abf30394b4827fe, type: 2}
+  - {fileID: 11400000, guid: 4ff4faea6a6710e4db7afc64cfca624d, type: 2}
