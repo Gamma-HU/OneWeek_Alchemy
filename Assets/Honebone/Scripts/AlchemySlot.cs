@@ -10,6 +10,8 @@ public class AlchemySlot : MonoBehaviour
     [SerializeField]
     AlchemyManager alchemyManager;
     Item setItem;
+    [SerializeField]
+    private AudioClip SE_setObjToSlot;
 
     private void Start()
     {
@@ -24,6 +26,10 @@ public class AlchemySlot : MonoBehaviour
         setItem = item;
         itemNameText.text=item.GetItemName();
         alchemyManager.SetAlchemyButton();
+
+        //Sound Effect
+        SEManager seManager = FindFirstObjectByType<SEManager>();
+        seManager.PlaySE(SE_setObjToSlot);
     }
     public void ResetItem()
     {

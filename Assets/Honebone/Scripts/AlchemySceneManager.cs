@@ -13,6 +13,8 @@ public class AlchemySceneManager : MonoBehaviour
     Transform itemsP;
     [SerializeField]
     Text draggingItemText;
+    [SerializeField]
+    AudioClip SE_HOLD;
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -39,5 +41,6 @@ public class AlchemySceneManager : MonoBehaviour
         var i = Instantiate(item, spawnPos, Quaternion.identity, itemsP);
         i.GetComponent<Item>().Init();
         i.GetComponent<Item>().Snap();
+        i.GetComponent<Item>().SE_hold = SE_HOLD;
     }
 }
