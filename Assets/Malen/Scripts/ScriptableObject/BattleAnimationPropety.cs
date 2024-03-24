@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
@@ -6,42 +6,42 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BattleAnimationPropety", menuName = "ScriptableObjects/BattleAnimationPropety")]
 public class BattleAnimationPropety : ScriptableObject
 {
-    [Header("=====<UŒ‚>(‘Oi)=====")]
-    [Header("ƒAƒjƒ[ƒVƒ‡ƒ“‚·‚é‚©")] public bool isAnimationPlayedOnAttack;
-    [Header("‘Oi‹——£")] public float forwardDistanceOnAttack;
-    [Header("Šp“x")] public float angleOnAttack;
-    [Header("ƒAƒjƒ[ƒVƒ‡ƒ“ŠÔ")] public float durationOnAttack;
+    [Header("=====<æ”»æ’ƒæ™‚>(å‰é€²)=====")]
+    [Header("ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã™ã‚‹ã‹")] public bool isAnimationPlayedOnAttack;
+    [Header("å‰é€²è·é›¢")] public float forwardDistanceOnAttack;
+    [Header("è§’åº¦")] public float angleOnAttack;
+    [Header("ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³æ™‚é–“")] public float durationOnAttack;
 
-    [Header("\n=====<”íƒ_ƒ[ƒW>(U“®)=====")]
-    [Header("ƒAƒjƒ[ƒVƒ‡ƒ“‚·‚é‚©")] public bool isAnimationPlayedOnDamaged;
-    [Header("U“®‚Ì‹­‚³")] public float vibrationStrengthOnDamaged;
-    [Header("U“®‰ñ”")] public int vibrationCountOnDamaged;
-    [Header("ƒAƒjƒ[ƒVƒ‡ƒ“ŠÔ")] public float durationOnDamaged;
+    [Header("\n=====<è¢«ãƒ€ãƒ¡ãƒ¼ã‚¸æ™‚>(æŒ¯å‹•)=====")]
+    [Header("ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã™ã‚‹ã‹")] public bool isAnimationPlayedOnDamaged;
+    [Header("æŒ¯å‹•ã®å¼·ã•")] public float vibrationStrengthOnDamaged;
+    [Header("æŒ¯å‹•å›æ•°")] public int vibrationCountOnDamaged;
+    [Header("ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³æ™‚é–“")] public float durationOnDamaged;
 
-    [Header("\n=====<‰ñ•œ>(ƒWƒƒƒ“ƒv)=====")]
-    [Header("ƒAƒjƒ[ƒVƒ‡ƒ“‚·‚é‚©")] public bool isAnimationPlayedOnHealed;
-    [Header("ƒWƒƒƒ“ƒv‹——£")] public float jumpDistanceOnHealed;
-    [Header("ƒAƒjƒ[ƒVƒ‡ƒ“ŠÔ")] public float durationOnHealed;
+    [Header("\n=====<å›å¾©æ™‚>(ã‚¸ãƒ£ãƒ³ãƒ—)=====")]
+    [Header("ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã™ã‚‹ã‹")] public bool isAnimationPlayedOnHealed;
+    [Header("ã‚¸ãƒ£ãƒ³ãƒ—è·é›¢")] public float jumpDistanceOnHealed;
+    [Header("ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³æ™‚é–“")] public float durationOnHealed;
 
-    [Header("\n=====<ƒ_ƒ[ƒW•\¦—pƒvƒƒpƒeƒB>=====")]
-    [Header("•\¦—pƒQ[ƒ€ƒIƒuƒWƒFƒNƒg")] public GameObject damageIndicator;
-    [Header("ƒ_ƒ[ƒWƒJƒ‰[")] public Color damageColor;
-    [Header("ƒ_ƒ[ƒWƒJƒ‰[(ƒAƒEƒgƒ‰ƒCƒ“)")] public Color damageColorOutline;
-    [Header("‰ñ•œƒJƒ‰[")] public Color healColor;
-    [Header("‰ñ•œƒJƒ‰[(ƒAƒEƒgƒ‰ƒCƒ“)")] public Color healColorOutline;
-    [Header("ˆÚ“®ƒIƒtƒZƒbƒg")] public Vector3 damageOffset;
-    [Header("Á–Å‚Ü‚Å‚ÌŠÔ")] public float damageTimeToDismiss;
-    [Header("•\¦ˆÊ’u‚Ì‚Î‚ç‚Â‚«")] public float damageScattering;
+    [Header("\n=====<ãƒ€ãƒ¡ãƒ¼ã‚¸è¡¨ç¤ºç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£>=====")]
+    [Header("è¡¨ç¤ºç”¨ã‚²ãƒ¼ãƒ ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ")] public GameObject damageIndicator;
+    [Header("ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚«ãƒ©ãƒ¼")] public Color damageColor;
+    [Header("ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚«ãƒ©ãƒ¼(ã‚¢ã‚¦ãƒˆãƒ©ã‚¤ãƒ³)")] public Color damageColorOutline;
+    [Header("å›å¾©ã‚«ãƒ©ãƒ¼")] public Color healColor;
+    [Header("å›å¾©ã‚«ãƒ©ãƒ¼(ã‚¢ã‚¦ãƒˆãƒ©ã‚¤ãƒ³)")] public Color healColorOutline;
+    [Header("ç§»å‹•ã‚ªãƒ•ã‚»ãƒƒãƒˆ")] public Vector3 damageOffset;
+    [Header("æ¶ˆæ»…ã¾ã§ã®æ™‚é–“")] public float damageTimeToDismiss;
+    [Header("è¡¨ç¤ºä½ç½®ã®ã°ã‚‰ã¤ã")] public float damageScattering;
 
-    [Header("\n=====<ó‘ÔˆÙí—pƒvƒƒpƒeƒB>=====")]
-    [Header("•\¦—pƒQ[ƒ€ƒIƒuƒWƒFƒNƒg")] public GameObject paramsIndicator;
-    [Header("ƒJƒ‰[(‰¼’u)")] public Color paramsColor;
-    [Header("ƒfƒoƒtƒJƒ‰[")] public Color paramsColorDebuff;
-    [Header("ƒfƒoƒtƒJƒ‰[(ƒAƒEƒgƒ‰ƒCƒ“)")] public Color paramsColorDebuffOutline;
-    [Header("ƒoƒtƒJƒ‰[")] public Color paramsColorBuff;
-    [Header("ƒoƒtƒJƒ‰[(ƒAƒEƒgƒ‰ƒCƒ“)")] public Color paramsColorBuffOutline;
-    [Header("ˆÚ“®ƒIƒtƒZƒbƒg")] public Vector3 paramsOffset;
-    [Header("Á–Å‚Ü‚Å‚ÌŠÔ")] public float paramsTimeToDismiss;
-    [Header("•\¦ˆÊ’u‚Ì‚Î‚ç‚Â‚«")] public float paramsScattering;
+    [Header("\n=====<çŠ¶æ…‹ç•°å¸¸ç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£>=====")]
+    [Header("è¡¨ç¤ºç”¨ã‚²ãƒ¼ãƒ ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ")] public GameObject paramsIndicator;
+    [Header("ã‚«ãƒ©ãƒ¼(ä»®ç½®)")] public Color paramsColor;
+    [Header("ãƒ‡ãƒãƒ•ã‚«ãƒ©ãƒ¼")] public Color paramsColorDebuff;
+    [Header("ãƒ‡ãƒãƒ•ã‚«ãƒ©ãƒ¼(ã‚¢ã‚¦ãƒˆãƒ©ã‚¤ãƒ³)")] public Color paramsColorDebuffOutline;
+    [Header("ãƒãƒ•ã‚«ãƒ©ãƒ¼")] public Color paramsColorBuff;
+    [Header("ãƒãƒ•ã‚«ãƒ©ãƒ¼(ã‚¢ã‚¦ãƒˆãƒ©ã‚¤ãƒ³)")] public Color paramsColorBuffOutline;
+    [Header("ç§»å‹•ã‚ªãƒ•ã‚»ãƒƒãƒˆ")] public Vector3 paramsOffset;
+    [Header("æ¶ˆæ»…ã¾ã§ã®æ™‚é–“")] public float paramsTimeToDismiss;
+    [Header("è¡¨ç¤ºä½ç½®ã®ã°ã‚‰ã¤ã")] public float paramsScattering;
 } 
 

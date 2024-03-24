@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -7,7 +7,7 @@ using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
 /// <summary>
-/// s“®‚ÌƒAƒjƒ[ƒVƒ‡ƒ“‚Æƒ_ƒ[ƒW‚Æó‘ÔˆÙí‚Ì•\¦‚ğŠÇ—
+/// è¡Œå‹•ã®ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã¨ãƒ€ãƒ¡ãƒ¼ã‚¸ã¨çŠ¶æ…‹ç•°å¸¸ã®è¡¨ç¤ºã‚’ç®¡ç†
 /// </summary>
 public class BattleAnimationManager : MonoBehaviour
 {
@@ -35,7 +35,7 @@ public class BattleAnimationManager : MonoBehaviour
     }
 
     /// <summary>
-    /// UŒ‚ƒAƒjƒ[ƒVƒ‡ƒ“‚ğÄ¶
+    /// æ”»æ’ƒã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’å†ç”Ÿ
     /// </summary>
     /// <param name="status"></param>
     public void PlayAttackAnimation(Character.CharacterStatus status)
@@ -60,7 +60,7 @@ public class BattleAnimationManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ”íƒ_ƒ[ƒWƒAƒjƒ[ƒVƒ‡ƒ“‚ğÄ¶
+    /// è¢«ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’å†ç”Ÿ
     /// </summary>
     /// <param name="status"></param>
     public void PlayDamagedAnimation(Character.CharacterStatus status)
@@ -76,7 +76,7 @@ public class BattleAnimationManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ‰ñ•œƒAƒjƒ[ƒVƒ‡ƒ“‚ğÄ¶
+    /// å›å¾©ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’å†ç”Ÿ
     /// </summary>
     /// <param name="status"></param>
     public void PlayHealedAnimation(Character.CharacterStatus status)
@@ -93,7 +93,7 @@ public class BattleAnimationManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒ_ƒ[ƒW•\¦ (”íƒ_ƒ[ƒW‚Íƒ}ƒCƒiƒX’lA—^ƒ_ƒ[ƒW‚Íƒvƒ‰ƒX’l‚Åw’è)
+    /// ãƒ€ãƒ¡ãƒ¼ã‚¸è¡¨ç¤º (è¢«ãƒ€ãƒ¡ãƒ¼ã‚¸ã¯ãƒã‚¤ãƒŠã‚¹å€¤ã€ä¸ãƒ€ãƒ¡ãƒ¼ã‚¸ã¯ãƒ—ãƒ©ã‚¹å€¤ã§æŒ‡å®š)
     /// </summary>
     /// <param name="targetCharacter"></param>
     /// <param name="amount"></param>
@@ -121,7 +121,7 @@ public class BattleAnimationManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒAƒrƒŠƒeƒB•t—^•\¦
+    /// ã‚¢ãƒ“ãƒªãƒ†ã‚£ä»˜ä¸è¡¨ç¤º
     /// </summary>
     /// <param name="targetCharacter"></param>
     /// <param name="stEParams"></param>
@@ -137,9 +137,7 @@ public class BattleAnimationManager : MonoBehaviour
         Outline outline = text.GetComponent<Outline>();
         Character.CharacterStatus status = targetCharacter.GetComponent<Character>().GetCharacterStatus();
         text.text = string.Format("+{0} {1}", StEName, stEParams.amount);
-
-        // ƒoƒtEƒfƒoƒt”»•Ê—p‚ÌƒtƒB[ƒ‹ƒh‚ğ—pˆÓ‚µ‚½‚çƒRƒƒ“ƒgƒAƒEƒg‚ğ‰ğœ‚µ‚Ä‚­‚¾‚³‚¢
-        /*if (stEParams.isBuff)
+        if (stEParams.)
         {
             text.color = battleAnimationPropety.paramsColorBuff;
             outline.effectColor = battleAnimationPropety.paramsColorBuffOutline;
@@ -148,11 +146,11 @@ public class BattleAnimationManager : MonoBehaviour
         {
             text.color = battleAnimationPropety.paramsColorDebuff;
             outline.effectColor = battleAnimationPropety.paramsColorDebuffOutline;
-        }*/
+        }
     }
 
     /// <summary>
-    /// ƒAƒrƒŠƒeƒB”’D•\¦
+    /// ã‚¢ãƒ“ãƒªãƒ†ã‚£å‰¥å¥ªè¡¨ç¤º
     /// </summary>
     /// <param name="targetCharacter"></param>
     /// <param name="stEParams"></param>
@@ -165,9 +163,10 @@ public class BattleAnimationManager : MonoBehaviour
         indicator.transform.position = targetCharacter.transform.position + new Vector3(Random.Range(-scattering, scattering), Random.Range(-scattering, scattering), 0);
         indicator.transform.localScale = Vector3.one;
         Text text = indicator.GetComponent<Text>();
+        Outline outline = text.GetComponent<Outline>();
         Character.CharacterStatus status = targetCharacter.GetComponent<Character>().GetCharacterStatus();
         text.text = string.Format("-{0}", StEName);
-        /*if (stEParams.GetComponent<PA_StatusEffects>().) 
+        if (stEParams.GetComponent<PA_StatusEffects>().GetIsBuff()) 
         {
             text.color = battleAnimationPropety.paramsColorBuff;
             outline.effectColor = battleAnimationPropety.paramsColorBuffOutline;
@@ -176,11 +175,11 @@ public class BattleAnimationManager : MonoBehaviour
         {
             text.color = battleAnimationPropety.paramsColorDebuff;
             outline.effectColor = battleAnimationPropety.paramsColorDebuffOutline;
-        }*/
+        }
     }
 
     /// <summary>
-    /// ƒvƒŒƒCƒ„[‚Ìs“®ƒAƒjƒ[ƒVƒ‡ƒ“—p‚ÌƒvƒƒpƒeƒB‚ğİ’è
+    /// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®è¡Œå‹•ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ç”¨ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’è¨­å®š
     /// </summary>
     /// <param name="playerObject"></param>
     public void SetPlayerPropety(GameObject playerObject)
@@ -191,7 +190,7 @@ public class BattleAnimationManager : MonoBehaviour
     }
 
     /// <summary>
-    /// “G‚Ìs“®ƒAƒjƒ[ƒVƒ‡ƒ“—p‚ÌƒvƒƒpƒeƒB‚ğİ’è
+    /// æ•µã®è¡Œå‹•ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ç”¨ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’è¨­å®š
     /// </summary>
     /// <param name="enemyObject"></param>
     public void SetEnemyProtery(GameObject enemyObject)
