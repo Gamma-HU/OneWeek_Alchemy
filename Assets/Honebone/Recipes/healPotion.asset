@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1e597e692e1e8e479a175cbb3b0c042, type: 3}
   m_Name: healPotion
   m_EditorClassIdentifier: 
-  material_1: {fileID: 6121870854126886988, guid: 41bafbda1e2c291459b4059bc79858b4, type: 3}
+  material_1: {fileID: 6007695563130763707, guid: fc433fda6ebfb8b4096dd3644baadf23, type: 3}
   material_2: {fileID: 1128425530542487637, guid: 6f07a0ae4a7aa47499f950b1e7df3292, type: 3}
   product: {fileID: 8336291328418127872, guid: 832b0731ea3ffd9409475f757e8f2953, type: 3}

@@ -57,6 +57,7 @@ public class BattleManager : MonoBehaviour
         enemy = e.GetComponent<Character>();
         enemy.Init(this, enemyGauge);
         battleAnimManager.SetEnemyProtery(e);
+        battleAnimManager.PlayEmergeAnimation(enemy.GetCharacterStatus());
 
         enemy.SetOpponent(player);
         player.SetOpponent(enemy);
@@ -95,7 +96,7 @@ public class BattleManager : MonoBehaviour
         if (victory)//敵が死亡したなら
         {
             Debug.Log("勝利");
-            Destroy(enemyP.GetChild(0).gameObject);//敵のオブジェクトを破壊
+            Destroy(enemyP.GetChild(0).gameObject,0.5f);//敵のオブジェクトを破壊
             expeditionManager.NextLayer();
         }
     }

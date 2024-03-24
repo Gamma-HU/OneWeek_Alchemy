@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf430f80fd07e84b9365e85bd5cc06e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleAnimationPropety: {fileID: 11400000, guid: 371d1938cc9837149bea0699ca1552b4, type: 2}
+  battleAnimationPropety: {fileID: 11400000, guid: ae52dcaa491cfd242ae4f9624a42115a, type: 2}
   indicatorCanvas: {fileID: 829540442}
 --- !u!4 &1087324
 Transform:
@@ -201,12 +201,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstDangeon: {fileID: 0}
   unlockedDungeon: []
-  selectedDungeon: {fileID: 11400000, guid: 4ff4faea6a6710e4db7afc64cfca624d, type: 2}
+  selectedDungeon: {fileID: 11400000, guid: 96f626d377c8a624498d35aae1492583, type: 2}
   equipments:
   - {fileID: 8313083597182299096, guid: 9f0b83ddcc10ebb42aca0ed945c2ed4c, type: 3}
   - {fileID: 8313083597182299096, guid: 87ac93d23d8610146847a51a6917615f, type: 3}
   - {fileID: 8313083597182299096, guid: 0973d2750ee738a419b62af0455edc58, type: 3}
-  - {fileID: 8313083597182299096, guid: a721094660ef6b24e87d0f234a4ea4e9, type: 3}
+  - {fileID: 8313083597182299096, guid: 0dd5048956856c4489e7e52aedff830e, type: 3}
+  - {fileID: 8313083597182299096, guid: e1dcce9590f05674c800d82a34b17823, type: 3}
 --- !u!114 &210527725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -715,7 +716,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1189293679}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9, y: -6, z: 0}
+  m_LocalPosition: {x: -9, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -857,7 +858,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 46f466595f5696048b3601933c562c96, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 58b0cf7b1be57fa45b485dc4c328bf1d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -877,7 +878,7 @@ Transform:
   m_GameObject: {fileID: 1582676303}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9, y: -6, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 25, y: 25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

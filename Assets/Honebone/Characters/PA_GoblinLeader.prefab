@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5674685493744237135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2519544292671379023}
+  - component: {fileID: 3236638316654089537}
+  m_Layer: 0
+  m_Name: PA_GoblinLeader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2519544292671379023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5674685493744237135}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3236638316654089537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5674685493744237135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 906159b63842d6e4bb1ab28e0b216048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PAName: "\u30B4\u30D6\u30EA\u30F3\u30EA\u30FC\u30C0\u30FC"
+  PAInfo: "3\u56DE\u653B\u6483\u3059\u308B\u3054\u3068\u306B\u3001\u76F8\u624B\u306B\u8131\u529B60\u3092\u4ED8\u4E0E\n\u653B\u6483\u304C\u547D\u4E2D\u3057\u305F\u6642\u3001\u76F8\u624B\u306B\u51FA\u88402\u3092\u4ED8\u4E0E"
+  exHP: 0
+  exATK: 0
+  action:
+    owner: {fileID: 0}
+    target: {fileID: 0}
+    attack: 0
+    DMG: 0
+    heal: 0
+    applyStE:
+    - StE: {fileID: 2510622262790149085, guid: 596ed89f1194e6e4f8e7446c8c057037, type: 3}
+      amount: 2
+    removeStE: []
+  weak:
+    owner: {fileID: 0}
+    target: {fileID: 0}
+    attack: 0
+    DMG: 0
+    heal: 0
+    applyStE:
+    - StE: {fileID: 2510622262790149085, guid: 55524502cfd900d4da929ad75e609e89, type: 3}
+      amount: 60
+    removeStE: []

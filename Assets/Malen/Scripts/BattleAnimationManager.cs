@@ -5,6 +5,8 @@ using DG.Tweening;
 using UnityEngine.UIElements.Experimental;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
+using static BattleManager;
+using System.Security.Cryptography.X509Certificates;
 
 /// <summary>
 /// 行動のアニメーションとダメージと状態異常の表示を管理
@@ -32,6 +34,47 @@ public class BattleAnimationManager : MonoBehaviour
         public GameObject characterObject;
         public CharacterSide characterSide;
         public Vector3 defaultPosition;
+    }
+
+    /// <summary>
+    /// 出現アニメーションを再生
+    /// </summary>
+    /// <param name="status"></param>
+    public void PlayEmergeAnimation(Character.CharacterStatus status)
+    {
+        if (battleAnimationPropety.isAnimationPlayedOnEmerge)
+        {
+            CharacterAnimationInfo info = GetInfo(status);
+            if (info.characterSide == CharacterSide.Right)
+            {
+                info.characterObject.transform.position = info.defaultPosition + new Vector3(battleAnimationPropety.forwardDistanceOnEmerge, 0, 0);
+                info.characterObject.transform.DOMove(info.defaultPosition, battleAnimationPropety.durationOnEmerge).SetEase(Ease.OutQuad);
+            }
+            else
+            {
+                info.characterObject.transform.position = info.defaultPosition - new Vector3(battleAnimationPropety.forwardDistanceOnEmerge, 0, 0);
+                info.characterObject.transform.DOMove(info.defaultPosition, battleAnimationPropety.durationOnEmerge).SetEase(Ease.OutQuad);
+            }
+        }
+    }
+
+    public void PlayDisappearAnimation(Character.CharacterStatus status)
+    {
+        if (battleAnimationPropety.isAnimationPlayedOnDisappear)
+        {
+            CharacterAnimationInfo info = GetInfo(status);
+            Sequence sequence = DOTween.Sequence();
+            if (info.characterSide == CharacterSide.Right)
+            {
+                sequence.Append(info.characterObject.transform.DOMove(info.defaultPosition, battleAnimationPropety.durationOnDisappear / 10));
+                sequence.Join(info.characterObject.transform.DOMove(info.defaultPosition + new Vector3(battleAnimationPropety.forwardDistanceOnDisappear, 0, 0), battleAnimationPropety.durationOnDisappear).SetEase(Ease.InBack));
+            }
+            else
+            {
+                sequence.Append(info.characterObject.transform.DOMove(info.defaultPosition, battleAnimationPropety.durationOnDisappear / 10));
+                sequence.Join(info.characterObject.transform.DOMove(info.defaultPosition - new Vector3(battleAnimationPropety.forwardDistanceOnDisappear, 0, 0), battleAnimationPropety.durationOnDisappear).SetEase(Ease.InBack));
+            }
+        }
     }
 
     /// <summary>
@@ -93,7 +136,7 @@ public class BattleAnimationManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ダメージ表示 (被ダメージはマイナス値、与ダメージはプラス値で指定)
+    /// ダメージ表示 (被ダメージはマイナス値、与ダメージはプラス値、ミスは0で指定)
     /// </summary>
     /// <param name="targetCharacter"></param>
     /// <param name="amount"></param>
@@ -106,17 +149,27 @@ public class BattleAnimationManager : MonoBehaviour
         indicator.transform.localScale = Vector3.one;
         Text text = indicator.GetComponent<Text>();
         Outline outline = text.GetComponent<Outline>();
+        Shadow shadow = text.GetComponent<Shadow>();
         if (amount < 0)
         {
             text.color = battleAnimationPropety.damageColor;
             outline.effectColor = battleAnimationPropety.damageColorOutline;
+            shadow.effectColor = battleAnimationPropety.damageColorShadow;
             text.text = "" + amount;
         }
-        else
+        else if(amount > 0)
         {
             text.color = battleAnimationPropety.healColor;
             outline.effectColor = battleAnimationPropety.healColorOutline;
+            shadow.effectColor = battleAnimationPropety.healColorShadow;
             text.text = "+" + amount;
+        }
+        else if(amount == 0)
+        {
+            text.color = battleAnimationPropety.missColor;
+            outline.effectColor = battleAnimationPropety.missColorOutline;
+            shadow.effectColor = battleAnimationPropety.missColorShadow;
+            text.text = "MISS";
         }
     }
 
@@ -135,17 +188,20 @@ public class BattleAnimationManager : MonoBehaviour
         indicator.transform.localScale = Vector3.one;
         Text text = indicator.GetComponent<Text>();
         Outline outline = text.GetComponent<Outline>();
+        Shadow shadow = text.GetComponent<Shadow>();
         Character.CharacterStatus status = targetCharacter.GetComponent<Character>().GetCharacterStatus();
         text.text = string.Format("+{0} {1}", StEName, stEParams.amount);
         if (stEParams.StE.GetComponent<PA_StatusEffects>().GetIsBuff())
         {
             text.color = battleAnimationPropety.paramsColorBuff;
             outline.effectColor = battleAnimationPropety.paramsColorBuffOutline;
+            shadow.effectColor = battleAnimationPropety.paramsColorBuffShadow;
         }
         else
         {
             text.color = battleAnimationPropety.paramsColorDebuff;
             outline.effectColor = battleAnimationPropety.paramsColorDebuffOutline;
+            shadow.effectColor = battleAnimationPropety.paramsColorDebuffShadow;
         }
     }
 
@@ -164,18 +220,41 @@ public class BattleAnimationManager : MonoBehaviour
         indicator.transform.localScale = Vector3.one;
         Text text = indicator.GetComponent<Text>();
         Outline outline = text.GetComponent<Outline>();
+        Shadow shadow = text.GetComponent<Shadow>();
         Character.CharacterStatus status = targetCharacter.GetComponent<Character>().GetCharacterStatus();
         text.text = string.Format("-{0}", StEName);
         if (stEParams.GetComponent<PA_StatusEffects>().GetIsBuff()) 
         {
             text.color = battleAnimationPropety.paramsColorBuff;
             outline.effectColor = battleAnimationPropety.paramsColorBuffOutline;
+            shadow.effectColor = battleAnimationPropety.paramsColorBuffShadow;
         }
         else
         {
             text.color = battleAnimationPropety.paramsColorDebuff;
             outline.effectColor = battleAnimationPropety.paramsColorDebuffOutline;
+            shadow.effectColor = battleAnimationPropety.paramsColorDebuffShadow;
         }
+    }
+
+    /// <summary>
+    /// 行動不能表示
+    /// </summary>
+    /// <param name="targetCharacter"></param>
+    public void ShowStun(GameObject targetCharacter) {
+        GameObject indicator = Instantiate(battleAnimationPropety.paramsIndicator);
+        float scattering = battleAnimationPropety.paramsScattering;
+        indicator.transform.SetParent(indicatorCanvas.transform);
+        indicator.transform.position = targetCharacter.transform.position + new Vector3(Random.Range(-scattering, scattering), Random.Range(-scattering, scattering), 0);
+        indicator.transform.localScale = Vector3.one;
+        Text text = indicator.GetComponent<Text>();
+        Outline outline = text.GetComponent<Outline>();
+        Shadow shadow = text.GetComponent<Shadow>();
+        Character.CharacterStatus status = targetCharacter.GetComponent<Character>().GetCharacterStatus();
+        text.text = "行動不能";
+        text.color = battleAnimationPropety.stunColor;
+        outline.effectColor = battleAnimationPropety.stunColorOutline;
+        shadow.effectColor = battleAnimationPropety.stunColorShadow;
     }
 
     /// <summary>

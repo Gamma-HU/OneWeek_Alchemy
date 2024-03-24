@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3164025572629520509}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 15, y: 15, z: 1}
+  m_LocalScale: {x: 25, y: 25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   status:
+    player: 0
     charaName: "\u30AA\u30AA\u30AB\u30DF"
     maxHP: 15
     ATK: 3
@@ -110,3 +111,4 @@ MonoBehaviour:
     HP: 0
     dead: 0
     blind: 0
+    stun: 0
