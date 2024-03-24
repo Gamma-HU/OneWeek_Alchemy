@@ -18,6 +18,8 @@ public class RecipeMenuContentGenerator : MonoBehaviour
 
     private void GenerateContent()
     {
+        for(int i = 0; i < transform.childCount; i++) { Destroy(transform.GetChild(i).gameObject); }
+        unlockedRecipe = FindObjectOfType<GameManager>().GetUnlockedRecipe();
         for (int i = 0; i < unlockedRecipe.Count; i++)
         {
             GameObject recipe_obj = Instantiate(RecipePfb, transform.position, Quaternion.identity);

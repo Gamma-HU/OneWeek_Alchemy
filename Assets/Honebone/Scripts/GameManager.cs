@@ -9,7 +9,9 @@ public class GameManager : MonoBehaviour
     DungeonData firstDangeon;//次のダンジョンはこのデータ内に格納
     [SerializeField]//test
     List<DungeonData> unlockedDungeon = new List<DungeonData>();//解放されている未クリアのダンジョン
+    [SerializeField]//test
     List<GameObject> unlockedMaterial = new List<GameObject>();
+    [SerializeField]//test
     List<AlchemyRecipe> unlockedRecipe = new List<AlchemyRecipe>();
 
     [SerializeField]//test

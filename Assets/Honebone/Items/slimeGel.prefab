@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 138851671386539954}
   - component: {fileID: 6855587139847658315}
   - component: {fileID: 2241911426083760534}
-  - component: {fileID: 3437269811183131551}
+  - component: {fileID: 7630390424870750190}
   m_Layer: 0
   m_Name: slimeGel
   m_TagString: Item
@@ -93,8 +93,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1107438299
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 46c5d092c52894946acc3cb7cb38ec8f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -134,7 +134,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &3437269811183131551
+--- !u!58 &7630390424870750190
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,4 +168,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.2
+  m_Radius: 0.08

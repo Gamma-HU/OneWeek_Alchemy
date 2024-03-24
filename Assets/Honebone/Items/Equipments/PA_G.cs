@@ -1,30 +1,35 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PA_G : PassiveAbility
 {
-    [SerializeField,Header("í“¬ŠJn@‘Šè")] bool BattleStart_oppo;
+    [SerializeField,Header("æˆ¦é—˜é–‹å§‹æ™‚ã€€ç›¸æ‰‹")] bool BattleStart_oppo;
     [SerializeField] BattleManager.Action action_BS_Oppo;
-    [SerializeField, Header("\n\ní“¬ŠJn@©•ª")] bool BattleStart_self;
+    [SerializeField, Header("\n\næˆ¦é—˜é–‹å§‹æ™‚ã€€è‡ªåˆ†")] bool BattleStart_self;
     [SerializeField] BattleManager.Action action_BS_self;
 
-    [SerializeField, Header("\n\nUŒ‚@‘Šè")] bool attack_oppo;
+    [SerializeField, Header("\n\næ”»æ’ƒæ™‚ã€€ç›¸æ‰‹")] bool attack_oppo;
     [SerializeField] bool onlyHit_attack_oppo;
     [SerializeField] int cd_attack_oppo;
     [SerializeField] BattleManager.Action action_attack_oppo;
     
-    [SerializeField, Header("\n\nUŒ‚@©•ª")] bool attack_self;
+    [SerializeField, Header("\n\næ”»æ’ƒæ™‚ã€€è‡ªåˆ†")] bool attack_self;
     [SerializeField] bool onlyHit_attack_self;
     [SerializeField] int cd_attack_self;
     [SerializeField] BattleManager.Action action_attack_self;
 
-    [SerializeField, Header("\n\n”íUŒ‚@‘Šè")] bool attacked_oppo;
+    [SerializeField, Header("\n\nè¢«æ”»æ’ƒæ™‚ã€€ç›¸æ‰‹")] bool attacked_oppo;
     [SerializeField] bool onlyHit_attacked_oppo;
     [SerializeField] int cd_attacked_oppo;
     [SerializeField] BattleManager.Action action_attacked_oppo;
 
-    [SerializeField, Header("\n\n”í•t—^@©•ª")] bool appied_self;
+    [SerializeField, Header("\n\nè¢«æ”»æ’ƒæ™‚ã€€è‡ªåˆ†")] bool attacked_self;
+    [SerializeField] bool onlyHit_attacked_self;
+    [SerializeField] int cd_attacked_self;
+    [SerializeField] BattleManager.Action action_attacked_self;
+
+    [SerializeField, Header("\n\nè¢«ä»˜ä¸æ™‚ã€€è‡ªåˆ†")] bool appied_self;
     [SerializeField] int cd_applied_self;
     [SerializeField] GameObject appiedCheck_self;
     [SerializeField] BattleManager.Action action_applied_self;
@@ -33,6 +38,7 @@ public class PA_G : PassiveAbility
     int count_attack_self;
 
     int count_attacked_oppo;
+    int count_attacked_self;
 
     int count_applied;
     public override void OnBattleStart()
@@ -81,6 +87,16 @@ public class PA_G : PassiveAbility
             {
                 count_attacked_oppo = 0;
                 battleManager.Enqueue(character, character.GetOpponent(), action_attacked_oppo);
+            }
+        }
+
+        if (attacked_self && !(onlyHit_attacked_self && missed))
+        {
+            count_attacked_self++;
+            if (count_attacked_self >= cd_attack_self)
+            {
+                count_attacked_self = 0;
+                battleManager.Enqueue(character, character, action_attacked_self);
             }
         }
     }

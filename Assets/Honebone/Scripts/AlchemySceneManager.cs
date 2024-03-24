@@ -9,17 +9,21 @@ public class AlchemySceneManager : MonoBehaviour
     GameManager gameManager;
     AlchemyManager alchemyManager;
     EquipmentsSetManager equipmentsManager;
+    SEManager SEManager;
     [SerializeField]
     Transform itemsP;
     [SerializeField]
     Text draggingItemText;
     [SerializeField]
     AudioClip SE_HOLD;
+    [SerializeField]
+    AudioClip SE_Snap;
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
         alchemyManager = FindObjectOfType<AlchemyManager>();
         equipmentsManager = FindObjectOfType<EquipmentsSetManager>();
+        SEManager = FindObjectOfType<SEManager>();
     }
     public void ToggleSlots()
     {
@@ -30,7 +34,10 @@ public class AlchemySceneManager : MonoBehaviour
     {
         draggingItemText.text = s;
     }
-
+    public void PlaySE_Snap()
+    {
+        SEManager.PlaySE(SE_Snap);
+    }
     /// <summary>
     /// 
     /// </summary>

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dungeonName: "\u30B8\u30E3\u30F3\u30B0\u30EB"
   dungeonEffect: {fileID: 0}
-  background: {fileID: 0}
+  background: {fileID: 21300000, guid: 9c667660368bb469783375ed77f5a93c, type: 3}
   difficulty: 6
   dungeonInfo: "\u30FB\u6BD2\n\u30FB\u8106\u5F31\n\u30FB\u76F2\u76EE"
   enemies:
