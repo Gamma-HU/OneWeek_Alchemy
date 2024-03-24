@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 113b4e31a454b0e45a4c2377ea229d61, type: 3}
   m_Name: BattleAnimationPropety
   m_EditorClassIdentifier: 
+  isAnimationPlayedOnEmerge: 1
+  forwardDistanceOnEmerge: 15
+  durationOnEmerge: 0.75
+  isAnimationPlayedOnDisappear: 1
+  forwardDistanceOnDisappear: 15
+  durationOnDisappear: 0.75
   isAnimationPlayedOnAttack: 1
   forwardDistanceOnAttack: 5
   angleOnAttack: 15
@@ -25,12 +31,31 @@ MonoBehaviour:
   durationOnHealed: 0.25
   damageIndicator: {fileID: 6413659497293174909, guid: 750e5c5440b71a44a9b21b22f6a0a437, type: 3}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
+  damageColorOutline: {r: 1, g: 1, b: 1, a: 0}
+  damageColorShadow: {r: 1, g: 0, b: 0, a: 0.5019608}
   healColor: {r: 0, g: 1, b: 0.02162838, a: 1}
+  healColorOutline: {r: 1, g: 1, b: 1, a: 0}
+  healColorShadow: {r: 0, g: 1, b: 0.023529412, a: 0.5019608}
+  missColor: {r: 0.5568628, g: 0.5568628, b: 0.5568628, a: 1}
+  missColorOutline: {r: 1, g: 1, b: 1, a: 0}
+  missColorShadow: {r: 0.5568628, g: 0.5568628, b: 0.5568628, a: 0.5019608}
   damageOffset: {x: 0, y: 1, z: 0}
   damageTimeToDismiss: 1
   damageScattering: 3
-  paramsIndicator: {fileID: 0}
-  paramsColor: {r: 0, g: 0, b: 0, a: 0}
+  paramsIndicator: {fileID: 6413659497293174909, guid: a3b8632960b39804fa21fe0f5f233689, type: 3}
+  paramsColorDebuff: {r: 0.73333335, g: 0, b: 1, a: 1}
+  paramsColorDebuffOutline: {r: 1, g: 1, b: 1, a: 1}
+  paramsColorDebuffShadow: {r: 0.73333335, g: 0, b: 1, a: 0.5019608}
+  paramsColorBuff: {r: 1, g: 0.627451, b: 0, a: 1}
+  paramsColorBuffOutline: {r: 1, g: 1, b: 1, a: 1}
+  paramsColorBuffShadow: {r: 1, g: 0.627451, b: 0, a: 0.5019608}
   paramsOffset: {x: 0, y: 1, z: 0}
-  paramsTimeToDismiss: 1
+  paramsTimeToDismiss: 1.75
   paramsScattering: 3
+  stunIndicator: {fileID: 6413659497293174909, guid: 71e0cd7d39e70544f913a860c269af8c, type: 3}
+  stunColor: {r: 0.5568628, g: 0.5568628, b: 0.5568628, a: 1}
+  stunColorOutline: {r: 1, g: 1, b: 1, a: 1}
+  stunColorShadow: {r: 0.5568628, g: 0.5568628, b: 0.5568628, a: 0.5019608}
+  stunOffset: {x: 0, y: 1, z: 0}
+  stunTimeToDismiss: 1.75
+  stunScattering: 3
