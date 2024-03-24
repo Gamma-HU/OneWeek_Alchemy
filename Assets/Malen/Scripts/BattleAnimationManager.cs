@@ -156,9 +156,9 @@ public class BattleAnimationManager : MonoBehaviour
     /// </summary>
     /// <param name="targetCharacter"></param>
     /// <param name="stEParams"></param>
-    public void ShowAbilityRemoved(GameObject targetCharacter, BattleManager.StEParams stEParams)
+    public void ShowAbilityRemoved(GameObject targetCharacter, GameObject stEParams)
     {
-        string StEName = stEParams.StE.GetComponent<PassiveAbility>().GetPAName();
+        string StEName = stEParams.GetComponent<PassiveAbility>().GetPAName();
         GameObject indicator = Instantiate(battleAnimationPropety.paramsIndicator);
         float scattering = battleAnimationPropety.paramsScattering;
         indicator.transform.SetParent(indicatorCanvas.transform);
@@ -167,9 +167,7 @@ public class BattleAnimationManager : MonoBehaviour
         Text text = indicator.GetComponent<Text>();
         Character.CharacterStatus status = targetCharacter.GetComponent<Character>().GetCharacterStatus();
         text.text = string.Format("-{0}", StEName);
-
-        // バフ・デバフ判別用のフィールドを用意したらコメントアウトを解除してください
-        /*if (stEParams.isBuff)
+        /*if (stEParams.GetComponent<PA_StatusEffects>().)
         {
             text.color = battleAnimationPropety.paramsColorBuff;
             outline.effectColor = battleAnimationPropety.paramsColorBuffOutline;
