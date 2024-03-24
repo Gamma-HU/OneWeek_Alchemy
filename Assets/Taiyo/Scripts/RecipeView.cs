@@ -14,9 +14,11 @@ public class RecipeView : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /*
         ViewItemIcon(recipe.material_1, image1);
         ViewItemIcon(recipe.material_2, image2);
         ViewItemIcon(recipe.product, image3);
+        */
     }
 
     // Update is called once per frame
@@ -32,7 +34,19 @@ public class RecipeView : MonoBehaviour
         image.AddComponent<IconInRecipe>();
         image.GetComponent<IconInRecipe>().namePlatePfb = namePlatePfb;
         image.GetComponent<IconInRecipe>().itemName = item.GetComponent<Item>().GetItemName();
+    }
 
+    /// <summary>
+    /// 解放済みレシピを動的に生成するためにContentにアタッチされたRecipeMenuContentGeneratorから解放済みレシピを指定
+    /// その後、ViewItemIconを呼び出します
+    /// </summary>
+    /// <param name="unlockedRecipe"></param>
+    public void SetRecipe(AlchemyRecipe unlockedRecipe)
+    {
+        recipe = unlockedRecipe;
 
+        ViewItemIcon(recipe.material_1, image1);
+        ViewItemIcon(recipe.material_2, image2);
+        ViewItemIcon(recipe.product, image3);
     }
 }

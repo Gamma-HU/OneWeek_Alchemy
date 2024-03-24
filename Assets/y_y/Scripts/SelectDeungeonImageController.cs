@@ -16,7 +16,7 @@ public class SelectDeungeonImageController : MonoBehaviour, IPointerClickHandler
     private void Start()
     {
         imageColor = GetComponent<Image>().color;
-        print(imageColor);
+        //print(imageColor);
     }
 
     private void Update()

@@ -565,7 +565,6 @@ MonoBehaviour:
   slot_R: {fileID: 1901559075}
   alchemyButton: {fileID: 0}
   productNameText: {fileID: 0}
-  draggingItemText: {fileID: 0}
   spawnPos: {x: 0, y: 6}
 --- !u!4 &286501152
 Transform:
@@ -849,6 +848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemsP: {fileID: 0}
+  draggingItemText: {fileID: 0}
 --- !u!1 &795571731
 GameObject:
   m_ObjectHideFlags: 0
@@ -2032,6 +2032,50 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1151201911417656499, guid: cfd5ccb3acdc51b42af28f567fb25fe2, type: 3}
+      propertyPath: unlockedRecipe.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151201911417656499, guid: cfd5ccb3acdc51b42af28f567fb25fe2, type: 3}
+      propertyPath: unlockedRecipe.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: f09ceed5fc67c0046b2f866e33ba190f, type: 2}
+    - target: {fileID: 1151201911417656499, guid: cfd5ccb3acdc51b42af28f567fb25fe2, type: 3}
+      propertyPath: unlockedRecipe.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 47f6f4dcbebeb1549af8663241dcef71, type: 2}
+    - target: {fileID: 1151201911417656499, guid: cfd5ccb3acdc51b42af28f567fb25fe2, type: 3}
+      propertyPath: unlockedRecipe.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: eed9b5510f7262c47b048e145c75b5d1, type: 2}
+    - target: {fileID: 1151201911417656499, guid: cfd5ccb3acdc51b42af28f567fb25fe2, type: 3}
+      propertyPath: unlockedRecipe.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b094612a6eb0d34cb34970558cadb0c, type: 2}
+    - target: {fileID: 1151201911417656499, guid: cfd5ccb3acdc51b42af28f567fb25fe2, type: 3}
+      propertyPath: unlockedRecipe.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 032af5c561cbbe942b9ec038490d4a23, type: 2}
+    - target: {fileID: 1151201911417656499, guid: cfd5ccb3acdc51b42af28f567fb25fe2, type: 3}
+      propertyPath: unlockedRecipe.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: f56b877deed99b445b0a45789fcca26b, type: 2}
+    - target: {fileID: 1151201911417656499, guid: cfd5ccb3acdc51b42af28f567fb25fe2, type: 3}
+      propertyPath: unlockedRecipe.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: acb6804a70d1f264c80c5bc5b87b52d6, type: 2}
+    - target: {fileID: 1151201911417656499, guid: cfd5ccb3acdc51b42af28f567fb25fe2, type: 3}
+      propertyPath: unlockedRecipe.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 48a0a787dafb0d345a2690fb330dfb57, type: 2}
+    - target: {fileID: 1151201911417656499, guid: cfd5ccb3acdc51b42af28f567fb25fe2, type: 3}
+      propertyPath: unlockedRecipe.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5245aa47a83df004da63a184f9dc854a, type: 2}
+    - target: {fileID: 1151201911417656499, guid: cfd5ccb3acdc51b42af28f567fb25fe2, type: 3}
+      propertyPath: unlockedRecipe.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: c58fe77de5b4ee64fbdc4cd966243dd1, type: 2}
     - target: {fileID: 2294568105554913291, guid: cfd5ccb3acdc51b42af28f567fb25fe2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

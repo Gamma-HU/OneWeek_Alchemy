@@ -38,7 +38,7 @@ public class StageSelectViewContentGenerator : MonoBehaviour
         dungeonInfo = dungeonData.dungeonInfo;
 
         content.GetComponent<SetContentElement>().dungeonNum = i;
-        print((background, dungeonName, difficulty, dungeonInfo));
+        //print((background, dungeonName, difficulty, dungeonInfo));
         content.GetComponent<SetContentElement>().setElement(background, dungeonName, difficulty, dungeonInfo);
     }
 
