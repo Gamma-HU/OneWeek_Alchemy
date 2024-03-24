@@ -99,6 +99,7 @@ public class Character : MonoBehaviour
             {
                 OnAttack(0, true);
                 opponent.OnAttacked(0, true);
+                animManager.ShowDamageIndicator(opponent.gameObject, 0);
                 Debug.Log("Miss");
             }
             //if (status.player) { animManager.PlayAttackAnimation(status); }
@@ -106,6 +107,7 @@ public class Character : MonoBehaviour
         }
         else
         {
+            animManager.ShowStun(gameObject);
             animManager.PlayDamagedAnimation(status);
             Debug.Log("行動不能!");
             OnStun();
@@ -168,6 +170,7 @@ public class Character : MonoBehaviour
                 passiveAbility.GetComponent<PA_StatusEffects>().DisableStE();
                 DisableStE(passiveAbility);
                 Debug.Log(string.Format("{0}の{1}を除去", status.charaName, StEName));
+                animManager.ShowAbilityRemoved(gameObject, remove);
                 //animManager.ShowAbilityRemoved(gameObject, remove);
             }
         }
@@ -181,6 +184,7 @@ public class Character : MonoBehaviour
         //===============================================[[死亡時演出]]===================================================
         Debug.Log(string.Format("{0}はたおれた", status.charaName));
         status.dead = true;
+        animManager.PlayDisappearAnimation(status);
     }
 
     //-----------------------------------------------------<以下誘発処理>-----------------------------------------------------

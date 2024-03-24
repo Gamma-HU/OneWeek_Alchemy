@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf430f80fd07e84b9365e85bd5cc06e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleAnimationPropety: {fileID: 11400000, guid: 371d1938cc9837149bea0699ca1552b4, type: 2}
+  battleAnimationPropety: {fileID: 11400000, guid: ae52dcaa491cfd242ae4f9624a42115a, type: 2}
   indicatorCanvas: {fileID: 829540442}
 --- !u!4 &1087324
 Transform:
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstDangeon: {fileID: 0}
   unlockedDungeon: []
-  selectedDungeon: {fileID: 11400000, guid: 0671afb157976614f981d333a1cd51f8, type: 2}
+  selectedDungeon: {fileID: 11400000, guid: 96f626d377c8a624498d35aae1492583, type: 2}
   equipments:
   - {fileID: 8313083597182299096, guid: 9f0b83ddcc10ebb42aca0ed945c2ed4c, type: 3}
   - {fileID: 8313083597182299096, guid: 87ac93d23d8610146847a51a6917615f, type: 3}
