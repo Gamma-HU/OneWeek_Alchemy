@@ -15,10 +15,11 @@ MonoBehaviour:
   dungeonName: "\u6EB6\u5CA9\u5730\u5E2F"
   dungeonEffect: {fileID: 0}
   background: {fileID: 21300000, guid: 8beaa304296e040fdb33dd37b9f65b50, type: 3}
-  difficulty: 0
+  difficulty: 6
   dungeonInfo: "\u30FB\u706B\u50B7\n\u30FB\u50B7\n\u30FB\u6C17\u7D76"
   enemies:
   - {fileID: 3164025572629520509, guid: e4d2b1b1e2efd5444b869c3ca5f25319, type: 3}
   - {fileID: 3164025572629520509, guid: e4d2b1b1e2efd5444b869c3ca5f25319, type: 3}
   rewardItems: []
-  nextDungeons: []
+  nextDungeons:
+  - {fileID: 11400000, guid: d23555128fa21624ea4e7f291eb9b4e7, type: 2}

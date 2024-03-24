@@ -21,5 +21,8 @@ MonoBehaviour:
   - {fileID: 3164025572629520509, guid: 506bb16b100a4524082be5adfe654a3f, type: 3}
   - {fileID: 3164025572629520509, guid: 506bb16b100a4524082be5adfe654a3f, type: 3}
   - {fileID: 3164025572629520509, guid: ecf4414a2f8b4f3469f764603d2c0f2a, type: 3}
-  rewardItems: []
-  nextDungeons: []
+  rewardItems:
+  - {fileID: 408756892454182970, guid: fd1f9d361fd3c774b9c7ecf378840182, type: 3}
+  nextDungeons:
+  - {fileID: 11400000, guid: 11142301e7a4e234e8cd332b35c66071, type: 2}
+  - {fileID: 11400000, guid: 0671afb157976614f981d333a1cd51f8, type: 2}

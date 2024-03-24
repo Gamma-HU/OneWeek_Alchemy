@@ -17,7 +17,9 @@ MonoBehaviour:
   background: {fileID: 21300000, guid: 0ac615f74048b439fa17ac4d872c5823, type: 3}
   difficulty: 3
   dungeonInfo: "3\u56DE\u76EE\u306E\u653B\u6483\u304C\u975E\u5E38\u306B\u5F37\u529B"
-  enemies: []
+  enemies:
+  - {fileID: 3164025572629520509, guid: f20f2cff16e3a654ab5809ab0d07f577, type: 3}
   rewardItems:
   - {fileID: 369480470792548374, guid: bce0926900c0a2146a809636bb8d8132, type: 3}
-  nextDungeons: []
+  nextDungeons:
+  - {fileID: 11400000, guid: 24256a2c2cecd7849bbe488bdcff54f0, type: 2}

@@ -49,12 +49,6 @@ public class Character : MonoBehaviour
     GaugeManager HPGauge;
     BattleAnimationManager animManager;
 
-    [SerializeField] private AudioClip SE_attack;
-    [SerializeField] private AudioClip SE_attacked;
-    [SerializeField] private AudioClip SE_heal;
-    [SerializeField] private AudioClip SE_buff;
-    [SerializeField] private AudioClip SE_deBuff;
-
 
     public void Init(BattleManager bm,GaugeManager gauge)
     {
@@ -103,8 +97,7 @@ public class Character : MonoBehaviour
                 opponent.OnAttacked(DMG, false);
 
                 //Sound Effect
-                SEManager seManager = FindFirstObjectByType<SEManager>();
-                seManager.PlaySE(SE_attack);
+                battleManager.PlaySE_Attack();
             }
             else
             {
@@ -137,8 +130,7 @@ public class Character : MonoBehaviour
         if (status.HP <= 0) { Die(); }
 
         //Sound Effect
-        SEManager seManager = FindFirstObjectByType<SEManager>();
-        seManager.PlaySE(SE_attacked);
+        battleManager.PlaySE_Attacked();
     }
     public void Heal(int value)
     {
@@ -153,8 +145,7 @@ public class Character : MonoBehaviour
         OnHealed(heal);
 
         //Sound Effect
-        SEManager seManager = FindFirstObjectByType<SEManager>();
-        seManager.PlaySE(SE_heal);
+        battleManager.PlaySE_Heal();
     }
     public void ApplyStE(BattleManager.StEParams stEParams)
     {
@@ -179,9 +170,17 @@ public class Character : MonoBehaviour
         animManager.ShowAbilityApplyed(gameObject, stEParams);
         OnAppliedStE(stEParams);
 
-        //Sound Effect
-        SEManager seManager = FindFirstObjectByType<SEManager>();
-        seManager.PlaySE(SE_buff);
+        if (stEParams.StE.GetComponent<PA_StatusEffects>().GetIsBuff())
+        {
+            //Sound Effect
+            battleManager.PlaySE_ApplyBuff();
+        }
+        else
+        {
+            //Sound Effect
+            battleManager.PlaySE_ApplyDebuff();
+        }
+        
     }
     public void RemoveStE(GameObject remove)
     {
@@ -196,9 +195,7 @@ public class Character : MonoBehaviour
                 animManager.ShowAbilityRemoved(gameObject, remove);
                 //animManager.ShowAbilityRemoved(gameObject, remove);
 
-                //Sound Effect
-                SEManager seManager = FindFirstObjectByType<SEManager>();
-                seManager.PlaySE(SE_deBuff);
+                
             }
         }
     }

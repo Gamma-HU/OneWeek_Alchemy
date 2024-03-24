@@ -49,11 +49,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData:
     itemName: "\u677E\u660E"
-    itemSprite: {fileID: 21300000, guid: 7a4b7b439fb975846aecbade9e49d4ae, type: 3}
+    itemSprite: {fileID: 21300000, guid: dd5df3b8b4c3b4e81bd75bdb6939fd7b, type: 3}
     canEquip: 1
     weapon: 0
     armor: 0
     passiveAbility: {fileID: 8313083597182299096, guid: 27033a11837ff604493a95890e109156, type: 3}
+  SE_hold: {fileID: 0}
 --- !u!212 &6265871650062159155
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -95,7 +96,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7a4b7b439fb975846aecbade9e49d4ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd5df3b8b4c3b4e81bd75bdb6939fd7b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

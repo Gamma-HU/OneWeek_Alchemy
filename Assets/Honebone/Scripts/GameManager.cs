@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     DungeonData selectedDungeon;
     [SerializeField]//test
     List<GameObject> equipments;
+
+    int equipmentSlots = 3;
     void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -59,6 +61,7 @@ public class GameManager : MonoBehaviour
         equipments = new List<GameObject>();
         SceneManager.LoadScene("Alchemy");
     }
+    public void UnlockEquipmentsSlot() { equipmentSlots++; }
     public void UnlockRecipe(AlchemyRecipe recipe) { unlockedRecipe.Add(recipe); }
     public void UnlockMaterial(GameObject material) { unlockedMaterial.Add(material); }
     public void UnlockDungeon(DungeonData dungeon) { unlockedDungeon.Add(dungeon); }
