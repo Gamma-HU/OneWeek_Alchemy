@@ -14,6 +14,8 @@ public class MoveMenu : MonoBehaviour
     Vector3 closePosition_vertical;
     Vector3 openPosition_vertical;
     bool isOpen;
+    [SerializeField]
+    private AudioClip SE_MenuOpenClose;
 
     // Start is called before the first frame update
     void Start()
@@ -43,12 +45,20 @@ public class MoveMenu : MonoBehaviour
     {
         GetComponent<RectTransform>().DOAnchorPos(openPosition, 0.5f).SetEase(Ease.OutCubic);
         isOpen = true;
+
+        //Sound Effect
+        SEManager seManager = FindFirstObjectByType<SEManager>();
+        seManager.PlaySE(SE_MenuOpenClose);
     }
 
     public void CloseMenu()
     {
         GetComponent<RectTransform>().DOAnchorPos(closePosition, 0.5f).SetEase(Ease.OutCubic);
         isOpen = false;
+
+        //Sound Effect
+        SEManager seManager = FindFirstObjectByType<SEManager>();
+        seManager.PlaySE(SE_MenuOpenClose);
     }
 
     public void OpenMenu_vertical()
@@ -56,6 +66,10 @@ public class MoveMenu : MonoBehaviour
         GetComponent<RectTransform>().DOAnchorPos(openPosition_vertical, 0.5f).SetEase(Ease.OutCubic);
         transform.SetAsLastSibling();  //”w–Ê‚É•\Ž¦
         isOpen = true;
+
+        //Sound Effect
+        SEManager seManager = FindFirstObjectByType<SEManager>();
+        seManager.PlaySE(SE_MenuOpenClose);
     }
 
     public void CloseMenu_vertical()
@@ -63,6 +77,10 @@ public class MoveMenu : MonoBehaviour
         GetComponent<RectTransform>().DOAnchorPos(closePosition_vertical, 0.5f).SetEase(Ease.OutCubic);
         transform.SetSiblingIndex(1); //‘O–Ê‚É•\Ž¦
         isOpen = false;
+
+        //Sound Effect
+        SEManager seManager = FindFirstObjectByType<SEManager>();
+        seManager.PlaySE(SE_MenuOpenClose);
     }
 
     public void PushMenuButton()

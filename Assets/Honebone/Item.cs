@@ -15,6 +15,7 @@ public class Item : MonoBehaviour
         public bool canEquip;
         public bool weapon;
         public bool armor;
+        
         [Header("装備可能アイテムのみ")] public GameObject passiveAbility;
         public string GetItemInfo()
         {
@@ -40,6 +41,9 @@ public class Item : MonoBehaviour
 
     AlchemySlot onSlot_Alchemy;
     EquipmentSlot onSlot_Equipment;
+
+    public AudioClip SE_hold;
+
     void Start()
     {
         Init();//test
@@ -57,6 +61,8 @@ public class Item : MonoBehaviour
         dragging = set;
         if (dragging)//ドラッグ開始
         {
+            SEManager seManager = FindFirstObjectByType<SEManager>();
+            seManager.PlaySE(SE_hold);
             rb.bodyType = RigidbodyType2D.Kinematic;
             transform.rotation = Quaternion.Euler(Vector3.zero);
             rb.angularVelocity = 0;
