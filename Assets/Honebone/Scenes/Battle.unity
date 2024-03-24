@@ -201,13 +201,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstDangeon: {fileID: 0}
   unlockedDungeon: []
-  selectedDungeon: {fileID: 11400000, guid: 96f626d377c8a624498d35aae1492583, type: 2}
+  selectedDungeon: {fileID: 11400000, guid: 7be6212f42bb66b468325e6d58eb0e23, type: 2}
   equipments:
   - {fileID: 8313083597182299096, guid: 9f0b83ddcc10ebb42aca0ed945c2ed4c, type: 3}
-  - {fileID: 8313083597182299096, guid: 87ac93d23d8610146847a51a6917615f, type: 3}
+  - {fileID: 8313083597182299096, guid: 58c0ee9ffe1ce1b4b8c7088c47b8cafa, type: 3}
   - {fileID: 8313083597182299096, guid: 0973d2750ee738a419b62af0455edc58, type: 3}
-  - {fileID: 8313083597182299096, guid: 0dd5048956856c4489e7e52aedff830e, type: 3}
-  - {fileID: 8313083597182299096, guid: e1dcce9590f05674c800d82a34b17823, type: 3}
+  - {fileID: 8313083597182299096, guid: a9f2b0981ebe75f4e92a5238bce9fb92, type: 3}
+  - {fileID: 8313083597182299096, guid: 944a1df8fda562640a68c6c74652a768, type: 3}
 --- !u!114 &210527725
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,11 +9,17 @@ public class PA_G : PassiveAbility
     [SerializeField, Header("\n\n戦闘開始時　自分")] bool BattleStart_self;
     [SerializeField] BattleManager.Action action_BS_self;
 
+    [SerializeField, Header("\n\n攻撃時　相手")] bool attack_oppo;
+    [SerializeField] bool onlyHit_attack_oppo;
+    [SerializeField] int cd_attack_oppo;
+    [SerializeField] BattleManager.Action action_attack_oppo;
+
     [SerializeField, Header("\n\n被付与時　自分")] bool appied_self;
     [SerializeField] int cd_applied_self;
     [SerializeField] GameObject appiedCheck_self;
     [SerializeField] BattleManager.Action action_applied_self;
 
+    int count_attack;
     int count_applied;
     public override void OnBattleStart()
     {
@@ -25,7 +31,20 @@ public class PA_G : PassiveAbility
         {
             battleManager.Enqueue(character, character, action_BS_self);
         }
+        count_attack = 0;
         count_applied = 0;
+    }
+    public override void OnAttack(int DMG, bool missed)
+    {
+        count_attack++;
+        if (attack_oppo)
+        {
+            if (count_attack >= cd_attack_oppo && !(onlyHit_attack_oppo && missed))
+            {
+                count_attack = 0;
+                battleManager.Enqueue(character, character.GetOpponent(), action_attack_oppo);
+            }
+        }
     }
     public override void OnAppliedStE(BattleManager.StEParams applied)
     {
