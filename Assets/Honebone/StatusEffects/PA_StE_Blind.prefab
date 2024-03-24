@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2510622262790149085}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -49,6 +49,7 @@ MonoBehaviour:
   PAInfo: "\u6B21\u306E\u81EA\u5206\u306E\u653B\u6483\u304C\u5916\u308C\u308B"
   exHP: 0
   exATK: 0
+  isBuff: 0
 --- !u!212 &9006104431167986784
 SpriteRenderer:
   m_ObjectHideFlags: 0

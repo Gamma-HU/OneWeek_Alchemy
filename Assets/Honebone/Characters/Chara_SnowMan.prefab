@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3164025572629520509}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 15, y: 15, z: 1}
+  m_LocalScale: {x: 25, y: 25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -102,7 +102,8 @@ MonoBehaviour:
     charaName: "\u96EA\u7537"
     maxHP: 35
     ATK: 6
-    passiveAbilities: []
+    passiveAbilities:
+    - {fileID: 5674685493744237135, guid: 7e08fa1b76f611a45980b804d187edd4, type: 3}
     exDMG_int: 0
     exDMG_mul: 0
     PROT_int: 0
