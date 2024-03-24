@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b3393a966dd11f448afd3d6f1745b77, type: 3}
-  m_Name: 6-3village
+  m_Name: 6-2magma
   m_EditorClassIdentifier: 
-  dungeonName: "\u5EC3\u6751"
+  dungeonName: "\u6EB6\u5CA9\u5730\u5E2F"
   dungeonEffect: {fileID: 0}
-  background: {fileID: 0}
-  difficulty: 6
-  dungeonInfo: "\u30FB\u81EA\u5DF1\u56DE\u5FA9\n\u30FB\u6BD2\n\u30FB\u529B"
+  background: {fileID: 21300000, guid: 8beaa304296e040fdb33dd37b9f65b50, type: 3}
+  difficulty: 0
+  dungeonInfo: "\u30FB\u706B\u50B7\n\u30FB\u50B7\n\u30FB\u6C17\u7D76"
   enemies:
-  - {fileID: 3164025572629520509, guid: 3b81fce2b6a17d949b1d4d1722c0fb84, type: 3}
-  - {fileID: 3164025572629520509, guid: 031fd84947ff4064aae7340480778ce7, type: 3}
-  - {fileID: 3164025572629520509, guid: 3b81fce2b6a17d949b1d4d1722c0fb84, type: 3}
+  - {fileID: 3164025572629520509, guid: e4d2b1b1e2efd5444b869c3ca5f25319, type: 3}
+  - {fileID: 3164025572629520509, guid: e4d2b1b1e2efd5444b869c3ca5f25319, type: 3}
   rewardItems: []
   nextDungeons: []
