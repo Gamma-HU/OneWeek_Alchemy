@@ -49,6 +49,13 @@ public class Character : MonoBehaviour
     GaugeManager HPGauge;
     BattleAnimationManager animManager;
 
+    [SerializeField] private AudioClip SE_attack;
+    [SerializeField] private AudioClip SE_attacked;
+    [SerializeField] private AudioClip SE_heal;
+    [SerializeField] private AudioClip SE_buff;
+    [SerializeField] private AudioClip SE_deBuff;
+
+
     public void Init(BattleManager bm,GaugeManager gauge)
     {
         battleManager = bm;
@@ -94,6 +101,10 @@ public class Character : MonoBehaviour
                 opponent.Damage(DMG, true);//四捨五入して相手のDamage関数に渡す
                 OnAttack(DMG, false);
                 opponent.OnAttacked(DMG, false);
+
+                //Sound Effect
+                SEManager seManager = FindFirstObjectByType<SEManager>();
+                seManager.PlaySE(SE_attack);
             }
             else
             {
@@ -124,6 +135,10 @@ public class Character : MonoBehaviour
         //if (status.player) { animManager.PlayDamagedAnimation(status); }
         animManager.PlayDamagedAnimation(status);
         if (status.HP <= 0) { Die(); }
+
+        //Sound Effect
+        SEManager seManager = FindFirstObjectByType<SEManager>();
+        seManager.PlaySE(SE_attacked);
     }
     public void Heal(int value)
     {
@@ -136,6 +151,10 @@ public class Character : MonoBehaviour
         animManager.ShowDamageIndicator(gameObject, value);
         Debug.Log(string.Format("{0}は{1}回復", status.charaName, heal));
         OnHealed(heal);
+
+        //Sound Effect
+        SEManager seManager = FindFirstObjectByType<SEManager>();
+        seManager.PlaySE(SE_heal);
     }
     public void ApplyStE(BattleManager.StEParams stEParams)
     {
@@ -159,6 +178,10 @@ public class Character : MonoBehaviour
         Debug.Log(string.Format("{0}に{1}{2}を付与", status.charaName, StEName, stEParams.amount));
         animManager.ShowAbilityApplyed(gameObject, stEParams);
         OnAppliedStE(stEParams);
+
+        //Sound Effect
+        SEManager seManager = FindFirstObjectByType<SEManager>();
+        seManager.PlaySE(SE_buff);
     }
     public void RemoveStE(GameObject remove)
     {
@@ -172,6 +195,10 @@ public class Character : MonoBehaviour
                 Debug.Log(string.Format("{0}の{1}を除去", status.charaName, StEName));
                 animManager.ShowAbilityRemoved(gameObject, remove);
                 //animManager.ShowAbilityRemoved(gameObject, remove);
+
+                //Sound Effect
+                SEManager seManager = FindFirstObjectByType<SEManager>();
+                seManager.PlaySE(SE_deBuff);
             }
         }
     }
