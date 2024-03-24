@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: HandMirror
   m_EditorClassIdentifier: 
   material_1: {fileID: 1128425530542487637, guid: 6f07a0ae4a7aa47499f950b1e7df3292, type: 3}
-  material_2: {fileID: 369480470792548374, guid: 293a156e08c243e4c820fd2905cc83cb, type: 3}
-  product: {fileID: 0}
+  material_2: {fileID: 369480470792548374, guid: d7bccfe48e747c84ba193c0ef5115e40, type: 3}
+  product: {fileID: 7123124004538772736, guid: 35a283b14ef725b45b3e062ef1ad53dd, type: 3}

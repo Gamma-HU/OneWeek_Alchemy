@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3164025572629520509}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 25, y: 25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9fc49d73179333f4692c1996afca76f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0eaa3787759ac4c46b8f393494092ffc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   status:
+    player: 0
     charaName: "\u30AF\u30E2"
     maxHP: 10
     ATK: 4
@@ -110,3 +111,4 @@ MonoBehaviour:
     HP: 0
     dead: 0
     blind: 0
+    stun: 0
