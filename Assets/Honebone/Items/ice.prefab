@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4726035893107554606}
   - component: {fileID: 3302456907202597932}
   - component: {fileID: 5826693278565675566}
-  - component: {fileID: 7614326846046195430}
+  - component: {fileID: 9074466529072403715}
   m_Layer: 0
   m_Name: ice
   m_TagString: Item
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData:
     itemName: "\u6C37"
-    itemSprite: {fileID: 21300000, guid: 7a4b7b439fb975846aecbade9e49d4ae, type: 3}
+    itemSprite: {fileID: 21300000, guid: 985cc594f793d49f8b907d0a056cf7e0, type: 3}
     canEquip: 0
     weapon: 0
     armor: 0
@@ -96,7 +96,7 @@ SpriteRenderer:
   m_SortingLayerID: 1107438299
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7a4b7b439fb975846aecbade9e49d4ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 985cc594f793d49f8b907d0a056cf7e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -134,7 +134,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &7614326846046195430
+--- !u!58 &9074466529072403715
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,4 +168,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.16
+  m_Radius: 0.08

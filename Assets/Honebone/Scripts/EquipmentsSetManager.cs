@@ -11,12 +11,18 @@ public class EquipmentsSetManager : MonoBehaviour
 
     [SerializeField]
     List<AudioClip> SE_equip;
+    [SerializeField]
+    GameObject embarkButton;
+    [SerializeField]
+    Sprite[] bakpacks;
 
+    GameManager gameManager;
     MessageText message;
     SEManager SEManager;
     private void Start()
     {
-         message=FindObjectOfType<MessageText>();
+        gameManager = FindObjectOfType<GameManager>();
+        message = FindObjectOfType<MessageText>();
         SEManager = FindObjectOfType<SEManager>();
     }
     public List<GameObject> GetPassiveAbilities()
@@ -59,6 +65,13 @@ public class EquipmentsSetManager : MonoBehaviour
             }
         }
     }
+
+    public void Embark()
+    {
+        gameManager.EnterDungeon(GetPassiveAbilities());
+    }
+   
+
     public void ToggleEquipmentSlots()
     {
         if (slotsP.activeSelf)
@@ -72,6 +85,7 @@ public class EquipmentsSetManager : MonoBehaviour
         {
             message.SetMessage("装備するアイテムを選択", 0.25f);
         }
+        embarkButton.SetActive(!slotsP.activeSelf);
         slotsP.SetActive(!slotsP.activeSelf);
     }
     public void PlayEquipSE()

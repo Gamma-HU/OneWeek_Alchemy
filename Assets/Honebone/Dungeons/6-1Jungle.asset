@@ -16,7 +16,7 @@ MonoBehaviour:
   dungeonEffect: {fileID: 0}
   background: {fileID: 21300000, guid: 9c667660368bb469783375ed77f5a93c, type: 3}
   difficulty: 6
-  dungeonInfo: "\u30FB\u6BD2\n\u30FB\u8106\u5F31\n\u30FB\u76F2\u76EE"
+  dungeonInfo: "\u30D8\u30D3\u306E\u6BD2\u306B\u3088\u3063\u3066\u9632\u5FA1\u529B\u304C\u4F4E\u4E0B\u3059\u308B"
   enemies:
   - {fileID: 3164025572629520509, guid: 5ccfc9c202e77fa428b076ce502a6a41, type: 3}
   - {fileID: 3164025572629520509, guid: 5198ded40111f454eb9091ba7df26732, type: 3}

@@ -61,6 +61,7 @@ public class ExpeditionManager : MonoBehaviour
     }
     void CompleteExpedition()
     {
+        gameManager.ClearDungeon(currentDungeon);
         foreach(GameObject reward in currentDungeon.rewardItems)
         {
             Debug.Log(string.Format("新たな錬金素材「{0}」をアンロック", reward.GetComponent<Item>().GetItemName()));
@@ -71,6 +72,8 @@ public class ExpeditionManager : MonoBehaviour
             Debug.Log(string.Format("新たなダンジョン「{0}」をアンロック", dungeon.dungeonName));
             gameManager.UnlockDungeon(dungeon);
         }
+
+        gameManager.ReturnToAlchemyScene();
     }
   
     IEnumerator BattleInterval()

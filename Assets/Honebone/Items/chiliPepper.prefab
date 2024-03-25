@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData:
     itemName: "\u30C8\u30A6\u30AC\u30E9\u30B7"
-    itemSprite: {fileID: 21300000, guid: 7a4b7b439fb975846aecbade9e49d4ae, type: 3}
+    itemSprite: {fileID: 21300000, guid: 71ea328e5742143fb8ef1f2670576dd6, type: 3}
     canEquip: 0
     weapon: 0
     armor: 0
@@ -96,7 +96,7 @@ SpriteRenderer:
   m_SortingLayerID: 1107438299
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7a4b7b439fb975846aecbade9e49d4ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 71ea328e5742143fb8ef1f2670576dd6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

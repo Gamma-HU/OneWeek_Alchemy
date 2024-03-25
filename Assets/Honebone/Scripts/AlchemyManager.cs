@@ -21,6 +21,7 @@ public class AlchemyManager : MonoBehaviour
 
     GameManager gameManager;
     AlchemySceneManager alchemySceneManager;
+    RecipeMenuContentGenerator recipeMenuContentGenerator;
 
     [SerializeField]
     Vector2 spawnPos;
@@ -40,6 +41,7 @@ public class AlchemyManager : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
         alchemySceneManager = FindObjectOfType<AlchemySceneManager>();
+        recipeMenuContentGenerator = FindObjectOfType<RecipeMenuContentGenerator>();
     }
 
     // Update is called once per frame
@@ -97,15 +99,16 @@ public class AlchemyManager : MonoBehaviour
                     alchemySceneManager.SpawnItem(recipe.product, spawnPos);
 
                     //trueなら新レシピ false既出
-                    if (!gameManager.GetUnlockedRecipe().Contains(recipe)) { 
+                    if (!gameManager.GetUnlockedRecipe().Contains(recipe)) { //新レシピ
                         gameManager.UnlockRecipe(recipe);
                         noteAnim.SetTrigger("Display");
+                        recipeMenuContentGenerator.GenerateContent();
                         //Sound Effect
                         SEManager seManager = FindFirstObjectByType<SEManager>();
                         seManager.PlaySE(SE_find_newList);
                         seManager.PlaySE(SE_notNew);
                     }
-                    else
+                    else//既出レシピ
                     {
                         //Sound Effect
                         SEManager seManager = FindFirstObjectByType<SEManager>();

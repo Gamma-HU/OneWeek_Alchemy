@@ -8,6 +8,9 @@ public class StageSelectViewContentGenerator : MonoBehaviour
     [SerializeField] private GameObject GameManager;
     [SerializeField] private GameObject alchemySceneManager;
 
+    GameManager gameManager;
+
+    private List<DungeonData> clearedDungeon = new List<DungeonData>();//解放されている未クリアのダンジョン
     private List<DungeonData> unlockedDungeon = new List<DungeonData>();//解放されている未クリアのダンジョン
 
     private Sprite background;
@@ -18,7 +21,9 @@ public class StageSelectViewContentGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        unlockedDungeon = GameManager.GetComponent<GameManager>().GetUnlockedDungeon();
+        gameManager = FindObjectOfType<GameManager>();
+        clearedDungeon = gameManager.GetCleardDungeon();
+        unlockedDungeon = gameManager.GetUnlockedDungeon();
         for (int i = 0; i < unlockedDungeon.Count; i++)
         {
             GenerateContent(unlockedDungeon[i], i);
@@ -39,13 +44,13 @@ public class StageSelectViewContentGenerator : MonoBehaviour
 
         content.GetComponent<SetContentElement>().dungeonNum = i;
         //print((background, dungeonName, difficulty, dungeonInfo));
-        content.GetComponent<SetContentElement>().setElement(background, dungeonName, difficulty, dungeonInfo);
+        content.GetComponent<SetContentElement>().setElement(background, dungeonName, difficulty, dungeonInfo,gameManager.GetCleardDungeon().Contains(unlockedDungeon[i]));
     }
 
     public void SelectDungeon(int i)
     {
         alchemySceneManager.GetComponent<AlchemySceneManager>().ToggleSlots();
-        GameManager.GetComponent<GameManager>().SelectDungeon(unlockedDungeon[i]);
+        gameManager.SelectDungeon(unlockedDungeon[i]);
 
     }
 }

@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8313083597182299096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1274222725523604865}
+  - component: {fileID: 4533153408560301463}
+  m_Layer: 0
+  m_Name: PA_Eq_OniMask
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1274222725523604865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8313083597182299096}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4533153408560301463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8313083597182299096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90167cdb79871134dad8de9cd4900d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PAName: "\u9B3C\u306E\u4EEE\u9762"
+  PAInfo: "\u6575\u304C3\u56DE\u653B\u6483\u3059\u308B\u305F\u3073\u3001\u76F8\u624B\u306B\u8131\u529B25\u3092\u4ED8\u4E0E"
+  exHP: 0
+  exATK: 0
+  BattleStart_oppo: 0
+  action_BS_Oppo:
+    owner: {fileID: 0}
+    target: {fileID: 0}
+    attack: 0
+    DMG: 0
+    heal: 0
+    applyStE: []
+    removeStE: []
+  BattleStart_self: 0
+  action_BS_self:
+    owner: {fileID: 0}
+    target: {fileID: 0}
+    attack: 0
+    DMG: 0
+    heal: 5
+    applyStE: []
+    removeStE: []
+  attack_oppo: 0
+  onlyHit_attack_oppo: 0
+  cd_attack_oppo: 0
+  action_attack_oppo:
+    owner: {fileID: 0}
+    target: {fileID: 0}
+    attack: 0
+    DMG: 0
+    heal: 0
+    applyStE:
+    - StE: {fileID: 2510622262790149085, guid: 16358867ed53a9a4387c803c3fad5318, type: 3}
+      amount: 10
+    - StE: {fileID: 2510622262790149085, guid: 596ed89f1194e6e4f8e7446c8c057037, type: 3}
+      amount: 1
+    removeStE: []
+  attack_self: 0
+  onlyHit_attack_self: 0
+  cd_attack_self: 0
+  action_attack_self:
+    owner: {fileID: 0}
+    target: {fileID: 0}
+    attack: 0
+    DMG: 0
+    heal: 0
+    applyStE: []
+    removeStE: []
+  attacked_oppo: 1
+  onlyHit_attacked_oppo: 0
+  cd_attacked_oppo: 3
+  action_attacked_oppo:
+    owner: {fileID: 0}
+    target: {fileID: 0}
+    attack: 0
+    DMG: 0
+    heal: 0
+    applyStE:
+    - StE: {fileID: 2510622262790149085, guid: 55524502cfd900d4da929ad75e609e89, type: 3}
+      amount: 25
+    removeStE: []
+  attacked_self: 0
+  onlyHit_attacked_self: 0
+  cd_attacked_self: 0
+  action_attacked_self:
+    owner: {fileID: 0}
+    target: {fileID: 0}
+    attack: 0
+    DMG: 0
+    heal: 0
+    applyStE: []
+    removeStE:
+    - {fileID: 2510622262790149085, guid: 596ed89f1194e6e4f8e7446c8c057037, type: 3}
+    - {fileID: 2510622262790149085, guid: 106763312a705be419cb3414d5a3ef4a, type: 3}
+  appied_self: 0
+  cd_applied_self: 0
+  appiedCheck_self: {fileID: 0}
+  action_applied_self:
+    owner: {fileID: 0}
+    target: {fileID: 0}
+    attack: 0
+    DMG: 0
+    heal: 0
+    applyStE: []
+    removeStE: []

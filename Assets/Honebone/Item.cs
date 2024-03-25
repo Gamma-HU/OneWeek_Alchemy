@@ -95,6 +95,7 @@ public class Item : MonoBehaviour
             {
                 rb.bodyType = RigidbodyType2D.Dynamic;
             }
+            rb.velocity = Vector2.zero;
         }
     }
 

@@ -16,7 +16,7 @@ public class RecipeMenuContentGenerator : MonoBehaviour
         GenerateContent();
     }
 
-    private void GenerateContent()
+    public void GenerateContent()
     {
         for(int i = 0; i < transform.childCount; i++) { Destroy(transform.GetChild(i).gameObject); }
         unlockedRecipe = FindObjectOfType<GameManager>().GetUnlockedRecipe();

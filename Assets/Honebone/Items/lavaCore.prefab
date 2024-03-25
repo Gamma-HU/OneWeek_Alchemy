@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4726035893107554606}
   - component: {fileID: 3302456907202597932}
   - component: {fileID: 5826693278565675566}
-  - component: {fileID: 7614326846046195430}
+  - component: {fileID: 6734649801812458920}
   m_Layer: 0
   m_Name: lavaCore
   m_TagString: Item
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData:
     itemName: "\u6EB6\u5CA9\u306E\u30B3\u30A2"
-    itemSprite: {fileID: 21300000, guid: 7a4b7b439fb975846aecbade9e49d4ae, type: 3}
+    itemSprite: {fileID: 21300000, guid: 1f3cc80facf238849bc46e009f244093, type: 3}
     canEquip: 0
     weapon: 0
     armor: 0
@@ -96,7 +96,7 @@ SpriteRenderer:
   m_SortingLayerID: 1107438299
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7a4b7b439fb975846aecbade9e49d4ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1f3cc80facf238849bc46e009f244093, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -134,8 +134,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &7614326846046195430
-CircleCollider2D:
+--- !u!70 &6734649801812458920
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -166,6 +166,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.16
+  m_Offset: {x: -0.0022350154, y: 0}
+  m_Size: {x: 0.1233457, y: 0.16}
+  m_Direction: 0

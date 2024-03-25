@@ -27,7 +27,21 @@ public class AlchemySceneManager : MonoBehaviour
         alchemyManager = FindObjectOfType<AlchemyManager>();
         equipmentsManager = FindObjectOfType<EquipmentsSetManager>();
         SEManager = FindObjectOfType<SEManager>();
+
+        //LoadGeneratedItems();
     }
+
+    void LoadGeneratedItems()
+    {
+        if (gameManager.GetGeneratedItems().Count > 0)
+        {
+            foreach (GameObject item in gameManager.GetGeneratedItems())
+            {
+                SpawnItem(item, Vector2.zero);
+            }
+        }
+    }
+
     public void ToggleSlots()
     {
         alchemyManager.ToggleEquipmentSlots();
@@ -53,5 +67,14 @@ public class AlchemySceneManager : MonoBehaviour
         i.GetComponent<Item>().Snap();
         i.GetComponent<Item>().SE_hold = SE_HOLD;
         Instantiate(sucsessEffect, spawnPos, Quaternion.identity);
+    }
+
+    public List<GameObject> GetGeneratedItems() {
+        List<GameObject> generated = new List<GameObject>();
+        for(int i = 0; i < itemsP.childCount; i++)
+        {
+            generated.Add(itemsP.GetChild(i).gameObject);
+        }
+        return generated;
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 138851671386539954}
   - component: {fileID: 6855587139847658315}
   - component: {fileID: 2241911426083760534}
-  - component: {fileID: -4958733111480560149}
+  - component: {fileID: 5328681323478275494}
   m_Layer: 0
   m_Name: Leather
   m_TagString: Item
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData:
     itemName: "\u9769"
-    itemSprite: {fileID: 21300000, guid: 7a4b7b439fb975846aecbade9e49d4ae, type: 3}
+    itemSprite: {fileID: 21300000, guid: 78bb891a8f0a249cba49ceee016a2414, type: 3}
     canEquip: 0
     weapon: 0
     armor: 0
@@ -96,7 +96,7 @@ SpriteRenderer:
   m_SortingLayerID: 1107438299
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7a4b7b439fb975846aecbade9e49d4ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 78bb891a8f0a249cba49ceee016a2414, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -134,7 +134,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &-4958733111480560149
+--- !u!58 &5328681323478275494
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,4 +168,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.16
+  m_Radius: 0.08
