@@ -7,7 +7,7 @@ public class SEManager : MonoBehaviour
     [SerializeField]
     AudioSource audioSource;
 
-    List<AudioClip> clipList;
+    List<AudioClip> clipList=new List<AudioClip>();
     public void PlaySE(AudioClip clip)
     {
         if (!clipList.Contains(clip))

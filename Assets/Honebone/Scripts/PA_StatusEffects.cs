@@ -9,26 +9,30 @@ public class PA_StatusEffects : PassiveAbility
     protected int stack;
 
     private StEIconManager stEIconManager;
+    StEIcon StEicon;
 
     private void Start()
     {
         stEIconManager = FindObjectOfType<StEIconManager>();
     }
 
-    public void StEInit(int s)
+    public void StEInit(int s,StEIcon icon)
     {
         stack = s;
+        StEicon = icon;
         OnInit();
     }
     public void AddStack(int add)
     {
         if (add < 0) { Debug.Log("error：増加するスタック数が負の数になっています"); }
         stack += add;
+        StEicon.SetStack(stack);
         OnAddStack(add);
     }
     public void ConsumeStack()
     {
         stack--;
+        StEicon.SetStack(stack);
         if (stack == 0)
         {
             character.DisableStE(this);
@@ -38,6 +42,7 @@ public class PA_StatusEffects : PassiveAbility
     public void DisableStE()
     {
         AtTheEnd();
+        Destroy(StEicon.gameObject);
         Destroy(gameObject);
     }
 

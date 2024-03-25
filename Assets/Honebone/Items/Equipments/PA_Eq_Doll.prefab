@@ -67,6 +67,7 @@ MonoBehaviour:
     applyStE: []
     removeStE: []
   attack_oppo: 0
+  onlyOnce_attack_oppo: 0
   onlyHit_attack_oppo: 0
   cd_attack_oppo: 0
   action_attack_oppo:
@@ -89,8 +90,9 @@ MonoBehaviour:
     applyStE: []
     removeStE: []
   attacked_oppo: 1
+  onlyOnce_attacked_oppo: 1
   onlyHit_attacked_oppo: 0
-  cd_attacked_oppo: 9999
+  cd_attacked_oppo: 0
   action_attacked_oppo:
     owner: {fileID: 0}
     target: {fileID: 0}
@@ -102,6 +104,17 @@ MonoBehaviour:
       amount: 20
     - StE: {fileID: 2510622262790149085, guid: 6d07468ff3763204ea34ee477d1aa118, type: 3}
       amount: 20
+    removeStE: []
+  attacked_self: 0
+  onlyHit_attacked_self: 0
+  cd_attacked_self: 0
+  action_attacked_self:
+    owner: {fileID: 0}
+    target: {fileID: 0}
+    attack: 0
+    DMG: 0
+    heal: 0
+    applyStE: []
     removeStE: []
   appied_self: 0
   cd_applied_self: 0

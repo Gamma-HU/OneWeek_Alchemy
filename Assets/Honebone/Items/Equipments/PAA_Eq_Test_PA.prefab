@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1274222725523604865}
   - component: {fileID: 8022256561471819742}
   m_Layer: 0
-  m_Name: Eq_Test_PA
+  m_Name: PAA_Eq_Test_PA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

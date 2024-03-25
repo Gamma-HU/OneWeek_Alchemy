@@ -47,6 +47,7 @@ public class Character : MonoBehaviour
     CharacterStatus opponetnStatus;
     BattleManager battleManager;
     GaugeManager HPGauge;
+    StEIconManager iconManager;
     BattleAnimationManager animManager;
 
 
@@ -54,6 +55,7 @@ public class Character : MonoBehaviour
     {
         battleManager = bm;
         HPGauge = gauge;
+        iconManager = HPGauge.GetComponentInChildren<StEIconManager>();
         status.HP = status.maxHP;
         HPGauge.UpdateHPGauge(status.GetHPPercent());
         animManager = FindObjectOfType<BattleAnimationManager>();
@@ -62,6 +64,13 @@ public class Character : MonoBehaviour
             var p = Instantiate(passiveAbility, transform);
             p.GetComponent<PassiveAbility>().Init(this,battleManager);
             passiveAbilities.Add(p.GetComponent<PassiveAbility>());
+
+            SpriteRenderer sr = p.GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                sr.enabled = false;
+            }
+
         }
     }
     public void Equip(List<GameObject> equipments)//プレイヤーのみ使用　探索開始時に持ち込んだ装備品を装備
@@ -70,6 +79,12 @@ public class Character : MonoBehaviour
         {
             var p = Instantiate(e, transform);
             p.GetComponent<PassiveAbility>().Init(this, battleManager);
+            SpriteRenderer sr = p.GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                sr.enabled = false;
+            }
+            
             passiveAbilities.Add(p.GetComponent<PassiveAbility>());
         }
         HPGauge.UpdateHPGauge(status.GetHPPercent());
@@ -163,7 +178,14 @@ public class Character : MonoBehaviour
         {
             var p = Instantiate(stEParams.StE, transform);
             p.GetComponent<PassiveAbility>().Init(this, battleManager);
-            p.GetComponent<PA_StatusEffects>().StEInit(stEParams.amount);
+            p.GetComponent<PA_StatusEffects>().StEInit(stEParams.amount, iconManager.SetStEIcon(p, stEParams.amount));
+
+            SpriteRenderer sr = p.GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                sr.enabled = false;
+            }
+
             passiveAbilities.Add(p.GetComponent<PassiveAbility>());
         }
         Debug.Log(string.Format("{0}に{1}{2}を付与", status.charaName, StEName, stEParams.amount));

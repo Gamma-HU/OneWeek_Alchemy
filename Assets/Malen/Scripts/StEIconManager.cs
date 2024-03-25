@@ -10,22 +10,23 @@ public class StEIconManager : MonoBehaviour
 
     [SerializeField] GameObject iconBase;
 
-    public PA_StatusEffects SetStEIcon(GameObject StE, int stack)
+    public StEIcon SetStEIcon(GameObject StE, int stack)
     {
-        foreach (Transform child in transform) { 
-            if(child.name == StE.name)
-            {
-                return StE.GetComponent<PA_StatusEffects>();
-            }
-        }
+        //foreach (Transform child in transform) { 
+        //    if(child.name == StE.name)
+        //    {
+        //        return StE.GetComponent<PA_StatusEffects>();
+        //    }
+        //}
         SpriteRenderer sprite = StE.GetComponent<SpriteRenderer>();
         GameObject icon = Instantiate(iconBase);
         icon.transform.SetParent(transform, false);
         icon.GetComponent<StEIcon>().stackText.text = stack.ToString();
         icon.GetComponent<Image>().sprite = sprite.sprite;
-        icon.name = StE.name;
-        GameObject stEObj = Instantiate(StE);
-        stEObj.transform.SetParent(icon.transform, false);
-        return StE.GetComponent<PA_StatusEffects>();
+        return icon.GetComponent<StEIcon>();
+        //icon.name = StE.name;
+        //GameObject stEObj = Instantiate(StE);
+        //stEObj.transform.SetParent(icon.transform, false);
+        //return StE.GetComponent<PA_StatusEffects>();
     }
 }

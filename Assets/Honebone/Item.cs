@@ -10,6 +10,7 @@ public class Item : MonoBehaviour
     [System.Serializable]
     public class ItemData
     {
+        public int ID;
         public string itemName;
         public Sprite itemSprite;
         public bool canEquip;
@@ -30,6 +31,8 @@ public class Item : MonoBehaviour
             }
             return s;
         }
+
+        public void SetID(int id) { ID = id; }
     }
     [SerializeField]
     ItemData itemData;
