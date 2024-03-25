@@ -31,16 +31,16 @@ MonoBehaviour:
   durationOnHealed: 0.25
   damageIndicator: {fileID: 6413659497293174909, guid: 750e5c5440b71a44a9b21b22f6a0a437, type: 3}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
-  damageColorOutline: {r: 1, g: 1, b: 1, a: 0}
+  damageColorOutline: {r: 1, g: 1, b: 1, a: 1}
   damageColorShadow: {r: 1, g: 0, b: 0, a: 0.5019608}
   healColor: {r: 0, g: 1, b: 0.02162838, a: 1}
-  healColorOutline: {r: 1, g: 1, b: 1, a: 0}
+  healColorOutline: {r: 1, g: 1, b: 1, a: 1}
   healColorShadow: {r: 0, g: 1, b: 0.023529412, a: 0.5019608}
   missColor: {r: 0.5568628, g: 0.5568628, b: 0.5568628, a: 1}
-  missColorOutline: {r: 1, g: 1, b: 1, a: 0}
+  missColorOutline: {r: 1, g: 1, b: 1, a: 1}
   missColorShadow: {r: 0.5568628, g: 0.5568628, b: 0.5568628, a: 0.5019608}
   damageOffset: {x: 0, y: 1, z: 0}
-  damageTimeToDismiss: 1
+  damageTimeToDismiss: 2
   damageScattering: 3
   paramsIndicator: {fileID: 6413659497293174909, guid: a3b8632960b39804fa21fe0f5f233689, type: 3}
   paramsColorDebuff: {r: 0.73333335, g: 0, b: 1, a: 1}
@@ -50,7 +50,7 @@ MonoBehaviour:
   paramsColorBuffOutline: {r: 1, g: 1, b: 1, a: 1}
   paramsColorBuffShadow: {r: 1, g: 0.627451, b: 0, a: 0.5019608}
   paramsOffset: {x: 0, y: 1, z: 0}
-  paramsTimeToDismiss: 1.75
+  paramsTimeToDismiss: 2
   paramsScattering: 3
   stunIndicator: {fileID: 6413659497293174909, guid: 71e0cd7d39e70544f913a860c269af8c, type: 3}
   stunColor: {r: 0.5568628, g: 0.5568628, b: 0.5568628, a: 1}

@@ -148,8 +148,10 @@ public class BattleAnimationManager : MonoBehaviour
         indicator.transform.position = targetCharacter.transform.position + new Vector3(Random.Range(-scattering, scattering), Random.Range(-scattering, scattering), 0);
         indicator.transform.localScale = Vector3.one;
         Text text = indicator.GetComponent<Text>();
-        Outline outline = text.GetComponent<Outline>();
-        Shadow shadow = text.GetComponent<Shadow>();
+        Outline outline = text.gameObject.GetComponent<Outline>();
+        Shadow shadow = GetShadowComponent(text);
+        Debug.Log(outline);
+        Debug.Log(shadow);
         if (amount < 0)
         {
             text.color = battleAnimationPropety.damageColor;
@@ -187,8 +189,8 @@ public class BattleAnimationManager : MonoBehaviour
         indicator.transform.position = targetCharacter.transform.position + new Vector3(Random.Range(-scattering, scattering), Random.Range(-scattering, scattering), 0);
         indicator.transform.localScale = Vector3.one;
         Text text = indicator.GetComponent<Text>();
-        Outline outline = text.GetComponent<Outline>();
-        Shadow shadow = text.GetComponent<Shadow>();
+        Outline outline = text.gameObject.GetComponent<Outline>();
+        Shadow shadow = GetShadowComponent(text);
         Character.CharacterStatus status = targetCharacter.GetComponent<Character>().GetCharacterStatus();
         text.text = string.Format("+{0} {1}", StEName, stEParams.amount);
         if (stEParams.StE.GetComponent<PA_StatusEffects>().GetIsBuff())
@@ -219,8 +221,8 @@ public class BattleAnimationManager : MonoBehaviour
         indicator.transform.position = targetCharacter.transform.position + new Vector3(Random.Range(-scattering, scattering), Random.Range(-scattering, scattering), 0);
         indicator.transform.localScale = Vector3.one;
         Text text = indicator.GetComponent<Text>();
-        Outline outline = text.GetComponent<Outline>();
-        Shadow shadow = text.GetComponent<Shadow>();
+        Outline outline = text.gameObject.GetComponent<Outline>();
+        Shadow shadow = GetShadowComponent(text);
         Character.CharacterStatus status = targetCharacter.GetComponent<Character>().GetCharacterStatus();
         text.text = string.Format("-{0}", StEName);
         if (stEParams.GetComponent<PA_StatusEffects>().GetIsBuff()) 
@@ -248,8 +250,8 @@ public class BattleAnimationManager : MonoBehaviour
         indicator.transform.position = targetCharacter.transform.position + new Vector3(Random.Range(-scattering, scattering), Random.Range(-scattering, scattering), 0);
         indicator.transform.localScale = Vector3.one;
         Text text = indicator.GetComponent<Text>();
-        Outline outline = text.GetComponent<Outline>();
-        Shadow shadow = text.GetComponent<Shadow>();
+        Outline outline = text.gameObject.GetComponent<Outline>();
+        Shadow shadow = GetShadowComponent(text);
         Character.CharacterStatus status = targetCharacter.GetComponent<Character>().GetCharacterStatus();
         text.text = "行動不能";
         text.color = battleAnimationPropety.stunColor;
@@ -289,5 +291,18 @@ public class BattleAnimationManager : MonoBehaviour
         {
             return enemy;
         }
+    }
+
+    private Shadow GetShadowComponent(Text text)
+    {
+        Outline outline = text.GetComponent<Outline>();
+        Shadow[] Tshadows = text.GetComponents<Shadow>();
+        Shadow Tshadow = null;
+        for (int i = 0; i < Tshadows.Length; i++)
+        {
+            if (outline != null && Tshadows[i].GetInstanceID() == outline.GetInstanceID()) continue;
+            Tshadow = Tshadows[i];
+        }
+        return Tshadow;
     }
 }
