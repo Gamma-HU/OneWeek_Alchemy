@@ -28,9 +28,11 @@ public class GameManager : MonoBehaviour
     [SerializeField]//test
     List<GameObject> equipments;
 
-    List<int> generatedItems = new List<int>();//save
+    List<string> generatedItems = new List<string>();//save
 
     int equipmentSlots = 3;//save
+
+    Dictionary<string, int> itemNameDic = new Dictionary<string, int>(); 
 
     void Start()
     {
@@ -40,10 +42,7 @@ public class GameManager : MonoBehaviour
         //{
         //    dungeonDataBase[i].SetID(i);
         //}
-        //for (int i = 0; i < itemDataBase.Count; i++)
-        //{
-        //    itemDataBase[i].GetComponent<Item>().GetItemData().SetID(i);
-        //}
+       
         //for (int i = 0; i < recipeDataBase.Count; i++)
         //{
         //    recipeDataBase[i].SetID(i);
@@ -59,6 +58,11 @@ public class GameManager : MonoBehaviour
         LoadData();
         if (unlockedMaterial.Count == 0) { unlockedMaterial.AddRange(firstItems); }
         if (unlockedDungeon.Count == 0) { unlockedDungeon.Add(firstDungeon); }
+
+        for (int i = 0; i < itemDataBase.Count; i++)
+        {
+            itemNameDic.Add(itemDataBase[i].GetComponent<Item>().GetItemName(), i);
+        }
     }
 
     void CheckInstance()
@@ -94,13 +98,17 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Alchemy");
     }
 
-    public void SaveGeneratedItems(List<int> items)
+    public void SaveGeneratedItems(List<string> items)
     {
-        generatedItems = new List<int>(items);
+        generatedItems = new List<string>(items);
     }
-    public List<int> GetGeneratedItemsID() { return generatedItems; }
+    public List<string> GetGeneratedItemsName() { return generatedItems; }
 
-    public void UnlockEquipmentsSlot() { equipmentSlots++; }
+    public void UnlockEquipmentsSlot()
+    {
+        equipmentSlots++;
+        SaveData();
+    }
     public void UnlockRecipe(AlchemyRecipe recipe)
     {
         if (!unlockedRecipe.Contains(recipe)) { unlockedRecipe.Add(recipe); }
@@ -122,6 +130,7 @@ public class GameManager : MonoBehaviour
         SaveData();
     }
 
+    public int GetUnlockedEquipmentSlot() { return equipmentSlots; }
     public List<DungeonData> GetCleardDungeon()
     {
         if (debugMode) { return clearedDungeon_debug; }
@@ -168,6 +177,7 @@ public class GameManager : MonoBehaviour
             if (unlockedRecipe.Contains(data)) { i = 1; }
             PlayerPrefs.SetInt(key, i);
         }
+        PlayerPrefs.SetInt("equipmentSlots", equipmentSlots);
     }
     public void LoadData()
     {
@@ -197,9 +207,11 @@ public class GameManager : MonoBehaviour
                 unlockedRecipe.Add(data);
             }
         }
+        if (PlayerPrefs.HasKey("equipmentSlots")) { equipmentSlots = PlayerPrefs.GetInt("equipmentSlots"); }
     }
 
-    public GameObject GetItemFromDataBase(int ID) { return itemDataBase[ID]; }
+    public GameObject GetItemFromDataBase(string itemName) { return itemDataBase[itemNameDic[itemName]]; }
+    public List<AlchemyRecipe> GetAlchemyRecipes() { return recipeDataBase; }
     public List<GameObject> GetEquipments() { return equipments; }
     public DungeonData GetSelectedDugeon() { return selectedDungeon; }
 }

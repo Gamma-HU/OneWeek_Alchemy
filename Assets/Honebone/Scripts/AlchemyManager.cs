@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class AlchemyManager : MonoBehaviour
 {
-    [SerializeField]
     List<AlchemyRecipe> alchemyRecipes = new List<AlchemyRecipe>();
     [SerializeField]
     GameObject slotsP;
@@ -28,6 +27,9 @@ public class AlchemyManager : MonoBehaviour
 
     [SerializeField]
     Animator noteAnim;
+    [SerializeField]
+    Animator noteAnim_newSlot;
+
 
     private bool alchemy_sucess = false;
     [SerializeField]
@@ -42,6 +44,9 @@ public class AlchemyManager : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
         alchemySceneManager = FindObjectOfType<AlchemySceneManager>();
         recipeMenuContentGenerator = FindObjectOfType<RecipeMenuContentGenerator>();
+
+        alchemyRecipes = gameManager.GetAlchemyRecipes();
+
     }
 
     // Update is called once per frame
@@ -103,6 +108,11 @@ public class AlchemyManager : MonoBehaviour
                         gameManager.UnlockRecipe(recipe);
                         noteAnim.SetTrigger("Display");
                         recipeMenuContentGenerator.GenerateContent();
+                        if (recipe.unlockSlot)
+                        {
+                            gameManager.UnlockEquipmentsSlot();
+                            noteAnim_newSlot.SetTrigger("Display");
+                        }
                         //Sound Effect
                         SEManager seManager = FindFirstObjectByType<SEManager>();
                         seManager.PlaySE(SE_find_newList);

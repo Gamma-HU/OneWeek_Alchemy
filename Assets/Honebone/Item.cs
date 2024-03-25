@@ -16,12 +16,15 @@ public class Item : MonoBehaviour
         public bool canEquip;
         public bool weapon;
         public bool armor;
+
+        public bool backpack;
         
         [Header("装備可能アイテムのみ")] public GameObject passiveAbility;
         public string GetItemInfo()
         {
             string s = ""; //string.Format("{0}\n");
             if (canEquip) { s += "[装備品]\n"; }
+            else if(backpack){ s += "これを初めて錬金したとき、探索に持っていける装備品の数が増える\n"; }
             else { s += "[錬金素材]\n"; }
             if (weapon) { s += "<<武器>>\n"; }
             if (armor) { s += "<<防具>>\n"; }
@@ -53,15 +56,22 @@ public class Item : MonoBehaviour
     }
     public void Init()
     {
+        transform.GetChild(0).GetComponent<SpriteRenderer>().sortingLayerName = GetComponent<SpriteRenderer>().sortingLayerName;
+        SetOutline(false);
+
         rb = GetComponent<Rigidbody2D>();
         alchemySceneManager = FindObjectOfType<AlchemySceneManager>();
         alchemyManager = FindObjectOfType<AlchemyManager>();
     }
 
-
+    public void SetOutline(bool set)
+    {
+        transform.GetChild(0).gameObject.SetActive(set);
+    }
     public void SetDragging(bool set)
     {
         dragging = set;
+        SetOutline(set);
         if (dragging)//ドラッグ開始
         {
             SEManager seManager = FindFirstObjectByType<SEManager>();

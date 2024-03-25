@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EquipmentsSetManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class EquipmentsSetManager : MonoBehaviour
     List<AudioClip> SE_equip;
     [SerializeField]
     GameObject embarkButton;
+    [SerializeField]
+    Image backpack;
     [SerializeField]
     Sprite[] bakpacks;
 
@@ -86,6 +89,14 @@ public class EquipmentsSetManager : MonoBehaviour
             message.SetMessage("装備するアイテムを選択", 0.25f);
         }
         embarkButton.SetActive(!slotsP.activeSelf);
+        int slots = gameManager.GetUnlockedEquipmentSlot();
+        if (slots == 4) { backpack.sprite = bakpacks[0]; }
+        if (slots == 5) { backpack.sprite = bakpacks[1]; }
+        for(int i = 0; i < equipmentSlots.Count; i++)
+        {
+            if (i < slots) { equipmentSlots[i].gameObject.SetActive(true); }
+            else { equipmentSlots[i].gameObject.SetActive(false); }
+        }
         slotsP.SetActive(!slotsP.activeSelf);
     }
     public void PlayEquipSE()

@@ -9,6 +9,8 @@ public class AlchemyRecipe : ScriptableObject
     public GameObject material_2;
 
     public GameObject product;
+
+    public bool unlockSlot;
     public bool CheckMaterial(string name_1, string name_2)
     {
         string material_n1 = material_1.GetComponent<Item>().GetItemName();
