@@ -17,6 +17,7 @@ MonoBehaviour:
   durationOnEmerge: 0.75
   isAnimationPlayedOnDisappear: 1
   forwardDistanceOnDisappear: 15
+  angleOnDisappear: 90
   durationOnDisappear: 0.75
   isAnimationPlayedOnAttack: 1
   forwardDistanceOnAttack: 5

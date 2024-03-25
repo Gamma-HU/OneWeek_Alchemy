@@ -10,12 +10,11 @@ public class HPBarTest : MonoBehaviour
     public GaugeManager manager;
     public BattleAnimationManager bam;
     public ItemExplainManager iem;
+    public StEIconManager sim;
     public GameObject player;
 
-    private void Start()
-    {
-        bam.SetPlayerPropety(player);
-    }
+    public StEIconPropety stEIconPropety;
+
 
     public void OnClicked(float ratio)
     {
@@ -66,5 +65,17 @@ public class HPBarTest : MonoBehaviour
     public void Explain(GameObject obj)
     {
         iem.ShowItemExplain(obj);
+    }
+
+    public void addIcon()
+    {
+        int rand = Random.Range(0, stEIconPropety.stEIcons.Length);
+        Debug.Log(sim.SetStEIcon(stEIconPropety.stEIcons[rand], 100));
+    }
+
+    public void ChangeStack()
+    {
+        var stE = FindObjectOfType<PA_StatusEffects>();
+        stE.SetStack(0);
     }
 }

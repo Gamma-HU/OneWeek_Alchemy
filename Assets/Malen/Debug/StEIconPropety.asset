@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0d13b9eb0b86c43bf3f0c1b27c9e29, type: 3}
+  m_Name: StEIconPropety
+  m_EditorClassIdentifier: 
+  stEIcons:
+  - {fileID: 2510622262790149085, guid: fea639f4e18969f4586646b8420be1c9, type: 3}
+  - {fileID: 2510622262790149085, guid: 1d5d46ca438875d40b7e0de5022848a4, type: 3}
+  - {fileID: 2510622262790149085, guid: 932a42a0eb1768541887b98ba1758ed2, type: 3}
+  - {fileID: 2510622262790149085, guid: e464a72ae11ef5842b8082533b6f8743, type: 3}
+  - {fileID: 2510622262790149085, guid: 2d071e471fb4f4a43b8403f9b34dde89, type: 3}
+  - {fileID: 2510622262790149085, guid: 6ae356a37036ccf4da0881df43880a2f, type: 3}
+  - {fileID: 2510622262790149085, guid: 22b9813a7a227dc4b9169ba498bce386, type: 3}
+  - {fileID: 2510622262790149085, guid: de27c5aa0129ee149a0fc19b31c33467, type: 3}
+  - {fileID: 2510622262790149085, guid: 0f23e7512d3145f4ca5b9e537f263036, type: 3}
+  - {fileID: 2510622262790149085, guid: 2a3f4ead901bde148a8779d17a237204, type: 3}
+  - {fileID: 2510622262790149085, guid: fe9bf4f2e53e77d4ba48238e1728e8f5, type: 3}
