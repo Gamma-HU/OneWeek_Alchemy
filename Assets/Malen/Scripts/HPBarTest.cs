@@ -9,6 +9,7 @@ public class HPBarTest : MonoBehaviour
     public Button button;
     public GaugeManager manager;
     public BattleAnimationManager bam;
+    public ItemExplainManager iem;
     public GameObject player;
 
     private void Start()
@@ -60,5 +61,10 @@ public class HPBarTest : MonoBehaviour
     {
         Character character = player.GetComponent<Character>();
         //bam.ShowDamageIndicator(character.gameObject, amount);
+    }
+
+    public void Explain(GameObject obj)
+    {
+        iem.ShowItemExplain(obj);
     }
 }
