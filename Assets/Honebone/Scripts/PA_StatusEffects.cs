@@ -7,6 +7,14 @@ public class PA_StatusEffects : PassiveAbility
     [SerializeField]
     bool isBuff;
     protected int stack;
+
+    private StEIconManager stEIconManager;
+
+    private void Start()
+    {
+        stEIconManager = FindObjectOfType<StEIconManager>();
+    }
+
     public void StEInit(int s)
     {
         stack = s;
@@ -32,6 +40,20 @@ public class PA_StatusEffects : PassiveAbility
         AtTheEnd();
         Destroy(gameObject);
     }
+
+    public void SetStack(int stack)
+    {
+        if (stack > 0)
+        {
+            transform.parent.GetComponent<StEIcon>().stackText.text = stack.ToString();
+        }
+        else
+        {
+            Destroy(gameObject.transform.parent.gameObject);
+        }
+
+    }   
+
     public virtual void OnInit() { }
     public virtual void OnAddStack(int add) { }
     public virtual void AtTheEnd() { }

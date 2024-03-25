@@ -14,6 +14,7 @@ public class BattleAnimationPropety : ScriptableObject
     [Header("=====<消滅時>(前進)=====")]
     [Header("アニメーションするか")] public bool isAnimationPlayedOnDisappear;
     [Header("移動距離")] public float forwardDistanceOnDisappear;
+    [Header("角度")] public float angleOnDisappear;
     [Header("アニメーション時間")] public float durationOnDisappear;
 
     [Header("=====<攻撃時>(前進)=====")]

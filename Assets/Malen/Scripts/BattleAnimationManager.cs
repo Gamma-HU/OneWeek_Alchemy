@@ -67,11 +67,13 @@ public class BattleAnimationManager : MonoBehaviour
             if (info.characterSide == CharacterSide.Right)
             {
                 sequence.Append(info.characterObject.transform.DOMove(info.defaultPosition, battleAnimationPropety.durationOnDisappear / 10));
+                sequence.Append(info.characterObject.transform.DORotate(new Vector3(0, 0, -battleAnimationPropety.angleOnDisappear), battleAnimationPropety.durationOnDisappear / 2, RotateMode.Fast).SetEase(Ease.InQuad));
                 sequence.Join(info.characterObject.transform.DOMove(info.defaultPosition + new Vector3(battleAnimationPropety.forwardDistanceOnDisappear, 0, 0), battleAnimationPropety.durationOnDisappear).SetEase(Ease.InBack));
             }
             else
             {
                 sequence.Append(info.characterObject.transform.DOMove(info.defaultPosition, battleAnimationPropety.durationOnDisappear / 10));
+                sequence.Append(info.characterObject.transform.DORotate(new Vector3(0, 0, battleAnimationPropety.angleOnDisappear), battleAnimationPropety.durationOnDisappear / 2, RotateMode.Fast).SetEase(Ease.InQuad));
                 sequence.Join(info.characterObject.transform.DOMove(info.defaultPosition - new Vector3(battleAnimationPropety.forwardDistanceOnDisappear, 0, 0), battleAnimationPropety.durationOnDisappear).SetEase(Ease.InBack));
             }
         }
@@ -150,8 +152,6 @@ public class BattleAnimationManager : MonoBehaviour
         Text text = indicator.GetComponent<Text>();
         Outline outline = text.gameObject.GetComponent<Outline>();
         Shadow shadow = GetShadowComponent(text);
-        Debug.Log(outline);
-        Debug.Log(shadow);
         if (amount < 0)
         {
             text.color = battleAnimationPropety.damageColor;
