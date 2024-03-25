@@ -13,4 +13,9 @@ public static class HoneboneExtensions
         float rad = angle * Mathf.Deg2Rad;
         return new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
     }
+
+    public static T Choice<T>(this List<T> list)
+    {
+        return list[Random.Range(0, list.Count)];
+    }
 }

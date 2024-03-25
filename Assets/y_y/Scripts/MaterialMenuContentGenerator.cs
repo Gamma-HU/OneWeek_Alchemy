@@ -23,6 +23,7 @@ public class MaterialMenuContentGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        unlockedMaterial = FindObjectOfType<GameManager>().GetUnlockedMaterial();
         GenerateContent(unlockedMaterial.Count);
     }
 
@@ -45,6 +46,7 @@ public class MaterialMenuContentGenerator : MonoBehaviour
             image.AddComponent<IconInRecip_for_mat>();
             image.GetComponent<IconInRecip_for_mat>().namePlatePfb = namePlatePfb;
             image.GetComponent<IconInRecip_for_mat>().itemName = unlockedMaterial[i].GetComponent<Item>().GetItemName();
+            image.GetComponent<IconInRecip_for_mat>().Init_AsMaterialIcon(unlockedMaterial[i]);
 
             ItemData itemData = unlockedMaterial[i].GetComponent<Item>().GetItemData();
             image.GetComponent<Image>().sprite = itemData.itemSprite;

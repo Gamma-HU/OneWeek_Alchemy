@@ -25,6 +25,9 @@ public class AlchemyManager : MonoBehaviour
     [SerializeField]
     Vector2 spawnPos;
 
+    [SerializeField]
+    Animator noteAnim;
+
     private bool alchemy_sucess = false;
     [SerializeField]
     private AudioClip SE_find_newList;
@@ -93,14 +96,14 @@ public class AlchemyManager : MonoBehaviour
                     alchemy_sucess = true;
                     alchemySceneManager.SpawnItem(recipe.product, spawnPos);
 
-                    slot_L.ConsumeItem();
-                    slot_R.ConsumeItem();
                     //trueなら新レシピ false既出
                     if (!gameManager.GetUnlockedRecipe().Contains(recipe)) { 
                         gameManager.UnlockRecipe(recipe);
+                        noteAnim.SetTrigger("Display");
                         //Sound Effect
                         SEManager seManager = FindFirstObjectByType<SEManager>();
                         seManager.PlaySE(SE_find_newList);
+                        seManager.PlaySE(SE_notNew);
                     }
                     else
                     {
@@ -108,7 +111,6 @@ public class AlchemyManager : MonoBehaviour
                         SEManager seManager = FindFirstObjectByType<SEManager>();
                         seManager.PlaySE(SE_notNew);
                     }
-                    SetAlchemyButton();
                 }
             }
             //ここでboolがfalseなら失敗
@@ -119,5 +121,8 @@ public class AlchemyManager : MonoBehaviour
                 seManager.PlaySE(SE_alchemyFailed);
             }
         }
+        slot_L.ConsumeItem();
+        slot_R.ConsumeItem();
+        SetAlchemyButton();
     }
 }

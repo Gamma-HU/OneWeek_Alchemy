@@ -9,17 +9,24 @@ public class AlchemySceneManager : MonoBehaviour
     GameManager gameManager;
     AlchemyManager alchemyManager;
     EquipmentsSetManager equipmentsManager;
+    SEManager SEManager;
     [SerializeField]
     Transform itemsP;
     [SerializeField]
     Text draggingItemText;
     [SerializeField]
     AudioClip SE_HOLD;
+    [SerializeField]
+    AudioClip SE_Snap;
+
+    [SerializeField]
+    GameObject sucsessEffect;
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
         alchemyManager = FindObjectOfType<AlchemyManager>();
         equipmentsManager = FindObjectOfType<EquipmentsSetManager>();
+        SEManager = FindObjectOfType<SEManager>();
     }
     public void ToggleSlots()
     {
@@ -30,7 +37,10 @@ public class AlchemySceneManager : MonoBehaviour
     {
         draggingItemText.text = s;
     }
-
+    public void PlaySE_Snap()
+    {
+        SEManager.PlaySE(SE_Snap);
+    }
     /// <summary>
     /// 
     /// </summary>
@@ -42,5 +52,6 @@ public class AlchemySceneManager : MonoBehaviour
         i.GetComponent<Item>().Init();
         i.GetComponent<Item>().Snap();
         i.GetComponent<Item>().SE_hold = SE_HOLD;
+        Instantiate(sucsessEffect, spawnPos, Quaternion.identity);
     }
 }
