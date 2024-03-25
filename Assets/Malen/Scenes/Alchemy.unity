@@ -435,7 +435,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af81bec11d891b7468053a9e75920486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equipmentManager: {fileID: 1029952840}
 --- !u!1 &94539772
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,6 +833,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 96f626d377c8a624498d35aae1492583, type: 2}
   - {fileID: 11400000, guid: 24256a2c2cecd7849bbe488bdcff54f0, type: 2}
   - {fileID: 11400000, guid: e818a52748c2fe64f80ba4a3d3a317b9, type: 2}
+  unlockedMaterial: []
+  unlockedRecipe: []
   selectedDungeon: {fileID: 0}
   equipments: []
 --- !u!1 &226106630
@@ -1007,7 +1008,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af81bec11d891b7468053a9e75920486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equipmentManager: {fileID: 1029952840}
 --- !u!224 &411528628 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7565365760401931369, guid: b5f5d49cad568984c86fb8f92936ed8b, type: 3}
@@ -1603,7 +1603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af81bec11d891b7468053a9e75920486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equipmentManager: {fileID: 1029952840}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2092,7 +2091,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af81bec11d891b7468053a9e75920486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equipmentManager: {fileID: 1029952840}
 --- !u!1001 &994659113
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2206,6 +2204,7 @@ MonoBehaviour:
   - {fileID: 1860935947}
   - {fileID: 90283031}
   slotsP: {fileID: 2000335762}
+  SE_equip: []
 --- !u!1 &1030161515
 GameObject:
   m_ObjectHideFlags: 0
@@ -2334,6 +2333,10 @@ MonoBehaviour:
   alchemyButton: {fileID: 1379988056}
   productNameText: {fileID: 65374378}
   spawnPos: {x: 0, y: 6}
+  noteAnim: {fileID: 0}
+  SE_find_newList: {fileID: 0}
+  SE_notNew: {fileID: 0}
+  SE_alchemyFailed: {fileID: 0}
 --- !u!4 &1096970266
 Transform:
   m_ObjectHideFlags: 0
@@ -2914,6 +2917,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsP: {fileID: 1403342415}
   draggingItemText: {fileID: 1030161517}
+  SE_HOLD: {fileID: 0}
+  SE_Snap: {fileID: 0}
+  sucsessEffect: {fileID: 0}
 --- !u!1 &1284160256
 GameObject:
   m_ObjectHideFlags: 0
@@ -3020,6 +3026,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemNameText: {fileID: 201826112}
   alchemyManager: {fileID: 0}
+  SE_setObjToSlot: {fileID: 0}
 --- !u!212 &1284160260
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3394,6 +3401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemNameText: {fileID: 774464099}
   alchemyManager: {fileID: 0}
+  SE_setObjToSlot: {fileID: 0}
 --- !u!1 &1403342414
 GameObject:
   m_ObjectHideFlags: 0
@@ -3911,7 +3919,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af81bec11d891b7468053a9e75920486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equipmentManager: {fileID: 1029952840}
 --- !u!1001 &1909052168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4964,6 +4971,7 @@ MonoBehaviour:
     weapon: 0
     armor: 0
     passiveAbility: {fileID: 0}
+  SE_hold: {fileID: 0}
 --- !u!50 &5826693277141445010
 Rigidbody2D:
   serializedVersion: 4

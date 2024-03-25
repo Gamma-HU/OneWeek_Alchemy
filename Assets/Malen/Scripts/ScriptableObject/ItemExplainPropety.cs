@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 [CreateAssetMenu(fileName = "ItemExplainPropety", menuName = "ScriptableObjects/ItemExplainPropety")]
 public class ItemExplainPropety : ScriptableObject
@@ -11,9 +11,9 @@ public class ItemExplainPropety : ScriptableObject
         BottomRight
     }
 
-    [Header("à–¾UI•\¦ˆÊ’u‚Ì—Dæ‡ˆÊ")] public Corner[] cornerPriority;
-    [Header("•\¦ˆÊ’u‚ÌƒIƒtƒZƒbƒg")] public Vector3 offset;
-    [Header("ƒXƒNƒ[ƒ‹ŠÔ")] public float scrollDuration;
-    [Header("ƒXƒNƒ[ƒ‹‘Ò‹@ŠÔ")] public float scrollWaitTime;
+    [Header("èª¬æ˜UIè¡¨ç¤ºä½ç½®ã®å„ªå…ˆé †ä½")] public Corner[] cornerPriority;
+    [Header("è¡¨ç¤ºä½ç½®ã®ã‚ªãƒ•ã‚»ãƒƒãƒˆ")] public Vector3 offset;
+    [Header("ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«æ™‚é–“")] public float scrollDuration;
+    [Header("ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«å¾…æ©Ÿæ™‚é–“")] public float scrollWaitTime;
     public Vector3[] defaultPosition;
 }
