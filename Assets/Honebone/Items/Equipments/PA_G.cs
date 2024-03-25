@@ -10,6 +10,7 @@ public class PA_G : PassiveAbility
     [SerializeField] BattleManager.Action action_BS_self;
 
     [SerializeField, Header("\n\n攻撃時　相手")] bool attack_oppo;
+    [SerializeField] bool onlyOnce_attack_oppo;
     [SerializeField] bool onlyHit_attack_oppo;
     [SerializeField] int cd_attack_oppo;
     [SerializeField] BattleManager.Action action_attack_oppo;
@@ -20,6 +21,7 @@ public class PA_G : PassiveAbility
     [SerializeField] BattleManager.Action action_attack_self;
 
     [SerializeField, Header("\n\n被攻撃時　相手")] bool attacked_oppo;
+    [SerializeField] bool onlyOnce_attacked_oppo;
     [SerializeField] bool onlyHit_attacked_oppo;
     [SerializeField] int cd_attacked_oppo;
     [SerializeField] BattleManager.Action action_attacked_oppo;
@@ -41,6 +43,8 @@ public class PA_G : PassiveAbility
     int count_attacked_self;
 
     int count_applied;
+
+    bool f;
     public override void OnBattleStart()
     {
         if (BattleStart_oppo)
@@ -53,19 +57,28 @@ public class PA_G : PassiveAbility
         }
         count_attack = 0;
         count_attack_self = 0;
+        count_attacked_oppo = 0;
+        count_attacked_self = 0;
         count_applied = 0;
+
+        f = false;
     }
     public override void OnAttack(int DMG, bool missed)
     {
-        if (attack_oppo && !(onlyHit_attack_oppo && missed))
+        if (!(onlyOnce_attack_oppo &&f))
         {
-            count_attack++;
-            if (count_attack >= cd_attack_oppo)
+            if (attack_oppo && !(onlyHit_attack_oppo && missed))
             {
-                count_attack = 0;
-                battleManager.Enqueue(character, character.GetOpponent(), action_attack_oppo);
+                count_attack++;
+                if (count_attack >= cd_attack_oppo)
+                {
+                    count_attack = 0;
+                    f = true;
+                    battleManager.Enqueue(character, character.GetOpponent(), action_attack_oppo);
+                }
             }
         }
+      
         
         if (attack_self && !(onlyHit_attack_self && missed))
         {
@@ -80,20 +93,25 @@ public class PA_G : PassiveAbility
     }
     public override void OnAttacked(int DMG, bool missed)
     {
-        if (attacked_oppo && !(onlyHit_attacked_oppo && missed))
+        if (!(onlyOnce_attacked_oppo && f))
         {
-            count_attacked_oppo++;
-            if (count_attacked_oppo >= cd_attack_oppo)
+            if (attacked_oppo && !(onlyHit_attacked_oppo && missed))
             {
-                count_attacked_oppo = 0;
-                battleManager.Enqueue(character, character.GetOpponent(), action_attacked_oppo);
+                count_attacked_oppo++;
+                if (count_attacked_oppo >= cd_attacked_oppo)
+                {
+                    count_attacked_oppo = 0;
+                    f = true;
+                    battleManager.Enqueue(character, character.GetOpponent(), action_attacked_oppo);
+                }
             }
         }
+      
 
         if (attacked_self && !(onlyHit_attacked_self && missed))
         {
             count_attacked_self++;
-            if (count_attacked_self >= cd_attack_self)
+            if (count_attacked_self >= cd_attacked_self)
             {
                 count_attacked_self = 0;
                 battleManager.Enqueue(character, character, action_attacked_self);

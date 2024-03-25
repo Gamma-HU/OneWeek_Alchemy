@@ -4,6 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/AlchemyRecipe")]
 public class AlchemyRecipe : ScriptableObject
 {
+    int ID;
     public GameObject material_1;
     public GameObject material_2;
 
@@ -16,4 +17,6 @@ public class AlchemyRecipe : ScriptableObject
         if (material_n1 == name_2 && material_n2 == name_1) { return true; }
         return false;
     }
+
+    public void SetID(int id) { ID = id; }
 }

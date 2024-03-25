@@ -28,16 +28,16 @@ public class AlchemySceneManager : MonoBehaviour
         equipmentsManager = FindObjectOfType<EquipmentsSetManager>();
         SEManager = FindObjectOfType<SEManager>();
 
-        //LoadGeneratedItems();
+        LoadGeneratedItems();
     }
 
     void LoadGeneratedItems()
     {
-        if (gameManager.GetGeneratedItems().Count > 0)
+        if (gameManager.GetGeneratedItemsID().Count > 0)
         {
-            foreach (GameObject item in gameManager.GetGeneratedItems())
+            foreach (int item in gameManager.GetGeneratedItemsID())
             {
-                SpawnItem(item, Vector2.zero);
+                SpawnItem(gameManager.GetItemFromDataBase(item), Vector2.zero);
             }
         }
     }
@@ -69,11 +69,11 @@ public class AlchemySceneManager : MonoBehaviour
         Instantiate(sucsessEffect, spawnPos, Quaternion.identity);
     }
 
-    public List<GameObject> GetGeneratedItems() {
-        List<GameObject> generated = new List<GameObject>();
+    public List<int> GetGeneratedItems() {
+        List<int> generated = new List<int>();
         for(int i = 0; i < itemsP.childCount; i++)
         {
-            generated.Add(itemsP.GetChild(i).gameObject);
+            generated.Add(itemsP.GetChild(i).GetComponent<Item>().GetItemData().ID);
         }
         return generated;
     }

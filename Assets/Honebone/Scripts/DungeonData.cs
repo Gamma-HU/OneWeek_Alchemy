@@ -4,6 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/DungeonData")]
 public class DungeonData : ScriptableObject
 {
+    public int ID;
     public string dungeonName;
     public GameObject dungeonEffect;
     public Sprite background;
@@ -13,4 +14,6 @@ public class DungeonData : ScriptableObject
     public List<GameObject> rewardItems;
     [SerializeField,Header("クリア時に開放されるダンジョン")]
     public List<DungeonData> nextDungeons;
+
+    public void SetID(int id) { ID = id; }
 }

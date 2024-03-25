@@ -21,12 +21,14 @@ public class ExpeditionManager : MonoBehaviour
 
     GameManager gameManager;
     DungeonEffect dungeonEffect;
+    RewardUI rewardUI;
 
     int layer;
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
         battleManager = FindObjectOfType<BattleManager>();
+        rewardUI = FindObjectOfType<RewardUI>();
 
         player.Init(battleManager,playerGauge);
         player.Equip(gameManager.GetEquipments());
@@ -73,7 +75,7 @@ public class ExpeditionManager : MonoBehaviour
             gameManager.UnlockDungeon(dungeon);
         }
 
-        gameManager.ReturnToAlchemyScene();
+        rewardUI.ComleteDungeon();
     }
   
     IEnumerator BattleInterval()
