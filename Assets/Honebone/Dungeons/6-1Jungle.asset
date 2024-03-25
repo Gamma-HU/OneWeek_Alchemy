@@ -12,15 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b3393a966dd11f448afd3d6f1745b77, type: 3}
   m_Name: 6-1Jungle
   m_EditorClassIdentifier: 
+  ID: 0
   dungeonName: "\u30B8\u30E3\u30F3\u30B0\u30EB"
   dungeonEffect: {fileID: 0}
   background: {fileID: 21300000, guid: 9c667660368bb469783375ed77f5a93c, type: 3}
   difficulty: 6
-  dungeonInfo: "\u30D8\u30D3\u306E\u6BD2\u306B\u3088\u3063\u3066\u9632\u5FA1\u529B\u304C\u4F4E\u4E0B\u3059\u308B"
+  dungeonInfo: "\u30D8\u30D3\uFF1A\u6226\u95D8\u958B\u59CB\u6642\u3001\u30D7\u30EC\u30A4\u30E4\u30FC\u306B\u6BD25\u3092\u4ED8\u4E0E\u3057\u306610\u30C0\u30E1\u30FC\u30B8\n4\u56DE\u653B\u6483\u304C\u547D\u4E2D\u3059\u308B\u305F\u3073\u306B\u76F2\u76EE1\u3068\u8106\u5F31100\u3092\u4ED8\u4E0E"
   enemies:
   - {fileID: 3164025572629520509, guid: 5ccfc9c202e77fa428b076ce502a6a41, type: 3}
   - {fileID: 3164025572629520509, guid: 5198ded40111f454eb9091ba7df26732, type: 3}
   - {fileID: 3164025572629520509, guid: 5198ded40111f454eb9091ba7df26732, type: 3}
-  rewardItems: []
+  rewardItems:
+  - {fileID: 7814968721534944545, guid: 3ffba130b0b0c0e45a9694b7bb837831, type: 3}
   nextDungeons:
   - {fileID: 11400000, guid: d23555128fa21624ea4e7f291eb9b4e7, type: 2}

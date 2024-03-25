@@ -101,7 +101,7 @@ MonoBehaviour:
     player: 0
     charaName: "\u6BD2\u30AC\u30A8\u30EB"
     maxHP: 40
-    ATK: 2
+    ATK: 3
     passiveAbilities:
     - {fileID: 5674685493744237135, guid: 08408e19b8d09f84888bbe0da722e333, type: 3}
     exDMG_int: 0

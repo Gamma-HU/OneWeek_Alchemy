@@ -57,7 +57,12 @@ public class PA_StatusEffects : PassiveAbility
             Destroy(gameObject.transform.parent.gameObject);
         }
 
-    }   
+    }
+
+    public override void OnDie()
+    {
+        Destroy(StEicon.gameObject);
+    }
 
     public virtual void OnInit() { }
     public virtual void OnAddStack(int add) { }

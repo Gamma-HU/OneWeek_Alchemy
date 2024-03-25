@@ -228,6 +228,7 @@ public class Character : MonoBehaviour
     void Die()
     {
         //===============================================[[死亡時演出]]===================================================
+        OnDie();
         Debug.Log(string.Format("{0}はたおれた", status.charaName));
         status.dead = true;
         animManager.PlayDisappearAnimation(status);
@@ -276,7 +277,15 @@ public class Character : MonoBehaviour
     {
         List<PassiveAbility> PA = new List<PassiveAbility>(passiveAbilities);
         foreach (PassiveAbility passiveAbility in PA) { passiveAbility.OnAppliedStE(applied); }
+    } 
+    
+    public void OnDie()
+    {
+        List<PassiveAbility> PA = new List<PassiveAbility>(passiveAbilities);
+        foreach (PassiveAbility passiveAbility in PA) { passiveAbility.OnDie(); }
     }
+
+
 
     public CharacterStatus GetCharacterStatus() { return status; }
     public Character GetOpponent() { return opponent; }
@@ -295,9 +304,13 @@ public class Character : MonoBehaviour
     public string GetInfo()
     {
         string s = "";
-        s += string.Format("体力：{0}/{1}", status.HP, status.maxHP);
-        s += string.Format("攻撃力：{0}",status.ATK);
-        //各PssiveAbilityから
+        s += string.Format("体力：{0}/{1}\n", status.HP, status.maxHP);
+        s += string.Format("攻撃力：{0}\n",status.ATK);
+        foreach(PassiveAbility passiveAbility in passiveAbilities)
+        {
+            s += string.Format("==<{0}>==\n", passiveAbility.GetPAName());
+            s += passiveAbility.GetInfo();
+        }
         return s;
     }
 }

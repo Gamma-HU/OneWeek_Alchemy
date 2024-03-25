@@ -21,6 +21,7 @@ public class ExpeditionManager : MonoBehaviour
 
     GameManager gameManager;
     DungeonEffect dungeonEffect;
+    GameClearUI gameClearUI;
     RewardUI rewardUI;
 
     int layer;
@@ -28,6 +29,7 @@ public class ExpeditionManager : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
         battleManager = FindObjectOfType<BattleManager>();
+        gameClearUI = FindObjectOfType<GameClearUI>();
         rewardUI = FindObjectOfType<RewardUI>();
 
         player.Init(battleManager,playerGauge);
@@ -75,7 +77,14 @@ public class ExpeditionManager : MonoBehaviour
             gameManager.UnlockDungeon(dungeon);
         }
 
-        rewardUI.ComleteDungeon();
+        if (gameManager.GetCleardDungeon().Count == gameManager.GetDungeonDatabase().Count)
+        {
+            gameClearUI.ComleteDungeon();
+        }
+        else
+        {
+            rewardUI.ComleteDungeon();
+        }
     }
   
     IEnumerator BattleInterval()

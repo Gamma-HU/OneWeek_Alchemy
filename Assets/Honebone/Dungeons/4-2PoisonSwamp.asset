@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b3393a966dd11f448afd3d6f1745b77, type: 3}
   m_Name: 4-2PoisonSwamp
   m_EditorClassIdentifier: 
+  ID: 0
   dungeonName: "\u6BD2\u6CBC"
   dungeonEffect: {fileID: 0}
   background: {fileID: 21300000, guid: 757882ddeb0c042e68f0e435e00d3f9d, type: 3}
   difficulty: 4
-  dungeonInfo: "\u6575\u304C\u6BD2\u3092\u4F7F\u3063\u3066\u304F\u308B"
+  dungeonInfo: "\u6BD2\u30AC\u30A8\u30EB\uFF1A2\u56DE\u653B\u6483\u3059\u308B\u305F\u3073\u306B\u3001\u76F8\u624B\u306B\u6BD23\u3092\u4ED8\u4E0E\n(\u6BD2\u306B\u3088\u3063\u3066\u6301\u7D9A\u30C0\u30E1\u30FC\u30B8\u3092\u53D7\u3051\u308B)"
   enemies:
   - {fileID: 3164025572629520509, guid: dbf4bb8017650844eaae768153858cdc, type: 3}
   - {fileID: 3164025572629520509, guid: 5ccfc9c202e77fa428b076ce502a6a41, type: 3}

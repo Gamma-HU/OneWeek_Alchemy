@@ -36,17 +36,24 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteAll();
         DontDestroyOnLoad(gameObject);
         //for (int i = 0; i < dungeonDataBase.Count; i++)
         //{
         //    dungeonDataBase[i].SetID(i);
         //}
-       
+
         //for (int i = 0; i < recipeDataBase.Count; i++)
         //{
         //    recipeDataBase[i].SetID(i);
         //}
+        Dictionary<string, int> test = new Dictionary<string, int>();
+        foreach(AlchemyRecipe recipe in recipeDataBase)
+        {
+            string mName = recipe.material_1.GetComponent<Item>().GetItemName();
+
+        }
+
     }
 
     public static GameManager instance;
@@ -90,12 +97,19 @@ public class GameManager : MonoBehaviour
     {
         equipments = eq;
         SaveGeneratedItems(FindObjectOfType<AlchemySceneManager>().GetGeneratedItems());
-        SceneManager.LoadScene("Battle");
+        FindObjectOfType<Blackout>().StartBlackout();
+        StartCoroutine(LoadSceneDelay("Battle"));
     }
     public void ReturnToAlchemyScene()
     {
+        FindObjectOfType<Blackout>().StartBlackout();
         equipments = new List<GameObject>();
-        SceneManager.LoadScene("Alchemy");
+        StartCoroutine(LoadSceneDelay("Alchemy"));
+    }
+    IEnumerator LoadSceneDelay(string sceneName)
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(sceneName);
     }
 
     public void SaveGeneratedItems(List<string> items)
@@ -212,6 +226,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject GetItemFromDataBase(string itemName) { return itemDataBase[itemNameDic[itemName]]; }
     public List<AlchemyRecipe> GetAlchemyRecipes() { return recipeDataBase; }
+    public List<DungeonData> GetDungeonDatabase() { return dungeonDataBase; }
     public List<GameObject> GetEquipments() { return equipments; }
     public DungeonData GetSelectedDugeon() { return selectedDungeon; }
 }

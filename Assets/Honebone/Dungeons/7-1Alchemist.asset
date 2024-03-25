@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b3393a966dd11f448afd3d6f1745b77, type: 3}
   m_Name: 7-1Alchemist
   m_EditorClassIdentifier: 
-  dungeonName: 
+  ID: 0
+  dungeonName: "\u95C7\u306E\u932C\u91D1\u8853\u5E2B"
   dungeonEffect: {fileID: 0}
-  background: {fileID: 0}
-  difficulty: 0
-  dungeonInfo: 
-  enemies: []
+  background: {fileID: 21300000, guid: 7b28db44db60347c1abc0412dd65204b, type: 3}
+  difficulty: 7
+  dungeonInfo: "\u95C7\u306E\u932C\u91D1\u8853\u5E2B\uFF1A4\u56DE\u653B\u6483\u3059\u308B\u3054\u3068\u306B\u6BD2\u3001\u51FA\u8840\u3001\u706B\u50B7\u3092\u9664\u53BB\n\u4ED6\u306B\u3082\u69D8\u3005\u306A\u88C5\u5099\u54C1\u3092\u8EAB\u306B\u3064\u3051\u3066\u3044\u308B"
+  enemies:
+  - {fileID: 3164025572629520509, guid: dca63348912ba0048856ae4810f77f3e, type: 3}
   rewardItems: []
   nextDungeons: []

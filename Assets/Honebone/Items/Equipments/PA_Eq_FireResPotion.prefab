@@ -67,6 +67,7 @@ MonoBehaviour:
     applyStE: []
     removeStE: []
   attack_oppo: 0
+  onlyOnce_attack_oppo: 0
   onlyHit_attack_oppo: 0
   cd_attack_oppo: 0
   action_attack_oppo:
@@ -93,6 +94,7 @@ MonoBehaviour:
     applyStE: []
     removeStE: []
   attacked_oppo: 0
+  onlyOnce_attacked_oppo: 0
   onlyHit_attacked_oppo: 0
   cd_attacked_oppo: 0
   action_attacked_oppo:
@@ -117,7 +119,8 @@ MonoBehaviour:
     - {fileID: 2510622262790149085, guid: 596ed89f1194e6e4f8e7446c8c057037, type: 3}
     - {fileID: 2510622262790149085, guid: 106763312a705be419cb3414d5a3ef4a, type: 3}
   appied_self: 1
-  cd_applied_self: 999
+  onlyOnce_applied_self: 1
+  cd_applied_self: 0
   appiedCheck_self: {fileID: 2510622262790149085, guid: db2aac4696f052a4da5e8ee3f66d75a4, type: 3}
   action_applied_self:
     owner: {fileID: 0}
@@ -128,4 +131,16 @@ MonoBehaviour:
     applyStE:
     - StE: {fileID: 2510622262790149085, guid: 9680a2c517f511f42b8434a6100483da, type: 3}
       amount: 40
+    removeStE:
+    - {fileID: 2510622262790149085, guid: db2aac4696f052a4da5e8ee3f66d75a4, type: 3}
+  healed_self: 0
+  onlyOnce_healed_self: 0
+  cd_healed_self: 0
+  action_healed_self:
+    owner: {fileID: 0}
+    target: {fileID: 0}
+    attack: 0
+    DMG: 0
+    heal: 0
+    applyStE: []
     removeStE: []

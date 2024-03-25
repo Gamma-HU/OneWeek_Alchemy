@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b3393a966dd11f448afd3d6f1745b77, type: 3}
   m_Name: 5-1Catacombs
   m_EditorClassIdentifier: 
+  ID: 0
   dungeonName: "\u5730\u4E0B\u5893\u5730"
   dungeonEffect: {fileID: 0}
   background: {fileID: 21300000, guid: 1bdfc09bae7c54d7c9e04594dcb17c84, type: 3}
   difficulty: 5
-  dungeonInfo: "\u546A\u3044\u306E\u529B\u3067\u8996\u754C\u3092\u596A\u3044\u3001\u9632\u5FA1\u529B\u3092\u4F4E\u4E0B\u3055\u305B\u308B"
+  dungeonInfo: "\u30B9\u30B1\u30EB\u30C8\u30F3\uFF1A\u6226\u95D8\u958B\u59CB\u6642\u3001\u30D7\u30EC\u30A4\u30E4\u30FC\u306B\u76F2\u76EE1\u3092\u4ED8\u4E0E\n\u30D7\u30EC\u30A4\u30E4\u30FC\u304C\u653B\u6483\u3057\u305F\u3068\u304D\u3001\u30D7\u30EC\u30A4\u30E4\u30FC\u306B\u8106\u5F3150\u3092\u4ED8\u4E0E\n(\u8106\u5F31\u306B\u3088\u3063\u3066\u6B21\u306E\u88AB\u30C0\u30E1\u30FC\u30B8\u304C\u5897\u3048\u308B)"
   enemies:
   - {fileID: 3164025572629520509, guid: 0de97bf74a1c8ab49897ab07bc596173, type: 3}
   - {fileID: 3164025572629520509, guid: 5cdf5336c3a8d404d8c292306c0ff18d, type: 3}

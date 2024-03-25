@@ -22,7 +22,7 @@ public class ItemExplainManager : MonoBehaviour
             RaycastHit2D hitInfo = Physics2D.Raycast(mousePosition, Vector2.zero);
             if (hitInfo.collider != null)
             {
-                Debug.Log(hitInfo.collider.gameObject);
+                //Debug.Log(hitInfo.collider.gameObject);
             }
             if (hitInfo.collider != null && hitInfo.collider.gameObject.GetComponent<Item>() != null)
             {
@@ -41,7 +41,7 @@ public class ItemExplainManager : MonoBehaviour
                     Vector3 a = CornerToPosition(corners[i]);
                     Vector3 b = itemExplainPropety.offset;
                     Vector3 newPosition = new Vector3(mousePosition.x, mousePosition.y, itemExplainPropety.defaultPosition[0].z) + new Vector3(a.x * b.x, a.y * b.y, a.z * b.z);
-                    Debug.Log(newPosition);
+                    //Debug.Log(newPosition);
                     if (IsWithinCanvasBounds(newPosition))
                     {
                         displayedObject.transform.position = newPosition;

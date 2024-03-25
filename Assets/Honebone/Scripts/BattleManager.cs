@@ -52,10 +52,12 @@ public class BattleManager : MonoBehaviour
 
     DungeonEffect dungeonEffect;
 
+    GameManager gameManager;
     ExpeditionManager expeditionManager;
     BattleAnimationManager battleAnimManager;
     private void Start()//test
     {
+        gameManager = FindObjectOfType<GameManager>();
         expeditionManager = FindObjectOfType<ExpeditionManager>();
         battleAnimManager = FindObjectOfType<BattleAnimationManager>();
     }
@@ -69,6 +71,9 @@ public class BattleManager : MonoBehaviour
 
         enemy.SetOpponent(player);
         player.SetOpponent(enemy);
+
+        Debug.Log(player.GetInfo());
+        Debug.Log(enemy.GetInfo());
         Debug.Log("戦闘開始");
 
         StartCoroutine(BattleStartDelay());
@@ -106,6 +111,10 @@ public class BattleManager : MonoBehaviour
             Debug.Log("勝利");
             Destroy(enemyP.GetChild(0).gameObject,0.5f);//敵のオブジェクトを破壊
             expeditionManager.NextLayer();
+        }
+        else
+        {
+            gameManager.ReturnToAlchemyScene();
         }
     }
 

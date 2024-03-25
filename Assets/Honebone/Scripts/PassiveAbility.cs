@@ -29,6 +29,7 @@ public class PassiveAbility : MonoBehaviour
     public virtual void OnDamaged(int DMG, bool byOpponent) { }
     public virtual void OnHealed(int healedValue) { }
     public virtual void OnAppliedStE(BattleManager.StEParams applied) { }
+    public virtual void OnDie() { }
 
     public string GetPAName() { return PAName; }
     public string GetInfo()
@@ -36,7 +37,7 @@ public class PassiveAbility : MonoBehaviour
         string s = "";
         if (exHP > 0) { s += string.Format("ëÃóÕ+{0}\n", exHP); }
         if (exATK > 0) { s += string.Format("çUåÇóÕ+{0}\n", exATK); }
-        if (PAInfo != "") { s += PAInfo; }
+        if (PAInfo != "") { s += PAInfo+"\n"; }
         return s;
     }
 }

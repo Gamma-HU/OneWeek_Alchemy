@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b3393a966dd11f448afd3d6f1745b77, type: 3}
   m_Name: 4-1Cave
   m_EditorClassIdentifier: 
+  ID: 0
   dungeonName: "\u6D1E\u7A9F"
   dungeonEffect: {fileID: 286343360132725658, guid: 3c0b105f1cd389c4f90fa828c0153336, type: 3}
   background: {fileID: 21300000, guid: 986cedb2c018146e69181fe4e2821dc2, type: 3}
@@ -21,7 +22,7 @@ MonoBehaviour:
   - {fileID: 3164025572629520509, guid: c3ef90d57673fb6498a27d28e05cc6b0, type: 3}
   - {fileID: 3164025572629520509, guid: c3ef90d57673fb6498a27d28e05cc6b0, type: 3}
   rewardItems:
-  - {fileID: 369480470792548374, guid: bce0926900c0a2146a809636bb8d8132, type: 3}
+  - {fileID: 1128425530542487637, guid: 6f07a0ae4a7aa47499f950b1e7df3292, type: 3}
   nextDungeons:
   - {fileID: 11400000, guid: 7ce5026ed797fba41abf30394b4827fe, type: 2}
   - {fileID: 11400000, guid: 4ff4faea6a6710e4db7afc64cfca624d, type: 2}

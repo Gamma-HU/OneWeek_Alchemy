@@ -55,7 +55,8 @@ MonoBehaviour:
     canEquip: 1
     weapon: 0
     armor: 0
-    passiveAbility: {fileID: 8313083597182299096, guid: e1dcce9590f05674c800d82a34b17823, type: 3}
+    backpack: 0
+    passiveAbility: {fileID: 8313083597182299096, guid: 52e39e49f7580fb469abe825d63f0a6c, type: 3}
   SE_hold: {fileID: 0}
 --- !u!212 &6265871650062159155
 SpriteRenderer:

@@ -32,9 +32,15 @@ public class PA_G : PassiveAbility
     [SerializeField] BattleManager.Action action_attacked_self;
 
     [SerializeField, Header("\n\n被付与時　自分")] bool appied_self;
+    [SerializeField] bool onlyOnce_applied_self;
     [SerializeField] int cd_applied_self;
     [SerializeField] GameObject appiedCheck_self;
     [SerializeField] BattleManager.Action action_applied_self;
+
+    [SerializeField, Header("\n\n回復時　自分")] bool healed_self;
+    [SerializeField] bool onlyOnce_healed_self;
+    [SerializeField] int cd_healed_self;
+    [SerializeField] BattleManager.Action action_healed_self;
 
     int count_attack;
     int count_attack_self;
@@ -43,6 +49,8 @@ public class PA_G : PassiveAbility
     int count_attacked_self;
 
     int count_applied;
+
+    int count_healed_self;
 
     bool f;
     public override void OnBattleStart()
@@ -60,6 +68,7 @@ public class PA_G : PassiveAbility
         count_attacked_oppo = 0;
         count_attacked_self = 0;
         count_applied = 0;
+        count_healed_self = 0;
 
         f = false;
     }
@@ -118,16 +127,36 @@ public class PA_G : PassiveAbility
             }
         }
     }
+    public override void OnHealed(int healedValue)
+    {
+        if (!(onlyOnce_healed_self && f))
+        {
+            if (healed_self)
+            {
+                count_healed_self ++;
+                if (count_healed_self >= cd_healed_self)
+                {
+                    count_healed_self = 0;
+                    f = true;
+                    battleManager.Enqueue(character, character, action_healed_self);
+                }
+            }
+        }
+    }
     public override void OnAppliedStE(BattleManager.StEParams applied)
     {
        
         count_applied++;
-        if (appied_self)
+        if (!(onlyOnce_applied_self && f))
         {
-            if (count_applied >= cd_applied_self && applied.StE == appiedCheck_self)
+            if (appied_self)
             {
-                count_applied = 0;
-                battleManager.Enqueue(character, character, action_applied_self);
+                if (count_applied >= cd_applied_self && applied.StE == appiedCheck_self)
+                {
+                    count_applied = 0;
+                    f = true;
+                    battleManager.Enqueue(character, character, action_applied_self);
+                }
             }
         }
     }
