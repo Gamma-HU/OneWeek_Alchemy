@@ -49,7 +49,7 @@ public class AlchemySceneManager : MonoBehaviour
     }
     public void SetDraggingItemText(string s)
     {
-        draggingItemText.text = s;
+        //draggingItemText.text = s;
     }
     public void PlaySE_Snap()
     {

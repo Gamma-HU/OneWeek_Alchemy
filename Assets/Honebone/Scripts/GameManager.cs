@@ -6,13 +6,15 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    DungeonData firstDangeon;//次のダンジョンはこのデータ内に格納
+    bool debugMode;
+    [SerializeField]    List<DungeonData> clearedDungeon_debug = new List<DungeonData>();
+    [SerializeField] List<DungeonData> unlockedDungeon_debug = new List<DungeonData>();//解放されているダンジョン
+    [SerializeField] List<GameObject> unlockedMaterial_debug = new List<GameObject>();
+    [SerializeField] List<AlchemyRecipe> unlockedRecipe_debug = new List<AlchemyRecipe>();
+
     List<DungeonData> clearedDungeon = new List<DungeonData>();
-    [SerializeField]//test
     List<DungeonData> unlockedDungeon = new List<DungeonData>();//解放されているダンジョン
-    [SerializeField]//test
     List<GameObject> unlockedMaterial = new List<GameObject>();
-    [SerializeField]//test
     List<AlchemyRecipe> unlockedRecipe = new List<AlchemyRecipe>();
 
     [SerializeField]//test
@@ -26,6 +28,13 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(gameObject);
+        //if (debugMode)
+        //{
+        //    clearedDungeon = new List<DungeonData>(clearedDungeon_debug);
+        //    unlockedDungeon = new List<DungeonData>(unlockedDungeon_debug);
+        //    unlockedMaterial = new List<GameObject>(unlockedMaterial_debug);
+        //    unlockedRecipe = new List<AlchemyRecipe>(unlockedRecipe_debug);
+        //}
     }
 
     public static GameManager instance;
@@ -92,10 +101,26 @@ public class GameManager : MonoBehaviour
         if (!unlockedDungeon.Contains(dungeon)) { unlockedDungeon.Add(dungeon); }
     }
 
-    public List<DungeonData> GetCleardDungeon() { return clearedDungeon; }
-    public List<DungeonData> GetUnlockedDungeon() { return unlockedDungeon; }
-    public List<GameObject> GetUnlockedMaterial() { return unlockedMaterial; }
-    public List<AlchemyRecipe> GetUnlockedRecipe() { return unlockedRecipe; }
+    public List<DungeonData> GetCleardDungeon()
+    {
+        if (debugMode) { return clearedDungeon_debug; }
+        else { return clearedDungeon; }
+    }
+    public List<DungeonData> GetUnlockedDungeon()
+    {
+        if (debugMode) { return unlockedDungeon_debug; }
+        else { return unlockedDungeon; }
+    }
+    public List<GameObject> GetUnlockedMaterial()
+    {
+        if (debugMode) { return unlockedMaterial_debug; }
+        else { return unlockedMaterial; }
+    }
+    public List<AlchemyRecipe> GetUnlockedRecipe()
+    {
+        if (debugMode) { return unlockedRecipe_debug; }
+        else { return unlockedRecipe; }
+    }
 
     public List<GameObject> GetEquipments() { return equipments; }
     public DungeonData GetSelectedDugeon() { return selectedDungeon; }
