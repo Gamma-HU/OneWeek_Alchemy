@@ -47,6 +47,7 @@ public class Item : MonoBehaviour
 
     AlchemySlot onSlot_Alchemy;
     EquipmentSlot onSlot_Equipment;
+    bool onTrash;
 
     public AudioClip SE_hold;
 
@@ -104,6 +105,10 @@ public class Item : MonoBehaviour
                 onSlot_Equipment.SetItem(this);
                 rb.MovePosition(onSlot_Equipment.transform.position);
             }
+            else if (onTrash)
+            {
+                Destroy(gameObject);
+            }
             else
             {
                 rb.bodyType = RigidbodyType2D.Dynamic;
@@ -149,6 +154,10 @@ public class Item : MonoBehaviour
             {
                 onSlot_Equipment = collision.GetComponent<EquipmentSlot>();
             }
+            if (collision.CompareTag("Trash"))
+            {
+                onTrash = true;
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -162,6 +171,10 @@ public class Item : MonoBehaviour
             if (collision.CompareTag("EquipmentSlot"))
             {
                 onSlot_Equipment = null;
+            }
+            if (collision.CompareTag("Trash"))
+            {
+                onTrash = false;
             }
         }
        

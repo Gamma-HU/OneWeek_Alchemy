@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] DungeonData firstDungeon;
     [SerializeField]
     bool debugMode;
+    [SerializeField] bool deleteSave;
+
     [SerializeField] List<DungeonData> dungeonDataBase;
     [SerializeField] List<GameObject> itemDataBase;
     [SerializeField] List<AlchemyRecipe> recipeDataBase;
@@ -36,8 +38,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        PlayerPrefs.DeleteAll();
         DontDestroyOnLoad(gameObject);
+
         //for (int i = 0; i < dungeonDataBase.Count; i++)
         //{
         //    dungeonDataBase[i].SetID(i);
@@ -62,7 +64,10 @@ public class GameManager : MonoBehaviour
     {
         CheckInstance();
 
+        if (deleteSave) { PlayerPrefs.DeleteAll(); }
+       
         LoadData();
+       
         if (unlockedMaterial.Count == 0) { unlockedMaterial.AddRange(firstItems); }
         if (unlockedDungeon.Count == 0) { unlockedDungeon.Add(firstDungeon); }
 
@@ -145,6 +150,7 @@ public class GameManager : MonoBehaviour
     }
 
     public int GetUnlockedEquipmentSlot() { return equipmentSlots; }
+    public List<GameObject> GetFirstItems() { return firstItems; }
     public List<DungeonData> GetCleardDungeon()
     {
         if (debugMode) { return clearedDungeon_debug; }

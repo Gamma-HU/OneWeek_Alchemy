@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using unityroom.Api;
 
 public class AlchemyManager : MonoBehaviour
 {
@@ -113,6 +114,9 @@ public class AlchemyManager : MonoBehaviour
                             gameManager.UnlockEquipmentsSlot();
                             noteAnim_newSlot.SetTrigger("Display");
                         }
+
+                        UnityroomApiClient.Instance.SendScore(1, gameManager.GetUnlockedRecipe().Count, ScoreboardWriteMode.HighScoreDesc);
+
                         //Sound Effect
                         SEManager seManager = FindFirstObjectByType<SEManager>();
                         seManager.PlaySE(SE_find_newList);

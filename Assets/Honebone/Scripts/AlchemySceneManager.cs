@@ -28,6 +28,14 @@ public class AlchemySceneManager : MonoBehaviour
         equipmentsManager = FindObjectOfType<EquipmentsSetManager>();
         SEManager = FindObjectOfType<SEManager>();
 
+        if (gameManager.GetUnlockedRecipe().Count == 0)
+        {
+            foreach(GameObject item in gameManager.GetFirstItems())
+            {
+                SpawnItem(item, Vector2.zero);
+            }
+        }
+
         LoadGeneratedItems();
     }
 
