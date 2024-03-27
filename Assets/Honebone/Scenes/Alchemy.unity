@@ -581,6 +581,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageSelectView
       objectReference: {fileID: 0}
+    - target: {fileID: 6040754401834742311, guid: 58332e820452fd7468cc8a2f082c35df, type: 3}
+      propertyPath: m_ChildControlWidth
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6574378712667838600, guid: 58332e820452fd7468cc8a2f082c35df, type: 3}
       propertyPath: GameManager
       value: 
@@ -6296,7 +6300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5177330304145148658, guid: cfd5ccb3acdc51b42af28f567fb25fe2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 820
+      value: 820.00006
       objectReference: {fileID: 0}
     - target: {fileID: 5177330304145148658, guid: cfd5ccb3acdc51b42af28f567fb25fe2, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -6799,7 +6803,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7565365760401931369, guid: b5f5d49cad568984c86fb8f92936ed8b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -820
+      value: -820.00006
       objectReference: {fileID: 0}
     - target: {fileID: 7565365760401931369, guid: b5f5d49cad568984c86fb8f92936ed8b, type: 3}
       propertyPath: m_AnchoredPosition.y
