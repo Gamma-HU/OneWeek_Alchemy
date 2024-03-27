@@ -58,6 +58,7 @@ public class ItemExplainManager : MonoBehaviour
 
     public void ShowItemExplain(GameObject itemObject)
     {
+        itemObject.GetComponent<Item>().SetOutline(true);
         if (displayedObject == null || pastSelectedItem != itemObject)
         {
             if(displayedObject != null && pastSelectedItem != itemObject) {
@@ -81,6 +82,10 @@ public class ItemExplainManager : MonoBehaviour
         {
             Destroy(displayedObject);
             displayedObject = null;
+            if(pastSelectedItem != null)
+            {
+                pastSelectedItem.GetComponent<Item>().SetOutline(false);
+            }
         }
     }
 
