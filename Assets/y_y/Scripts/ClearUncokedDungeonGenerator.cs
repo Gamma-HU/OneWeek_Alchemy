@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,7 +9,7 @@ public class ClearUncokedDungeonGenerator : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private AudioClip SE_showUnlockedDungeon;
 
-    [Header("ƒ_ƒ“ƒWƒ‡ƒ“‚Ì•\¦‚ÌŠÔŠu")]
+    [Header("ãƒ€ãƒ³ã‚¸ãƒ§ãƒ³ã®è¡¨ç¤ºã®é–“éš”")]
     [SerializeField] private float interval;
 
     public bool test = false;
@@ -47,7 +47,7 @@ public class ClearUncokedDungeonGenerator : MonoBehaviour
         GameObject unlockedDungeonPfb = Instantiate(UnlockedDungeonPfb_clearUI, transform.position, Quaternion.identity);
         unlockedDungeonPfb.transform.SetParent(this.transform, false);
 
-        //‰æ‘œ‚ÆƒeƒLƒXƒg‚ğİ’è
+        //ç”»åƒã¨ãƒ†ã‚­ã‚¹ãƒˆã‚’è¨­å®š
         unlockedDungeonPfb.gameObject.GetComponent<Image>().sprite = dungeonData.background;
         unlockedDungeonPfb.transform.GetChild(0).gameObject.GetComponent<Text>().text = dungeonData.dungeonName;
 

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,7 +10,7 @@ public class ClearUnlockedItemGenerator : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private AudioClip SE_getReward;
 
-    [Header("•ñV‚Ì•\¦‚ÌŠÔŠu")]
+    [Header("å ±é…¬ã®è¡¨ç¤ºã®é–“éš”")]
     [SerializeField] private float interval;
 
     public bool test = false;
@@ -48,7 +48,7 @@ public class ClearUnlockedItemGenerator : MonoBehaviour
         GameObject framePfb = Instantiate(framePfb_for_clearUI, transform.position, Quaternion.identity);
         framePfb.transform.SetParent(this.transform, false);
 
-        //‰æ‘œ‚ÆƒeƒLƒXƒg‚ğİ’è
+        //ç”»åƒã¨ãƒ†ã‚­ã‚¹ãƒˆã‚’è¨­å®š
         ItemData itemData = item.GetComponent<Item>().GetItemData();
         framePfb.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = itemData.itemSprite;
         framePfb.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = itemData.itemName;
