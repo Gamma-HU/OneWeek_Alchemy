@@ -27,26 +27,28 @@ public class RecipeView : MonoBehaviour
         
     }
 
-    void ViewItemIcon(GameObject item, GameObject image)
+    void ViewItemIcon(GameObject item, GameObject image, bool isProduct)
     {
         image.GetComponent<Image>().sprite = item.GetComponent<SpriteRenderer>().sprite;
 
         image.AddComponent<IconInRecipe>();
         image.GetComponent<IconInRecipe>().namePlatePfb = namePlatePfb;
         image.GetComponent<IconInRecipe>().itemName = item.GetComponent<Item>().GetItemName();
+        image.GetComponent<IconInRecipe>().itemPfb = item;
+        image.GetComponent<IconInRecipe>().isProduct = isProduct;
     }
 
     /// <summary>
-    /// ‰ğ•úÏ‚İƒŒƒVƒs‚ğ“®“I‚É¶¬‚·‚é‚½‚ß‚ÉContent‚ÉƒAƒ^ƒbƒ`‚³‚ê‚½RecipeMenuContentGenerator‚©‚ç‰ğ•úÏ‚İƒŒƒVƒs‚ğw’è
-    /// ‚»‚ÌŒãAViewItemIcon‚ğŒÄ‚Ño‚µ‚Ü‚·
+    /// ï¿½ï¿½ï¿½ï¿½Ï‚İƒï¿½ï¿½Vï¿½sï¿½ğ“®“Iï¿½Éï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é‚½ï¿½ß‚ï¿½Contentï¿½ÉƒAï¿½^ï¿½bï¿½`ï¿½ï¿½ï¿½ê‚½RecipeMenuContentGeneratorï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï‚İƒï¿½ï¿½Vï¿½sï¿½ï¿½ï¿½wï¿½ï¿½
+    /// ï¿½ï¿½ï¿½ÌŒï¿½AViewItemIconï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½Ü‚ï¿½
     /// </summary>
     /// <param name="unlockedRecipe"></param>
     public void SetRecipe(AlchemyRecipe unlockedRecipe)
     {
         recipe = unlockedRecipe;
 
-        ViewItemIcon(recipe.material_1, image1);
-        ViewItemIcon(recipe.material_2, image2);
-        ViewItemIcon(recipe.product, image3);
+        ViewItemIcon(recipe.material_1, image1, false);
+        ViewItemIcon(recipe.material_2, image2, false);
+        ViewItemIcon(recipe.product, image3, true);
     }
 }

@@ -139,6 +139,7 @@ MonoBehaviour:
     canEquip: 0
     weapon: 0
     armor: 0
+    backpack: 0
     passiveAbility: {fileID: 0}
   SE_hold: {fileID: 0}
 --- !u!212 &3302456907202597932

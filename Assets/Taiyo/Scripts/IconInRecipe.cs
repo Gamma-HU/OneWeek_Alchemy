@@ -8,6 +8,8 @@ public class IconInRecipe : MonoBehaviour, IPointerClickHandler
 {
     public string itemName;
     public GameObject namePlatePfb;
+    public GameObject itemPfb;
+    public bool isProduct;
 
     GameObject namePlate;
     bool isMouswOn;
@@ -31,10 +33,13 @@ public class IconInRecipe : MonoBehaviour, IPointerClickHandler
 
     private void OnMouseEnter()
     {
-        isMouswOn = true;
-        namePlate = Instantiate(namePlatePfb, transform);
-        Vector3 pos = namePlate.transform.position;
-        namePlate.transform.GetChild(0).GetComponent<Text>().text = itemName;
+        if (!isProduct)
+        {
+            isMouswOn = true;
+            namePlate = Instantiate(namePlatePfb, transform);
+            Vector3 pos = namePlate.transform.position;
+            namePlate.transform.GetChild(0).GetComponent<Text>().text = itemName;
+        }
     }
 
     private void OnMouseExit()
@@ -43,9 +48,9 @@ public class IconInRecipe : MonoBehaviour, IPointerClickHandler
         Destroy(namePlate);
     }
 
-    // ƒNƒŠƒbƒN‚³‚ê‚½‚Æ‚«‚ÉŒÄ‚Ño‚³‚ê‚éƒƒ\ƒbƒh(y_y)
+    // ï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ê‚½ï¿½Æ‚ï¿½ï¿½ÉŒÄ‚Ñoï¿½ï¿½ï¿½ï¿½éƒï¿½\ï¿½bï¿½h(y_y)
     public void OnPointerClick(PointerEventData eventData)
     {
-        print("‘fŞ‚ªƒ|ƒ|ƒ|ƒ|[ƒ“");
+        print("ï¿½fï¿½Ş‚ï¿½ï¿½|ï¿½|ï¿½|ï¿½|ï¿½[ï¿½ï¿½");
     }
 }

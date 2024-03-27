@@ -28,6 +28,13 @@ public class ItemExplainManager : MonoBehaviour
             {
                 ShowItemExplain(hitInfo.collider.gameObject);
             }
+            else if (hitInfo.collider != null && hitInfo.collider.gameObject.GetComponent<IconInRecipe>() != null)
+            {
+                if (hitInfo.collider.gameObject.GetComponent<IconInRecipe>().isProduct)
+                {
+                    ShowItemExplain(hitInfo.collider.gameObject.GetComponent<IconInRecipe>().itemPfb);
+                }
+            }
             else
             {
                 DismissItemExplain();
@@ -75,6 +82,7 @@ public class ItemExplainManager : MonoBehaviour
             explainText.explainText.text = itemData.GetItemInfo();
         }
     }
+
 
     public void DismissItemExplain()
     {

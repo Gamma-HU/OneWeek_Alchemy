@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &151251866430920978
 Transform:
   m_ObjectHideFlags: 0
@@ -139,6 +139,7 @@ MonoBehaviour:
     canEquip: 1
     weapon: 1
     armor: 0
+    backpack: 0
     passiveAbility: {fileID: 8313083597182299096, guid: a5457a0d00abf6246b1b055fe355878b, type: 3}
   SE_hold: {fileID: 0}
 --- !u!212 &6265871650062159155
