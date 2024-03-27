@@ -48,9 +48,11 @@ MonoBehaviour:
   PAInfo: "2\u56DE\u653B\u6483\u3059\u308B\u305F\u3073\u306B\u3001\u76F8\u624B\u306B\u6BD23\u3092\u4ED8\u4E0E"
   exHP: 0
   exATK: 0
+  icon: {fileID: 21300000, guid: c0d8b03c02a9684469c03f5d2f6925a6, type: 3}
   action:
     owner: {fileID: 0}
     target: {fileID: 0}
+    icon: {fileID: 0}
     attack: 0
     DMG: 0
     heal: 0

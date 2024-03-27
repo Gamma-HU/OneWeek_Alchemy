@@ -13,7 +13,7 @@ public class PA_Eq_HealPotionS : PassiveAbility
         if (!f&&characterStatus.GetHPPercent() <= 0.5f)
         {
             f = true;
-            battleManager.Enqueue(character, character, action);
+            battleManager.Enqueue(character, character, action, GetPAIcon());
         }
     }
 }

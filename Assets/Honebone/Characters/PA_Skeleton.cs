@@ -11,7 +11,7 @@ public class PA_Skeleton : PassiveAbility
     int cooldown;
     public override void OnBattleStart()
     {
-        battleManager.Enqueue(character, character.GetOpponent(), blind);
+        battleManager.Enqueue(character, character.GetOpponent(), blind, GetPAIcon());
     }
     public override void OnAttacked(int DMG, bool missed)
     {
@@ -24,7 +24,7 @@ public class PA_Skeleton : PassiveAbility
         {
             Debug.Log("ok");
             cooldown = 3;
-            battleManager.Enqueue(character, character.GetOpponent(), curse);
+            battleManager.Enqueue(character, character.GetOpponent(), curse, GetPAIcon());
         }
     }
 }

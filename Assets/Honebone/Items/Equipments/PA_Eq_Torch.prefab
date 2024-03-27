@@ -48,6 +48,7 @@ MonoBehaviour:
   PAInfo: "\u5404\u6226\u95D81\u56DE\u3001\u81EA\u5206\u306B\u76F2\u76EE\u304C\u4ED8\u4E0E\u3055\u308C\u305F\u6642\u306B\u305D\u308C\u3092\u9664\u53BB\u3059\u308B"
   exHP: 0
   exATK: 0
+  icon: {fileID: 21300000, guid: e35c1e388c7b34eda87729edb04e890b, type: 3}
   blind: {fileID: 2510622262790149085, guid: 14ab0718acf084b4b907936ac46fb402, type: 3}
   action:
     owner: {fileID: 0}

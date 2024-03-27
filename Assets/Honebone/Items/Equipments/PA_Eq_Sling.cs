@@ -9,6 +9,6 @@ public class PA_Eq_Sling : PassiveAbility
 
     public override void OnBattleStart()
     {
-        battleManager.Enqueue(character, character, action);
+        battleManager.Enqueue(character, character, action, GetPAIcon());
     }
 }

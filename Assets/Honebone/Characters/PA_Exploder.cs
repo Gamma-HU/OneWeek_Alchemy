@@ -13,7 +13,7 @@ public class PA_Exploder : PassiveAbility
         if (!f && characterStatus.GetHPPercent() <= 0.25f)
         {
             f = true;
-            battleManager.Enqueue(character, character, action);
+            battleManager.Enqueue(character, character, action,GetPAIcon());
         }
     }
 }

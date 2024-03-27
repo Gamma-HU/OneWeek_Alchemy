@@ -15,12 +15,12 @@ public class PA_GoblinLeader : PassiveAbility
         count++;
         if (!missed)
         {
-            battleManager.Enqueue(character, character.GetOpponent(), action);
+            battleManager.Enqueue(character, character.GetOpponent(), action, GetPAIcon());
         }
         if (count==3)
         {
             count = 0;
-            battleManager.Enqueue(character, character.GetOpponent(), weak);
+            battleManager.Enqueue(character, character.GetOpponent(), weak, GetPAIcon());
         }
     }
 }

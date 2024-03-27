@@ -19,7 +19,7 @@ public class PA_Eq_Torch : PassiveAbility
         if (!f&&applied.StE == blind)
         {
             f = true;
-            battleManager.Enqueue(character, character, action);
+            battleManager.Enqueue(character, character, action, GetPAIcon());
         }
     }
 }

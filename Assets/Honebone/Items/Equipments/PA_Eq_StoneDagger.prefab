@@ -48,3 +48,4 @@ MonoBehaviour:
   PAInfo: 
   exHP: 0
   exATK: 3
+  icon: {fileID: 21300000, guid: e5b8564cd664e4a4ab5d2a40835a83d3, type: 3}

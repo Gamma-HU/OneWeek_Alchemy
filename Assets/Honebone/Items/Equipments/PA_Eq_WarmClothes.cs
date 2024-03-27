@@ -18,7 +18,7 @@ public class PA_Eq_WarmClothes : PassiveAbility
         if (!f && applied.StE == freeze)
         {
             f = true;
-            battleManager.Enqueue(character, character, action);
+            battleManager.Enqueue(character, character, action, GetPAIcon());
         }
     }
 }

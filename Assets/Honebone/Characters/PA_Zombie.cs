@@ -17,8 +17,8 @@ public class PA_Zombie : PassiveAbility
             if (count == 2)
             {
                 count = 0;
-                battleManager.Enqueue(character, character.GetOpponent(), poison);
-                battleManager.Enqueue(character, character, heal);
+                battleManager.Enqueue(character, character.GetOpponent(), poison, GetPAIcon());
+                battleManager.Enqueue(character, character, heal, GetPAIcon());
             }    
         }
     }

@@ -57,11 +57,11 @@ public class PA_G : PassiveAbility
     {
         if (BattleStart_oppo)
         {
-            battleManager.Enqueue(character, character.GetOpponent(), action_BS_Oppo);
+            battleManager.Enqueue(character, character.GetOpponent(), action_BS_Oppo, GetPAIcon());
         }
         if (BattleStart_self)
         {
-            battleManager.Enqueue(character, character, action_BS_self);
+            battleManager.Enqueue(character, character, action_BS_self, GetPAIcon());
         }
         count_attack = 0;
         count_attack_self = 0;
@@ -83,7 +83,7 @@ public class PA_G : PassiveAbility
                 {
                     count_attack = 0;
                     f = true;
-                    battleManager.Enqueue(character, character.GetOpponent(), action_attack_oppo);
+                    battleManager.Enqueue(character, character.GetOpponent(), action_attack_oppo, GetPAIcon());
                 }
             }
         }
@@ -95,7 +95,7 @@ public class PA_G : PassiveAbility
             if (count_attack_self >= cd_attack_self)
             {
                 count_attack_self = 0;
-                battleManager.Enqueue(character, character, action_attack_self);
+                battleManager.Enqueue(character, character, action_attack_self, GetPAIcon());
             }
         }
 
@@ -111,7 +111,7 @@ public class PA_G : PassiveAbility
                 {
                     count_attacked_oppo = 0;
                     f = true;
-                    battleManager.Enqueue(character, character.GetOpponent(), action_attacked_oppo);
+                    battleManager.Enqueue(character, character.GetOpponent(), action_attacked_oppo, GetPAIcon());
                 }
             }
         }
@@ -123,7 +123,7 @@ public class PA_G : PassiveAbility
             if (count_attacked_self >= cd_attacked_self)
             {
                 count_attacked_self = 0;
-                battleManager.Enqueue(character, character, action_attacked_self);
+                battleManager.Enqueue(character, character, action_attacked_self, GetPAIcon());
             }
         }
     }
@@ -138,7 +138,7 @@ public class PA_G : PassiveAbility
                 {
                     count_healed_self = 0;
                     f = true;
-                    battleManager.Enqueue(character, character, action_healed_self);
+                    battleManager.Enqueue(character, character, action_healed_self, GetPAIcon());
                 }
             }
         }
@@ -155,7 +155,7 @@ public class PA_G : PassiveAbility
                 {
                     count_applied = 0;
                     f = true;
-                    battleManager.Enqueue(character, character, action_applied_self);
+                    battleManager.Enqueue(character, character, action_applied_self, GetPAIcon());
                 }
             }
         }

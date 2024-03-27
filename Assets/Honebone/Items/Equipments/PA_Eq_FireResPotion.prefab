@@ -48,6 +48,7 @@ MonoBehaviour:
   PAInfo: "\u5404\u6226\u95D81\u56DE\u3001\u81EA\u5206\u306B\u706B\u50B7\u304C\u4ED8\u4E0E\u3055\u308C\u305F\u3068\u304D\u3001\u305D\u308C\u3092\u9664\u53BB\u3057\u3066\u9632\u5FA140\u3092\u4ED8\u4E0E"
   exHP: 0
   exATK: 0
+  icon: {fileID: 21300000, guid: 00957a0be1151456b882cc1cad2d9eb8, type: 3}
   BattleStart_oppo: 0
   action_BS_Oppo:
     owner: {fileID: 0}

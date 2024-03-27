@@ -23,7 +23,7 @@ public class PA_Eq_DisenchantStone : PassiveAbility
         if (cooldown==0 && applied.StE == StE)
         {
             cooldown = 5;
-            battleManager.Enqueue(character, character, action);
+            battleManager.Enqueue(character, character, action, GetPAIcon());
         }
     }
 }

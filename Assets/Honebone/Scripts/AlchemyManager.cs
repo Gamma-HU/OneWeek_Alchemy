@@ -136,6 +136,8 @@ public class AlchemyManager : MonoBehaviour
                 //Sound Effect
                 SEManager seManager = FindFirstObjectByType<SEManager>();
                 seManager.PlaySE(SE_alchemyFailed);
+
+                FindObjectOfType<MessageText>().SetMessage("âΩÇ‡ê∂Ç‹ÇÍÇ»Ç©Ç¡ÇΩ...", 0);
             }
         }
         slot_L.ConsumeItem();

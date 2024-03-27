@@ -10,7 +10,7 @@ public class PA_SnowMan : PassiveAbility
     {
         if (characterStatus.GetHPPercent() < 0.5f)
         {
-            battleManager.Enqueue(character, character, action);
+            battleManager.Enqueue(character, character, action, GetPAIcon());
 
         }
     }

@@ -48,10 +48,12 @@ MonoBehaviour:
   PAInfo: "\u5404\u6226\u95D81\u56DE\u3001\u8131\u529B\u3092\u4ED8\u4E0E\u3055\u308C\u305F\u6642\u3001HP\u309220\u56DE\u5FA9"
   exHP: 0
   exATK: 0
+  icon: {fileID: 21300000, guid: 3ea31220978d3bf47b8219d5a5fff26a, type: 3}
   BattleStart_oppo: 0
   action_BS_Oppo:
     owner: {fileID: 0}
     target: {fileID: 0}
+    icon: {fileID: 0}
     attack: 0
     DMG: 0
     heal: 0
@@ -61,17 +63,20 @@ MonoBehaviour:
   action_BS_self:
     owner: {fileID: 0}
     target: {fileID: 0}
+    icon: {fileID: 0}
     attack: 0
     DMG: 0
     heal: 0
     applyStE: []
     removeStE: []
   attack_oppo: 0
+  onlyOnce_attack_oppo: 0
   onlyHit_attack_oppo: 0
   cd_attack_oppo: 0
   action_attack_oppo:
     owner: {fileID: 0}
     target: {fileID: 0}
+    icon: {fileID: 0}
     attack: 0
     DMG: 0
     heal: 0
@@ -83,30 +88,59 @@ MonoBehaviour:
   action_attack_self:
     owner: {fileID: 0}
     target: {fileID: 0}
+    icon: {fileID: 0}
     attack: 0
     DMG: 0
     heal: 0
     applyStE: []
     removeStE: []
   attacked_oppo: 0
+  onlyOnce_attacked_oppo: 0
   onlyHit_attacked_oppo: 0
   cd_attacked_oppo: 0
   action_attacked_oppo:
     owner: {fileID: 0}
     target: {fileID: 0}
+    icon: {fileID: 0}
+    attack: 0
+    DMG: 0
+    heal: 0
+    applyStE: []
+    removeStE: []
+  attacked_self: 0
+  onlyHit_attacked_self: 0
+  cd_attacked_self: 0
+  action_attacked_self:
+    owner: {fileID: 0}
+    target: {fileID: 0}
+    icon: {fileID: 0}
     attack: 0
     DMG: 0
     heal: 0
     applyStE: []
     removeStE: []
   appied_self: 1
+  onlyOnce_applied_self: 1
   cd_applied_self: 0
   appiedCheck_self: {fileID: 2510622262790149085, guid: 55524502cfd900d4da929ad75e609e89, type: 3}
   action_applied_self:
     owner: {fileID: 0}
     target: {fileID: 0}
+    icon: {fileID: 0}
     attack: 0
     DMG: 0
     heal: 20
+    applyStE: []
+    removeStE: []
+  healed_self: 0
+  onlyOnce_healed_self: 0
+  cd_healed_self: 0
+  action_healed_self:
+    owner: {fileID: 0}
+    target: {fileID: 0}
+    icon: {fileID: 0}
+    attack: 0
+    DMG: 0
+    heal: 0
     applyStE: []
     removeStE: []

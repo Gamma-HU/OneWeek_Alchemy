@@ -56,7 +56,7 @@ MonoBehaviour:
     weapon: 0
     armor: 0
     backpack: 0
-    passiveAbility: {fileID: 7123124004538772736}
+    passiveAbility: {fileID: 8313083597182299096, guid: 226a5d0e25dad8d4b8311856f59b73dc, type: 3}
   SE_hold: {fileID: 0}
 --- !u!212 &6265871650062159155
 SpriteRenderer:

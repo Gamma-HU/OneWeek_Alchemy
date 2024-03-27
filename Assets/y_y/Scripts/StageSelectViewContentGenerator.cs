@@ -10,7 +10,7 @@ public class StageSelectViewContentGenerator : MonoBehaviour
 
     GameManager gameManager;
 
-    private List<DungeonData> clearedDungeon = new List<DungeonData>();//解放されている未クリアのダンジョン
+    private List<DungeonData> clearedDungeon = new List<DungeonData>();
     private List<DungeonData> unlockedDungeon = new List<DungeonData>();//解放されている未クリアのダンジョン
 
     private Sprite background;
@@ -26,10 +26,15 @@ public class StageSelectViewContentGenerator : MonoBehaviour
         unlockedDungeon = gameManager.GetUnlockedDungeon();
         for (int i = 0; i < unlockedDungeon.Count; i++)
         {
-            GenerateContent(unlockedDungeon[i], i);
+            if (!clearedDungeon.Contains(unlockedDungeon[i]))
+            {
+                GenerateContent(unlockedDungeon[i], i);
+            }
         }
-
-        
+        //for (int i = unlockedDungeon.Count; i < clearedDungeon.Count + unlockedDungeon.Count; i++)
+        //{
+        //    GenerateContent(clearedDungeon[i], i);
+        //}
     }
 
     private void GenerateContent(DungeonData dungeonData, int i)

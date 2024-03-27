@@ -48,9 +48,11 @@ MonoBehaviour:
   PAInfo: "\u6226\u95D8\u958B\u59CB\u6642\u3001\u76F8\u624B\u306B\u76F2\u76EE1\u3092\u4ED8\u4E0E\n\u76F8\u624B\u304C\u653B\u6483\u3057\u305F\u3068\u304D\u3001\u76F8\u624B\u306B\u8106\u5F3150\u3092\u4ED8\u4E0E\n\u76F8\u624B\u304C\u3055\u3089\u306B3\u56DE\u653B\u6483\u3059\u308B\u3068\u518D\u767A\u52D5\u3059\u308B"
   exHP: 0
   exATK: 0
+  icon: {fileID: 21300000, guid: 0bab08aa63af1b54fb473fa21cd76acc, type: 3}
   blind:
     owner: {fileID: 0}
     target: {fileID: 0}
+    icon: {fileID: 0}
     attack: 0
     DMG: 0
     heal: 0
@@ -61,6 +63,7 @@ MonoBehaviour:
   curse:
     owner: {fileID: 0}
     target: {fileID: 0}
+    icon: {fileID: 0}
     attack: 0
     DMG: 0
     heal: 0

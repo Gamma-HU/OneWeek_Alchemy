@@ -12,6 +12,8 @@ public class ExpeditionManager : MonoBehaviour
     [SerializeField]
     GaugeManager playerGauge;
     [SerializeField]
+    PAIconManager playerPAIcon;
+    [SerializeField]
     Character player;
     [SerializeField]
     Image background;
@@ -32,7 +34,7 @@ public class ExpeditionManager : MonoBehaviour
         gameClearUI = FindObjectOfType<GameClearUI>();
         rewardUI = FindObjectOfType<RewardUI>();
 
-        player.Init(battleManager,playerGauge);
+        player.Init(battleManager,playerGauge, playerPAIcon);
         player.Equip(gameManager.GetEquipments());
         FindObjectOfType<BattleAnimationManager>().SetPlayerPropety(player.gameObject);
 

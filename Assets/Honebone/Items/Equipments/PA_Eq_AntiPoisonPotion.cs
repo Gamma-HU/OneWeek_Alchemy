@@ -20,7 +20,7 @@ public class PA_Eq_AntiPoisonPotion : PassiveAbility
         if (!f && applied.StE == poison)
         {
             f = true;
-            battleManager.Enqueue(character, character, action);
+            battleManager.Enqueue(character, character, action, GetPAIcon());
         }
     }
 }

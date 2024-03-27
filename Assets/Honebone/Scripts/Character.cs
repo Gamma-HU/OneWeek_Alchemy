@@ -47,18 +47,20 @@ public class Character : MonoBehaviour
     CharacterStatus opponetnStatus;
     BattleManager battleManager;
     GaugeManager HPGauge;
-    StEIconManager iconManager;
+    StEIconManager StEIconManager;
+    PAIconManager PAIconManager;
     BattleAnimationManager animManager;
 
 
-    public void Init(BattleManager bm,GaugeManager gauge)
+    public void Init(BattleManager bm,GaugeManager gauge,PAIconManager pim)
     {
         battleManager = bm;
         HPGauge = gauge;
-        iconManager = HPGauge.GetComponentInChildren<StEIconManager>();
+        StEIconManager = HPGauge.GetComponentInChildren<StEIconManager>();
         status.HP = status.maxHP;
         HPGauge.UpdateHPGauge(status.GetHPPercent());
         animManager = FindObjectOfType<BattleAnimationManager>();
+        PAIconManager = pim;
         foreach (GameObject passiveAbility in status.passiveAbilities)//stausにあるパッシブアビリティから、スクリプトだけを抽出(誘発処理の際の簡略化のため)
         {
             var p = Instantiate(passiveAbility, transform);
@@ -178,7 +180,7 @@ public class Character : MonoBehaviour
         {
             var p = Instantiate(stEParams.StE, transform);
             p.GetComponent<PassiveAbility>().Init(this, battleManager);
-            p.GetComponent<PA_StatusEffects>().StEInit(stEParams.amount, iconManager.SetStEIcon(p, stEParams.amount));
+            p.GetComponent<PA_StatusEffects>().StEInit(stEParams.amount, StEIconManager.SetStEIcon(p, stEParams.amount));
 
             SpriteRenderer sr = p.GetComponent<SpriteRenderer>();
             if (sr != null)
@@ -289,6 +291,7 @@ public class Character : MonoBehaviour
 
     public CharacterStatus GetCharacterStatus() { return status; }
     public Character GetOpponent() { return opponent; }
+    public PAIconManager GetPAIconManager() { return PAIconManager; }
     public bool CheckHasStE(GameObject serch)
     {
         string StEName = serch.GetComponent<PassiveAbility>().GetPAName();

@@ -17,7 +17,7 @@ public class PA_Eq_Crystal : PassiveAbility
         if (!f&&characterStatus.GetHPPercent() <=0.2f)
         {
             f = true;
-            battleManager.Enqueue(character, character, action);
+            battleManager.Enqueue(character, character, action, GetPAIcon());
 
         }
     }

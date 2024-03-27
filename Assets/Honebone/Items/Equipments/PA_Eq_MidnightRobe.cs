@@ -8,6 +8,6 @@ public class PA_Eq_MidnightRobe : PassiveAbility
     BattleManager.Action action;
     public override void OnBattleStart()
     {
-        battleManager.Enqueue(character, character.GetOpponent(), action);
+        battleManager.Enqueue(character, character.GetOpponent(), action, GetPAIcon());
     }
 }

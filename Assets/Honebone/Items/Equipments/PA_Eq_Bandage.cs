@@ -12,7 +12,7 @@ public class PA_Eq_Bandage : PassiveAbility
     {
         if (character.CheckHasStE(bleed))
         {
-            battleManager.Enqueue(character, character, action);
+            battleManager.Enqueue(character, character, action, GetPAIcon());
         }
     }
 }

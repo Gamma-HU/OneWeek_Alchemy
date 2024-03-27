@@ -8,6 +8,6 @@ public class DE_Snow : DungeonEffect
     BattleManager.Action action;
     public override void OnBattleStart()
     {
-        battleManager.Enqueue(battleManager.GetPlayer(), battleManager.GetPlayer(), action);
+        battleManager.Enqueue(battleManager.GetPlayer(), battleManager.GetPlayer(), action, null);
     }
 }

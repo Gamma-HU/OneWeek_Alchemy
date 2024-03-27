@@ -8,6 +8,8 @@ public class PassiveAbility : MonoBehaviour
     [SerializeField, TextArea(3, 10)] string PAInfo;
     [SerializeField] int exHP;
     [SerializeField] int exATK;
+    [SerializeField] Sprite icon;
+
     protected Character character;
     protected Character.CharacterStatus characterStatus;
     protected BattleManager battleManager;
@@ -40,4 +42,5 @@ public class PassiveAbility : MonoBehaviour
         if (PAInfo != "") { s += PAInfo+"\n"; }
         return s;
     }
+    public Sprite GetPAIcon() { return icon; }
 }

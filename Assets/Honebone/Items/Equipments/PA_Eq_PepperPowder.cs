@@ -22,7 +22,7 @@ public class PA_Eq_PepperPowder : PassiveAbility
         if (!f && (applied.StE == freeze || applied.StE == stun))
         {
             f = true;
-            battleManager.Enqueue(character, character, action);
+            battleManager.Enqueue(character, character, action, GetPAIcon());
         }
     }
 }

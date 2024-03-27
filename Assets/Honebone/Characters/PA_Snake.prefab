@@ -48,10 +48,12 @@ MonoBehaviour:
   PAInfo: "\u6226\u95D8\u958B\u59CB\u6642\u3001\u76F8\u624B\u306B\u6BD25\u3092\u4ED8\u4E0E\u3057\u306610\u30C0\u30E1\u30FC\u30B8\n4\u56DE\u653B\u6483\u304C\u547D\u4E2D\u3059\u308B\u305F\u3073\u306B\u76F2\u76EE1\u3068\u8106\u5F31100\u3092\u4ED8\u4E0E"
   exHP: 0
   exATK: 0
+  icon: {fileID: 21300000, guid: d9fb30478b0184581a9b0517217258c6, type: 3}
   BattleStart_oppo: 1
   action_BS_Oppo:
     owner: {fileID: 0}
     target: {fileID: 0}
+    icon: {fileID: 0}
     attack: 0
     DMG: 10
     heal: 0
@@ -63,17 +65,20 @@ MonoBehaviour:
   action_BS_self:
     owner: {fileID: 0}
     target: {fileID: 0}
+    icon: {fileID: 0}
     attack: 0
     DMG: 0
     heal: 0
     applyStE: []
     removeStE: []
   attack_oppo: 1
+  onlyOnce_attack_oppo: 0
   onlyHit_attack_oppo: 1
   cd_attack_oppo: 4
   action_attack_oppo:
     owner: {fileID: 0}
     target: {fileID: 0}
+    icon: {fileID: 0}
     attack: 0
     DMG: 0
     heal: 0
@@ -89,17 +94,57 @@ MonoBehaviour:
   action_attack_self:
     owner: {fileID: 0}
     target: {fileID: 0}
+    icon: {fileID: 0}
+    attack: 0
+    DMG: 0
+    heal: 0
+    applyStE: []
+    removeStE: []
+  attacked_oppo: 0
+  onlyOnce_attacked_oppo: 0
+  onlyHit_attacked_oppo: 0
+  cd_attacked_oppo: 0
+  action_attacked_oppo:
+    owner: {fileID: 0}
+    target: {fileID: 0}
+    icon: {fileID: 0}
+    attack: 0
+    DMG: 0
+    heal: 0
+    applyStE: []
+    removeStE: []
+  attacked_self: 0
+  onlyHit_attacked_self: 0
+  cd_attacked_self: 0
+  action_attacked_self:
+    owner: {fileID: 0}
+    target: {fileID: 0}
+    icon: {fileID: 0}
     attack: 0
     DMG: 0
     heal: 0
     applyStE: []
     removeStE: []
   appied_self: 0
+  onlyOnce_applied_self: 0
   cd_applied_self: 0
   appiedCheck_self: {fileID: 0}
   action_applied_self:
     owner: {fileID: 0}
     target: {fileID: 0}
+    icon: {fileID: 0}
+    attack: 0
+    DMG: 0
+    heal: 0
+    applyStE: []
+    removeStE: []
+  healed_self: 0
+  onlyOnce_healed_self: 0
+  cd_healed_self: 0
+  action_healed_self:
+    owner: {fileID: 0}
+    target: {fileID: 0}
+    icon: {fileID: 0}
     attack: 0
     DMG: 0
     heal: 0

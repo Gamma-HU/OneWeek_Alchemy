@@ -11,11 +11,11 @@ public class GameManager : MonoBehaviour
     bool debugMode;
     [SerializeField] bool deleteSave;
 
-    [SerializeField] List<DungeonData> dungeonDataBase;
+    [SerializeField,Header("\n\nデータベース")] List<DungeonData> dungeonDataBase;
     [SerializeField] List<GameObject> itemDataBase;
     [SerializeField] List<AlchemyRecipe> recipeDataBase;
     
-    [SerializeField] List<DungeonData> clearedDungeon_debug = new List<DungeonData>();
+    [SerializeField, Header("\n\nデバッグ用")] List<DungeonData> clearedDungeon_debug = new List<DungeonData>();
     [SerializeField] List<DungeonData> unlockedDungeon_debug = new List<DungeonData>();
     [SerializeField] List<GameObject> unlockedMaterial_debug = new List<GameObject>();
     [SerializeField] List<AlchemyRecipe> unlockedRecipe_debug = new List<AlchemyRecipe>();

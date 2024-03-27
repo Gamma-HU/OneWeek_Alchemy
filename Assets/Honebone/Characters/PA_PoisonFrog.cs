@@ -13,7 +13,7 @@ public class PA_PoisonFrog : PassiveAbility
         if (count == 2)
         {
             count = 0;
-            battleManager.Enqueue(character, character.GetOpponent(), action);
+            battleManager.Enqueue(character, character.GetOpponent(), action, GetPAIcon());
         }
     }
 }

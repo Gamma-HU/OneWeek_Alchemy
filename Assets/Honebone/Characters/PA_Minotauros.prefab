@@ -48,10 +48,12 @@ MonoBehaviour:
   PAInfo: "3\u56DE\u653B\u6483\u3059\u308B\u3054\u3068\u306B\u81EA\u5206\u306B\u529B100\u3092\u4ED8\u4E0E"
   exHP: 0
   exATK: 0
+  icon: {fileID: 21300000, guid: a6887d1f7aacb704e8fba8c69a8787b8, type: 3}
   BattleStart_oppo: 0
   action_BS_Oppo:
     owner: {fileID: 0}
     target: {fileID: 0}
+    icon: {fileID: 0}
     attack: 0
     DMG: 0
     heal: 0
@@ -61,17 +63,20 @@ MonoBehaviour:
   action_BS_self:
     owner: {fileID: 0}
     target: {fileID: 0}
+    icon: {fileID: 0}
     attack: 0
     DMG: 0
     heal: 0
     applyStE: []
     removeStE: []
   attack_oppo: 0
+  onlyOnce_attack_oppo: 0
   onlyHit_attack_oppo: 0
   cd_attack_oppo: 0
   action_attack_oppo:
     owner: {fileID: 0}
     target: {fileID: 0}
+    icon: {fileID: 0}
     attack: 0
     DMG: 0
     heal: 0
@@ -83,6 +88,7 @@ MonoBehaviour:
   action_attack_self:
     owner: {fileID: 0}
     target: {fileID: 0}
+    icon: {fileID: 0}
     attack: 0
     DMG: 0
     heal: 0
@@ -90,12 +96,51 @@ MonoBehaviour:
     - StE: {fileID: 2510622262790149085, guid: 2d44b09f2d9859347acdafdf826ef663, type: 3}
       amount: 100
     removeStE: []
+  attacked_oppo: 0
+  onlyOnce_attacked_oppo: 0
+  onlyHit_attacked_oppo: 0
+  cd_attacked_oppo: 0
+  action_attacked_oppo:
+    owner: {fileID: 0}
+    target: {fileID: 0}
+    icon: {fileID: 0}
+    attack: 0
+    DMG: 0
+    heal: 0
+    applyStE: []
+    removeStE: []
+  attacked_self: 0
+  onlyHit_attacked_self: 0
+  cd_attacked_self: 0
+  action_attacked_self:
+    owner: {fileID: 0}
+    target: {fileID: 0}
+    icon: {fileID: 0}
+    attack: 0
+    DMG: 0
+    heal: 0
+    applyStE: []
+    removeStE: []
   appied_self: 0
+  onlyOnce_applied_self: 0
   cd_applied_self: 0
   appiedCheck_self: {fileID: 0}
   action_applied_self:
     owner: {fileID: 0}
     target: {fileID: 0}
+    icon: {fileID: 0}
+    attack: 0
+    DMG: 0
+    heal: 0
+    applyStE: []
+    removeStE: []
+  healed_self: 0
+  onlyOnce_healed_self: 0
+  cd_healed_self: 0
+  action_healed_self:
+    owner: {fileID: 0}
+    target: {fileID: 0}
+    icon: {fileID: 0}
     attack: 0
     DMG: 0
     heal: 0

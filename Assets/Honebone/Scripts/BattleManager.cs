@@ -10,6 +10,7 @@ public class BattleManager : MonoBehaviour
     {
         public Character owner;
         public Character target;
+        public Sprite icon;
 
         public bool attack;//çUåÇÇÇ∑ÇÈ
         public int DMG;//É_ÉÅÅ[ÉWó 
@@ -38,6 +39,8 @@ public class BattleManager : MonoBehaviour
     [SerializeField]
     GaugeManager enemyGauge;
     [SerializeField]
+    PAIconManager enemyPAIcon;
+    [SerializeField]
     Character player;
     Character enemy;
     bool playerTurn;
@@ -65,7 +68,7 @@ public class BattleManager : MonoBehaviour
     {
         var e = Instantiate(enemyObj, enemyP);
         enemy = e.GetComponent<Character>();
-        enemy.Init(this, enemyGauge);
+        enemy.Init(this, enemyGauge, enemyPAIcon);
         battleAnimManager.SetEnemyProtery(e);
         battleAnimManager.PlayEmergeAnimation(enemy.GetCharacterStatus());
 
@@ -93,12 +96,12 @@ public class BattleManager : MonoBehaviour
         if (playerTurn)
         {
             Debug.Log(string.Format("{0}ÇÃçUåÇ", player.GetCharacterStatus().charaName));
-            Enqueue(player, enemy, attack);
+            Enqueue(player, enemy, attack,null);
         }
         else
         {
             Debug.Log(string.Format("{0}ÇÃçUåÇ", enemy.GetCharacterStatus().charaName));
-            Enqueue(enemy, player, attack);
+            Enqueue(enemy, player, attack,null);
         }
         StartResolve();
     }
@@ -119,10 +122,11 @@ public class BattleManager : MonoBehaviour
     }
 
    
-    public void Enqueue(Character owner,Character target,Action action)
+    public void Enqueue(Character owner,Character target,Action action,Sprite icon)
     {
         action.owner = owner;
         action.target = target;
+        action.icon = icon;
         actionQueue.Add(action);
     }
     void StartResolve()
@@ -148,7 +152,8 @@ public class BattleManager : MonoBehaviour
                 {
                     action.target.RemoveStE(removeStE);
                 }
-                
+
+                if (action.icon != null) { action.target.GetPAIconManager().SetIcon(action.icon); }
             }
             actionQueue.RemoveAt(0);
             StartCoroutine(ActionInterval());

@@ -48,9 +48,11 @@ MonoBehaviour:
   PAInfo: "3\u56DE\u653B\u6483\u3059\u308B\u3054\u3068\u306B\u3001\u76F8\u624B\u306B\u8131\u529B60\u3092\u4ED8\u4E0E\n\u653B\u6483\u304C\u547D\u4E2D\u3057\u305F\u6642\u3001\u76F8\u624B\u306B\u51FA\u88402\u3092\u4ED8\u4E0E"
   exHP: 0
   exATK: 0
+  icon: {fileID: 21300000, guid: e4a307879387ba8418e3f9863cd24907, type: 3}
   action:
     owner: {fileID: 0}
     target: {fileID: 0}
+    icon: {fileID: 0}
     attack: 0
     DMG: 0
     heal: 0
@@ -61,6 +63,7 @@ MonoBehaviour:
   weak:
     owner: {fileID: 0}
     target: {fileID: 0}
+    icon: {fileID: 0}
     attack: 0
     DMG: 0
     heal: 0

@@ -48,6 +48,7 @@ MonoBehaviour:
   PAInfo: "\u5404\u6226\u95D81\u56DE\u3001\u50B7\u3092\u4ED8\u4E0E\u3055\u308C\u305F\u3068\u304D\u306B\u305D\u308C\u3092\u9664\u53BB\u3057\u3066HP\u30927\u56DE\u5FA9"
   exHP: 0
   exATK: 0
+  icon: {fileID: 21300000, guid: 719a605eab3fc4d24a30deadac9bfeba, type: 3}
   BattleStart_oppo: 0
   action_BS_Oppo:
     owner: {fileID: 0}
@@ -118,6 +119,7 @@ MonoBehaviour:
     applyStE: []
     removeStE: []
   appied_self: 1
+  onlyOnce_applied_self: 0
   cd_applied_self: 999
   appiedCheck_self: {fileID: 2510622262790149085, guid: 16358867ed53a9a4387c803c3fad5318, type: 3}
   action_applied_self:

@@ -8,6 +8,6 @@ public class PA_StE_Poison : PA_StatusEffects
     {
         BattleManager.Action action = new BattleManager.Action();
         action.DMG = stack;
-        battleManager.Enqueue(character, character, action);
+        battleManager.Enqueue(character, character, action, GetPAIcon());
     }
 }

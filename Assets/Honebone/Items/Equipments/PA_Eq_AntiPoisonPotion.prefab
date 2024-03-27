@@ -48,6 +48,7 @@ MonoBehaviour:
   PAInfo: "\u5404\u6226\u95D81\u56DE\u3001\u81EA\u5206\u306B\u6BD2\u304C\u4ED8\u4E0E\u3055\u308C\u305F\u6642\u306B\u305D\u308C\u3092\u9664\u53BB\u3059\u308B"
   exHP: 0
   exATK: 0
+  icon: {fileID: 21300000, guid: 0db46ebdc944049b5a174c979b602a74, type: 3}
   poison: {fileID: 2510622262790149085, guid: 106763312a705be419cb3414d5a3ef4a, type: 3}
   action:
     owner: {fileID: 0}

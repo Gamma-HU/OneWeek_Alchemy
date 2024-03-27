@@ -12,7 +12,7 @@ public class PA_PoisonKnife : PassiveAbility
     {
         if (!missed)
         {
-            battleManager.Enqueue(character, character.GetOpponent(), action);
+            battleManager.Enqueue(character, character.GetOpponent(), action, GetPAIcon());
         }
     }
 }

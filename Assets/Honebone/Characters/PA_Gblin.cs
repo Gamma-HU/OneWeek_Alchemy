@@ -11,7 +11,7 @@ public class PA_Gblin : PassiveAbility
     {
         if (!missed)
         {
-            battleManager.Enqueue(character, character.GetOpponent(), action);
+            battleManager.Enqueue(character, character.GetOpponent(), action,GetPAIcon());
         }
     }
 }

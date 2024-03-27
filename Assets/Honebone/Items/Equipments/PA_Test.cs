@@ -14,7 +14,7 @@ public class PA_Test : PassiveAbility
 
     public override void OnBattleStart()
     {
-        battleManager.Enqueue(character, character, bleed);
+        battleManager.Enqueue(character, character, bleed, GetPAIcon());
     }
     public override void OnAttack(int DMG, bool missed)
     {
@@ -22,8 +22,8 @@ public class PA_Test : PassiveAbility
         if (count == 2)
         {
             count = 0;
-            battleManager.Enqueue(character, character, remove);
+            battleManager.Enqueue(character, character, remove, GetPAIcon());
         }
-        FindObjectOfType<BattleManager>().Enqueue(character, character, action);
+        FindObjectOfType<BattleManager>().Enqueue(character, character, action, GetPAIcon());
     }
 }

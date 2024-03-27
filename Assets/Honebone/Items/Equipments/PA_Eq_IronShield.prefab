@@ -48,6 +48,7 @@ MonoBehaviour:
   PAInfo: 
   exHP: 50
   exATK: 0
+  icon: {fileID: 21300000, guid: ec40a05de4b4049b1a31e5fdae85c1e8, type: 3}
   BattleStart_oppo: 0
   action_BS_Oppo:
     owner: {fileID: 0}
@@ -69,6 +70,7 @@ MonoBehaviour:
       amount: 1
     removeStE: []
   attack_oppo: 0
+  onlyOnce_attack_oppo: 0
   onlyHit_attack_oppo: 0
   cd_attack_oppo: 0
   action_attack_oppo:
@@ -95,6 +97,7 @@ MonoBehaviour:
     applyStE: []
     removeStE: []
   attacked_oppo: 0
+  onlyOnce_attacked_oppo: 0
   onlyHit_attacked_oppo: 0
   cd_attacked_oppo: 0
   action_attacked_oppo:
@@ -119,9 +122,21 @@ MonoBehaviour:
     - {fileID: 2510622262790149085, guid: 596ed89f1194e6e4f8e7446c8c057037, type: 3}
     - {fileID: 2510622262790149085, guid: 106763312a705be419cb3414d5a3ef4a, type: 3}
   appied_self: 0
+  onlyOnce_applied_self: 0
   cd_applied_self: 0
   appiedCheck_self: {fileID: 0}
   action_applied_self:
+    owner: {fileID: 0}
+    target: {fileID: 0}
+    attack: 0
+    DMG: 0
+    heal: 0
+    applyStE: []
+    removeStE: []
+  healed_self: 0
+  onlyOnce_healed_self: 0
+  cd_healed_self: 0
+  action_healed_self:
     owner: {fileID: 0}
     target: {fileID: 0}
     attack: 0

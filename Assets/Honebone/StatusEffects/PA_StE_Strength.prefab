@@ -49,6 +49,7 @@ MonoBehaviour:
   PAInfo: "\u6B21\u306B\u4E0E\u3048\u308B\u30C0\u30E1\u30FC\u30B8\u304C[\u529B\u306E\u6570]\uFF05\u5897\u52A0\u3059\u308B"
   exHP: 0
   exATK: 0
+  icon: {fileID: 21300000, guid: 146dd7235ed6c54448f9b1c19e016271, type: 3}
   isBuff: 1
 --- !u!212 &9006104431167986784
 SpriteRenderer:
